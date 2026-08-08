@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FEFBF5">
+  <title>Sandra &amp; Faustino · 1 · Agosto · 2026</title>
+  <meta name="description" content="Invitación de boda de Sandra Iveth Morán Patiño y Faustino García Trillo · 1 de agosto de 2026 · Cdad. Nezahualcóyotl">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://boda-faustino-y-sandra.vercel.app/">
+  <meta property="og:title"       content="Sandra &amp; Faustino · Boda · 1 Agosto 2026">
+  <meta property="og:description" content="Nos casamos el 1 de agosto de 2026 en Cdad. Nezahualcóyotl. ¡Estás invitado!">
+  <meta property="og:image"       content="https://boda-faustino-y-sandra.vercel.app/sobre.jpg">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://boda-faustino-y-sandra.vercel.app/sobre.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+/* ── LE MAJOR FONT ───────────────────────────────────── */
+@font-face{
+  font-family:'Le Major';
+  src:url('LeMajor.ttf') format('truetype');
+  font-weight:400;font-style:normal;
+  font-display:swap;
+}
+
+/* ── TOKENS ───────────────────────────────────────────── */
+:root {
+  --peach:        #C9A96E;
+  --peach-lt:     #D4C5B2;
+  --peach-accent: #7D361D;
+  --peach-dim:    rgba(201,169,110,.14);
+  --cream:        #1A1A1A;
+  --ink:          #FEFBF5;
+  --ink2:         #FBF6EE;
+  --ink3:         #F5EDE1;
+  --spring:       cubic-bezier(.34,1.56,.64,1);
+  --smooth:       cubic-bezier(.25,.46,.45,.94);
+}
+
+/* ── RESET ────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--ink);color:var(--cream);
+  font-family:'Lato',sans-serif;font-weight:500;
+  overflow-x:hidden;max-width:430px;margin:0 auto;
+  -webkit-tap-highlight-color:transparent;
+  font-size:17px;line-height:1.6;
+}
+section{padding:64px 22px}
+
+/* ── LOADER (SOBRE) ───────────────────────────────────── */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:#FEFBF5;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .8s ease;
+}
+.sobre-img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:sobreFadeIn 1s ease .3s forwards;
+}
+@keyframes sobreFadeIn{to{opacity:1}}
+.sobre-btn{
+  position:absolute;bottom:18%;left:50%;transform:translateX(-50%);
+  z-index:3;
+  padding:16px 44px;border-radius:40px;
+  background:rgba(30,30,20,.45);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.3);
+  box-shadow:0 4px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12);
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:500;font-style:italic;
+  letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(255,255,255,.92);
+  text-shadow:0 1px 4px rgba(0,0,0,.35);
+  cursor:pointer;
+  opacity:0;
+  animation:sobreFadeIn 1s ease .8s forwards;
+  transition:background .3s, border-color .3s, transform .3s var(--spring), opacity .4s ease;
+  touch-action:manipulation;
+}
+.sobre-btn:active{transform:translateX(-50%) scale(.95)}
+.sobre-btn:hover{
+  background:rgba(30,30,20,.55);
+  border-color:rgba(255,255,255,.45);
+}
+.sobre-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  z-index:2;
+  transition:opacity .5s ease;
+}
+
+/* ── PROGRESS BAR ─────────────────────────────────────── */
+#prog{
+  position:fixed;top:0;left:0;height:2px;width:0%;z-index:1000;
+  background:linear-gradient(to right,var(--peach),var(--peach-lt));
+  box-shadow:0 0 10px rgba(201,169,110,.5);
+  transition:width .08s linear;pointer-events:none;
+}
+
+/* ── MUSIC BTN ────────────────────────────────────────── */
+.music-btn{
+  position:fixed;bottom:24px;right:20px;z-index:900;
+  width:54px;height:54px;border-radius:50%;
+  background:transparent;border:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;padding:0;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.45));
+}
+.music-btn:active{transform:scale(.92)}
+.music-btn .vinyl{
+  width:54px;height:54px;border-radius:50%;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.music-btn.on .vinyl{animation:vinylSpin 2.4s linear infinite}
+@keyframes vinylSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ── TOAST ────────────────────────────────────────────── */
+#toast{
+  position:fixed;bottom:78px;left:50%;
+  transform:translateX(-50%) translateY(16px);
+  background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--peach);color:var(--peach);
+  box-shadow:0 8px 30px rgba(201,169,110,.18);
+  padding:11px 22px;border-radius:40px;
+  font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
+  opacity:0;transition:all .4s var(--spring);
+  white-space:nowrap;z-index:998;pointer-events:none;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── HELPERS ──────────────────────────────────────────── */
+.lbl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--peach);text-align:center;display:block}
+.ttl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;text-align:center;color:var(--cream);line-height:1.25;margin-top:6px}
+.gline{width:50px;height:1px;background:linear-gradient(to right,transparent,var(--peach),transparent);margin:18px auto}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;padding:16px 16px;
+  border:1px solid var(--peach);border-radius:7px;
+  background:transparent;color:var(--peach);
+  font-family:'Lato',sans-serif;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;-webkit-appearance:none;
+  position:relative;overflow:hidden;
+  transition:background .25s, transform .2s var(--spring);
+}
+.btn:active{transform:scale(.96);background:rgba(201,169,110,.08)}
+.btn+.btn{margin-top:10px}
+.btn-olive{
+  background:var(--peach);color:#fff;font-weight:700;
+  box-shadow:0 4px 22px rgba(201,169,110,.25);
+  transition:all .3s var(--spring);
+}
+.btn-olive:active{background:rgba(201,169,110,.85);transform:scale(.96)}
+
+/* ── HERO ─────────────────────────────────────────────── */
+#hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-start;
+  position:relative;overflow:hidden;padding:0 28px 88px;
+}
+.h-cnt{
+  margin-top:14vh;
+}
+.h-bg{
+  position:absolute;inset:0;
+  z-index:0;
+}
+.h-bg img,
+.h-bg video{
+  width:100%;height:100%;object-fit:cover;object-position:center 45%;
+  display:block;
+}
+.h-ov{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to bottom, transparent 88%, var(--ink) 100%);
+}
+.h-cnt{
+  position:relative;z-index:4;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
+.h-monogram{
+  display:inline-block;position:relative;
+  line-height:1;margin-bottom:0;
+  text-shadow:0 2px 40px rgba(0,0,0,.35);
+}
+.mono-f,.mono-s{
+  font-family:'Le Major','Bodoni Moda',serif;
+  color:rgba(255,255,255,.93);
+  display:inline-block;vertical-align:top;
+}
+.mono-f{
+  font-size:160px;font-weight:400;font-style:italic;
+  position:relative;z-index:2;
+}
+.mono-s{
+  font-size:160px;font-weight:400;font-style:normal;
+  margin-left:28px;position:relative;z-index:1;
+}
+.h-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;
+}
+.h-scroll span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:1;font-weight:500}
+.h-scroll-line{
+  width:1px;height:42px;
+  background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);
+  transform-origin:top;animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{
+  0%{transform:scaleY(0);opacity:1}
+  80%{transform:scaleY(1);opacity:.8}
+  100%{transform:scaleY(1);opacity:0}
+}
+
+/* ── FECHA ────────────────────────────────────────────── */
+#fecha{
+  position:relative;overflow:hidden;
+  padding:0;min-height:85vh;
+  display:flex;align-items:center;
+}
+#fecha::before,#fecha::after{
+  content:'';position:absolute;left:0;right:0;
+  z-index:3;pointer-events:none;
+}
+#fecha::before{
+  top:0;height:90px;
+  background:linear-gradient(to bottom,#FEFBF5 0%,transparent 100%);
+}
+#fecha::after{
+  bottom:0;height:90px;
+  background:linear-gradient(to top,#FEFBF5 0%,transparent 100%);
+}
+.fch-bg{
+  position:absolute;inset:0;
+  width:100%;height:120%;
+  object-fit:cover;
+  object-position:center 15%;
+  pointer-events:none;
+  transform:scaleX(-1);
+}
+.fch-content{
+  position:relative;z-index:2;
+  padding:72px 32px 64px;
+  text-align:left;
+  max-width:65%;
+}
+.fch-intro{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;font-style:italic;
+  color:#4a3828;margin-bottom:18px;
+  letter-spacing:.5px;
+}
+.fch-n1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,7.5vw,38px);font-weight:300;
+  color:#1A1A1A;line-height:1.15;
+  letter-spacing:clamp(8px,2.5vw,14px);
+  text-transform:uppercase;
+}
+.fch-full{
+  font-family:'Lato',sans-serif;
+  font-size:clamp(12px,3.2vw,15px);font-weight:700;
+  letter-spacing:clamp(3px,1vw,6px);
+  color:#4a3828;margin-bottom:4px;
+  text-transform:uppercase;
+}
+.fch-amp{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(52px,14vw,72px);color:#1A1A1A;
+  display:block;margin:8px 0 6px;line-height:1;
+}
+.fch-honor{
+  margin-top:28px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,4.5vw,21px);font-weight:400;font-style:italic;
+  color:#4a3828;line-height:1.6;
+  letter-spacing:.3px;
+}
+.fch-date{
+  margin-top:14px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,6vw,30px);font-weight:300;
+  color:#1A1A1A;letter-spacing:clamp(4px,1.5vw,8px);
+}
+
+/* ── COUNTDOWN ────────────────────────────────────────── */
+#countdown{
+  position:relative;overflow:hidden;padding:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 12% 25%, rgba(201,169,110,.18) 0%, transparent 52%),
+    radial-gradient(ellipse 60% 70% at 88% 78%, rgba(125,54,29,.14) 0%, transparent 48%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201,169,110,.22) 0%, transparent 50%),
+    linear-gradient(170deg, #2c1a10 0%, #3d2b1e 30%, #2c1a10 65%, #1a1008 100%);
+  -webkit-mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+#countdown::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:repeating-linear-gradient(
+    45deg,
+    rgba(201,169,110,.03) 0px,
+    rgba(201,169,110,.03) 1px,
+    transparent 1px,
+    transparent 30px
+  );
+}
+#countdown::after{
+  content:'';position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:320px;height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(201,169,110,.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cd-content{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:64px 20px 60px;
+  text-align:center;
+}
+.cd-row{
+  display:flex;align-items:flex-start;justify-content:center;
+  gap:0;width:100%;
+}
+.cd-cell{
+  display:flex;flex-direction:column;align-items:center;
+  flex:1;
+}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(38px,10vw,64px);line-height:1;
+  color:#FBF6EE;font-variant-numeric:tabular-nums;
+  display:block;
+}
+.cd-lbl{
+  font-family:'Lato',sans-serif;font-weight:500;
+  font-size:8px;letter-spacing:3.5px;text-transform:uppercase;
+  color:rgba(212,197,178,.55);margin-top:8px;
+}
+.cd-falta{
+  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
+  font-size:22px;letter-spacing:2px;
+  color:rgba(212,197,178,.7);margin-bottom:18px;
+  display:block;text-align:center;
+}
+.cd-sep{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(28px,7vw,50px);color:rgba(255,255,255,.35);
+  line-height:1;padding:0 2px;margin-top:3px;
+  align-self:flex-start;
+}
+
+/* ── LOCATION ─────────────────────────────────────────── */
+#location{background:#FEFBF5;position:relative;overflow:hidden;padding:64px 22px;}
+.loc-block{text-align:center;margin-bottom:56px;}
+.loc-block:last-child{margin-bottom:0}
+.loc-icon{margin:0 auto 6px;}
+.loc-icon svg{width:56px;height:56px;}
+.loc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,9vw,44px);
+  color:var(--cream);margin-bottom:22px;line-height:1.2;
+  font-weight:500;
+}
+.loc-photo{
+  width:210px;height:210px;border-radius:50%;
+  margin:0 auto 22px;overflow:hidden;
+  background:rgba(201,169,110,.06);
+  border:2px solid rgba(201,169,110,.14);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 36px rgba(125,54,29,.1);
+}
+.loc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.loc-ph-txt{
+  font-family:'Lato',sans-serif;font-size:9px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(125,54,29,.3);
+}
+.loc-time{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;font-style:italic;
+  color:var(--cream);margin-bottom:6px;opacity:.65;
+}
+.loc-venue{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:500;
+  color:var(--cream);line-height:1.35;margin-bottom:20px;
+}
+.loc-btn{
+  display:inline-block;padding:11px 30px;border-radius:30px;
+  background:rgba(201,169,110,.12);color:var(--cream);
+  font-family:'Lato',sans-serif;font-size:11px;
+  letter-spacing:2.5px;text-transform:uppercase;font-weight:600;
+  text-decoration:none;border:1px solid rgba(201,169,110,.25);
+  transition:background .3s,border-color .3s;
+}
+.loc-btn:hover{background:rgba(201,169,110,.22);border-color:rgba(201,169,110,.45);}
+
+/* ── CALENDAR ─────────────────────────────────────────── */
+#calendar{
+  background:var(--ink3);padding:54px 22px;text-align:center;
+  border-top:1px solid rgba(201,169,110,.09);border-bottom:1px solid rgba(201,169,110,.09);
+}
+.cal-sub{font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:14px 0 28px;font-weight:500;}
+
+/* ── ITINERARY ────────────────────────────────────────── */
+#itinerary{background:#FEFBF5;overflow:hidden;padding:64px 22px;}
+.it-title{
+  font-family:'Great Vibes',cursive;font-size:clamp(40px,10vw,52px);
+  color:var(--cream);text-align:center;margin-bottom:36px;line-height:1.1;
+}
+.it-line{
+  position:relative;display:flex;flex-direction:column;align-items:center;
+  padding:0;
+}
+.it-line::before{
+  content:'';position:absolute;top:0;bottom:0;left:50%;
+  width:2px;background:rgba(125,54,29,.2);transform:translateX(-50%);
+}
+.it-step{
+  position:relative;width:100%;display:flex;align-items:center;
+  min-height:90px;
+}
+.it-left,.it-right{flex:1;padding:8px 0;}
+.it-left{text-align:right;padding-right:40px;}
+.it-right{text-align:left;padding-left:40px;}
+.it-circle{
+  width:54px;height:54px;border-radius:50%;flex-shrink:0;
+  background:rgba(125,54,29,.1);
+  border:1px solid rgba(125,54,29,.2);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:2;
+}
+.it-circle svg{width:28px;height:28px;}
+.it-left::after{
+  content:'';position:absolute;right:-8px;top:50%;
+  width:28px;height:1px;background:rgba(125,54,29,.25);
+  transform:translateY(-50%);
+}
+.it-left::before{
+  content:'';position:absolute;right:-10px;top:50%;
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(125,54,29,.35);
+  transform:translate(0,-50%);z-index:1;
+}
+.it-right::before{
+  content:'';position:absolute;left:-8px;top:50%;
+  width:28px;height:1px;background:rgba(125,54,29,.25);
+  transform:translateY(-50%);
+}
+.it-right::after{
+  content:'';position:absolute;left:-10px;top:50%;
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(125,54,29,.35);
+  transform:translate(0,-50%);z-index:1;
+}
+.it-left,.it-right{position:relative;}
+.it-label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;font-weight:500;color:var(--cream);line-height:1.3;
+}
+.it-time{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;font-weight:400;color:rgba(125,54,29,.7);
+}
+
+/* ── DRESSCODE ────────────────────────────────────────── */
+#dresscode{background:#2c1a10;overflow:hidden;padding:64px 22px;}
+.dc-title{
+  font-family:'Great Vibes',cursive;font-size:clamp(36px,9vw,48px);
+  color:#fff;text-align:center;margin-bottom:32px;line-height:1.1;
+}
+.dc-outfits{
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:24px;margin:0 auto 36px;max-width:300px;
+}
+.dc-outfit{display:flex;flex-direction:column;align-items:center;}
+.dc-outfit img{height:200px;width:auto;object-fit:contain;}
+.dc-type-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,6vw,30px);font-weight:400;
+  letter-spacing:6px;text-transform:uppercase;
+  color:#fff;text-align:center;margin-bottom:24px;
+}
+.dc-msg{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:18px;font-weight:400;color:rgba(255,255,255,.88);
+  text-align:center;line-height:1.7;max-width:340px;margin:0 auto;
+}
+.dc-msg + .dc-msg{margin-top:18px;}
+
+/* ── ALBUM QR ─────────────────────────────────────────── */
+#album{background:var(--ink)}
+.alb-sub{text-align:center;font-size:16px;color:var(--cream);opacity:.7;line-height:1.9;margin:14px 0 28px;font-weight:500;}
+
+/* ── FOTO BAND ───────────────────────────────────────── */
+.foto-band{
+  position:relative;width:100%;
+  height:clamp(380px,70vw,600px);
+  overflow:hidden;
+}
+.foto-band img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  display:block;
+  filter:brightness(.88) contrast(1.06);
+  transition:transform 6s var(--smooth);
+}
+.foto-band.is-visible img{transform:scale(1.06)}
+.foto-band::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom,
+    var(--fb-from,#FEFBF5) 0%,transparent 16%,
+    transparent 84%,var(--fb-to,#FEFBF5) 100%);
+  pointer-events:none;
+}
+.foto-band .foto-band-overlay{
+  position:absolute;inset:0;
+  background:rgba(125,54,29,.12);
+  mix-blend-mode:multiply;
+  pointer-events:none;
+}
+.foto-band .foto-band-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  text-align:center;padding:28px 20px 22px;
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(22px,4vw,32px);
+  color:var(--peach);
+  letter-spacing:.02em;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);
+  z-index:2;opacity:0;
+  transform:translateY(12px);
+  transition:opacity .8s .3s,transform .8s .3s;
+}
+.foto-band.is-visible .foto-band-caption{opacity:1;transform:translateY(0)}
+
+/* ── FAMILY ───────────────────────────────────────────── */
+#family{position:relative;overflow:hidden;}
+.fam-bg{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  pointer-events:none;z-index:0;
+}
+#family::before,#family::after{
+  content:'';position:absolute;left:0;right:0;
+  z-index:1;pointer-events:none;
+}
+#family::before{
+  top:0;height:90px;
+  background:linear-gradient(to bottom,#FEFBF5 0%,transparent 100%);
+}
+#family::after{
+  bottom:0;height:90px;
+  background:linear-gradient(to top,#FEFBF5 0%,transparent 100%);
+}
+#family > *:not(.fam-bg){position:relative;z-index:2;}
+.fam-card{
+  text-align:center;border:1px solid rgba(201,169,110,.2);border-radius:14px;
+  padding:28px 28px;background:rgba(255,255,255,.88);max-width:360px;margin:0 auto;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),border-color .3s;
+}
+.fam-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.3)}
+.fam-ttl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--peach-accent);text-align:center;margin:0 0 6px;}
+.fam-nms{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);line-height:1.5;font-weight:500;margin:0;display:flex;flex-direction:column;align-items:center;}
+.fam-sep{display:block;font-family:'Great Vibes',cursive;font-size:26px;color:var(--peach);line-height:1;margin:6px 0;}
+.sdiv{height:36px}
+
+/* ── GALLERY — RUEDA 3D ───────────────────────────────── */
+#gallery{background:#FEFBF5;padding:84px 0 96px;position:relative;overflow:hidden;}
+#gallery > .lbl,
+#gallery > .ttl,
+#gallery > .gline,
+#gallery > .gal-sub{padding-left:22px;padding-right:22px}
+.gal-sub{text-align:center;font-size:14px;color:var(--cream);opacity:.65;line-height:1.85;margin:12px 0 0;letter-spacing:.5px;font-weight:500;}
+.gal-sub em{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--peach);font-style:italic;}
+/* Rueda 3D */
+.wheel-scene{
+  position:relative;
+  width:100%;
+  height:560px;
+  margin:40px auto 0;
+  perspective:1600px;
+  transform-style:preserve-3d;
+  overflow:visible;
+}
+.wheel-ring{
+  position:absolute;
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  cursor:grab;
+}
+.wheel-ring.dragging{cursor:grabbing}
+.wheel-card{
+  position:absolute;
+  width:190px;height:265px;
+  left:50%;top:50%;
+  margin-left:-95px;margin-top:-132px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1.5px solid rgba(201,169,110,.45);
+  box-shadow:0 12px 40px rgba(0,0,0,.22);
+  user-select:none;
+  -webkit-user-select:none;
+  cursor:zoom-in;
+}
+.wheel-card img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  pointer-events:none;
+  filter:saturate(.95) contrast(1.03);
+}
+.wheel-card:hover{
+  box-shadow:0 14px 50px rgba(201,169,110,.3),0 4px 12px rgba(0,0,0,.15);
+}
+.gal-hint{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.3em;
+  color:var(--peach);
+  margin-top:28px;
+  opacity:.7;
+  text-transform:uppercase;
+  text-align:center;display:block;padding:0 22px;
+}
+/* ── LIGHTBOX ─────────────────────────────────────────── */
+#lightbox{position:fixed;inset:0;z-index:9990;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(8,12,24,.84);backdrop-filter:blur(18px) saturate(1.15);-webkit-backdrop-filter:blur(18px) saturate(1.15);opacity:0;cursor:zoom-out;}
+#lightbox.is-open{display:flex;}
+#lightbox-img{max-width:min(94vw,1400px);max-height:min(86vh,1000px);width:auto;height:auto;object-fit:contain;border-radius:14px;box-shadow:0 28px 90px rgba(0,0,0,.6),0 0 0 1px rgba(201,169,110,.2);opacity:0;transform:scale(.88);}
+#lightbox-close{position:absolute;top:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);width:48px;height:48px;border:1px solid rgba(201,169,110,.45);background:rgba(10,10,5,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:50%;color:#fff;font-size:26px;line-height:1;font-family:'Lato',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .3s;}
+#lightbox-close:hover{background:rgba(30,20,5,.8);border-color:rgba(201,169,110,.7);transform:scale(1.08)}
+
+/* ── GIFTS / SOBRE INTERACTIVO ───────────────────────── */
+.gifts-head{text-align:center;margin-bottom:0;max-width:640px;margin-left:auto;margin-right:auto}
+.gifts-sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:rgba(125,54,29,.75);line-height:1.7;margin-top:12px;font-style:italic;}
+.env-interactive{display:flex;flex-direction:column;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;}
+.env-body{perspective:700px;position:relative;width:260px;height:200px;}
+.env-body svg.env-svg{width:100%;height:100%;}
+.env-flap-wrap{position:absolute;top:46px;left:18px;width:224px;height:86px;transform-origin:top center;transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .65s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:2;}
+.env-interactive.open .env-flap-wrap{transform:rotateX(-175deg);}
+.env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .3s ease,opacity .4s .38s ease;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;text-align:center;pointer-events:none;}
+.env-interactive.open .env-open-content{max-height:240px;opacity:1;pointer-events:auto;}
+.env-mailbox-icon{width:40px;height:40px;color:#C9A96E;margin-top:10px;}
+.env-title{font-family:'Great Vibes',cursive;font-size:34px;color:var(--cream);letter-spacing:.5px;line-height:1.2;margin-top:4px;}
+.env-desc{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(125,54,29,.75);line-height:1.75;}
+.env-tap-hint{font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#7d361d;opacity:.65;margin-top:6px;transition:opacity .3s;}
+.env-interactive.open~.env-tap-hint{opacity:0;pointer-events:none;}
+@keyframes env-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.env-body{animation:env-breathe 3.6s ease-in-out infinite;}
+
+/* ── RSVP ─────────────────────────────────────────────── */
+#rsvp{background:var(--ink)}
+.rsvp-date-big{
+  text-align:center;margin:18px 0 6px;
+  font-family:'Le Major','Bodoni Moda',serif;
+  font-size:clamp(26px,7vw,34px);font-weight:400;
+  color:var(--peach);letter-spacing:1.5px;line-height:1.2;
+}
+.rsvp-sub{text-align:center;font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:8px 0 28px;font-weight:500;}
+.rsvp-dl{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--peach);font-style:italic;font-weight:500;}
+.rsvp-form-wrap{max-width:340px;margin:0 auto;text-align:center;padding:0 4px}
+.rsvp-submit-btn:disabled{opacity:.55;cursor:not-allowed}
+#rsvp-pases-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--peach);margin:0 auto 16px;line-height:1.5;text-align:center}
+.rsvp-pases-display{max-width:300px;margin:0 auto 18px;padding:14px 26px;background:rgba(201,169,110,.10);border:1px solid rgba(201,169,110,.35);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.rsvp-pases-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream)}
+.rsvp-pases-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:32px;color:var(--peach);line-height:1}
+.rsvp-toggle{display:flex;gap:10px;max-width:340px;margin:0 auto 16px}
+.rsvp-toggle-btn{flex:1;padding:13px 8px;border:1.5px solid rgba(201,169,110,.4);background:#fff;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:600;color:var(--cream);border-radius:8px;transition:all .25s}
+.rsvp-toggle-btn:disabled{opacity:.45;cursor:not-allowed}
+.rsvp-toggle-btn.rsvp-toggle-selected-yes{background:rgba(201,169,110,.18);border-color:var(--peach);color:var(--cream)}
+.rsvp-toggle-btn.rsvp-toggle-selected-no{background:rgba(26,26,26,.06);border-color:var(--cream);color:var(--cream)}
+.rsvp-fields{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto 16px}
+.rsvp-input{width:100%;padding:13px 16px;border:1.5px solid rgba(201,169,110,.32);border-radius:8px;background:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);outline:none;transition:border-color .3s;-webkit-appearance:none;min-height:48px}
+.rsvp-input:focus{border-color:var(--peach)}
+.rsvp-input::placeholder{color:rgba(26,26,26,.4);font-style:italic}
+#rsvp-feedback{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;font-weight:600;text-align:center;margin:14px auto 0;max-width:340px;line-height:1.5;min-height:18px;color:var(--peach)}
+
+/* ── FOOTER ───────────────────────────────────────────── */
+#footer{
+  padding:0;text-align:center;
+  position:relative;overflow:hidden;
+}
+.ft-logo{
+  position:relative;width:100%;
+  pointer-events:none;z-index:0;
+  overflow:hidden;
+  
+}
+.ft-logo img{
+  width:100%;height:auto;display:block;
+  
+}
+.ft-body{
+  padding:0 28px 52px;
+  position:relative;z-index:2;
+}
+.ft-msg{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(22px,6vw,30px);font-weight:400;font-style:italic;
+  color:#1A1A1A;line-height:1.5;
+  margin-bottom:12px;
+}
+.ft-nofaltes{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,13vw,68px);font-weight:400;
+  color:#1a1a1a;line-height:1.1;
+  margin-bottom:14px;
+}
+.ft-date{
+  font-family:'Le Major','Bodoni Moda',serif;
+  font-size:clamp(16px,4.5vw,20px);font-weight:400;
+  letter-spacing:4px;text-transform:uppercase;
+  color:#C9A96E;margin-bottom:32px;
+}
+.ft-rings{
+  width:120px;height:auto;margin:0 auto 40px;display:block;
+}
+.el-sep{width:44px;height:1px;background:rgba(201,169,110,.18);margin:0 auto 16px}
+.el-credit{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--peach);opacity:.55;
+  font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;
+  letter-spacing:1.5px;text-decoration:none;transition:opacity .25s;
+}
+.el-credit:hover{opacity:.75}
+
+/* ── SECTION WAVES ────────────────────────────────────── */
+.sec-wave{position:absolute;left:0;right:0;height:38px;pointer-events:none;z-index:0;overflow:hidden;}
+.sec-wave-top{top:0}
+.sec-wave-bot{bottom:0;transform:scaleY(-1)}
+.sec-wave svg{display:block;width:200%;height:100%;animation:secWaveSlide 26s linear infinite;will-change:transform;}
+.sec-wave-bot svg{animation-duration:32s;animation-direction:reverse}
+@keyframes secWaveSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{position:relative}
+.sec-wave{z-index:0}
+section.has-sec-waves{padding-top:84px;padding-bottom:86px}
+#footer.has-sec-waves{padding-top:84px;padding-bottom:80px}
+
+/* ── SEC MEDAL ────────────────────────────────────────── */
+.sec-medal{position:relative;width:56px;height:56px;margin:0 auto 18px;}
+.sec-medal::before{content:'';position:absolute;inset:-10px;border:1px dashed rgba(201,169,110,.28);border-radius:50%;animation:secMedalRotate 36s linear infinite;}
+.sec-medal::after{content:'';position:absolute;inset:0;border:1px solid rgba(201,169,110,.32);border-radius:50%;animation:secMedalBreathe 5s ease-in-out infinite;}
+.sec-medal span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--peach);font-size:16px;}
+@keyframes secMedalRotate{to{transform:rotate(360deg)}}
+@keyframes secMedalBreathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.08);opacity:1}}
+
+/* ── WIND ORN ─────────────────────────────────────────── */
+.wind-orn{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;margin-bottom:10px;font-size:5px;letter-spacing:10px;color:var(--peach);
+  pointer-events:none;animation:windOrnPulse 9s ease-in-out infinite;
+}
+.wind-orn::before,.wind-orn::after{content:'';flex:1;max-width:36px;height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,.55));}
+.wind-orn::after{background:linear-gradient(to left,transparent,rgba(201,169,110,.55))}
+@keyframes windOrnPulse{0%,100%{opacity:.28;letter-spacing:10px}50%{opacity:.55;letter-spacing:13px}}
+
+/* ── CORNERS ──────────────────────────────────────────── */
+.corner{position:absolute;width:16px;height:16px;border-style:solid;border-color:transparent;border-width:0;pointer-events:none;z-index:0;transition:border-color 1.4s ease;}
+.corner.tl{top:12px;left:12px;border-top-width:1px;border-left-width:1px}
+.corner.tr{top:12px;right:12px;border-top-width:1px;border-right-width:1px}
+.corner.bl{bottom:12px;left:12px;border-bottom-width:1px;border-left-width:1px}
+.corner.br{bottom:12px;right:12px;border-bottom-width:1px;border-right-width:1px}
+.corner.on{border-color:rgba(201,169,110,.3)}
+
+/* ── AURA ─────────────────────────────────────────────── */
+.sec-aura{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 20%,rgba(201,169,110,.042) 0%,transparent 65%);opacity:0;transition:opacity 1.8s ease;}
+.sec-aura.on{opacity:1}
+
+/* ── SHIMMER ──────────────────────────────────────────── */
+.gline{position:relative;overflow:hidden}
+.gline::after{content:'';position:absolute;top:0;left:-100px;width:80px;height:100%;background:linear-gradient(90deg,transparent,rgba(212,197,178,.85),transparent);animation:glineSweep 5s ease-in-out infinite;pointer-events:none;}
+@keyframes glineSweep{0%{left:-100px;opacity:0}20%{opacity:1}100%{left:calc(100% + 100px);opacity:0}}
+
+/* ── LBL BREATHE ──────────────────────────────────────── */
+.lbl{animation:lblBreathe 7s ease-in-out infinite}
+@keyframes lblBreathe{0%,100%{letter-spacing:5px}50%{letter-spacing:5.7px}}
+
+/* ── WISP ─────────────────────────────────────────────── */
+.wisp{position:absolute;border-radius:100px;pointer-events:none;will-change:transform,opacity;}
+
+/* ── REDUCED MOTION ───────────────────────────────────── */
+@media(prefers-reduced-motion:reduce){
+  .lbl,.ft-nms,.wind-orn,.h-frame,.gline::after,
+  .loc-block,.cd-box,.fam-card,.pal-sw,.music-btn{
+    animation:none!important;transition:none!important;
+  }
+  .tl-orn,.tl-pulse{animation:none!important}
+  .tl-row-inner > *{transition:none!important}
+}
+  </style>
+</head>
+<body>
+
+<!-- LOADER (SOBRE) -->
+<div id="loader">
+  <img class="sobre-img" src="sobre.jpg" alt="Sobre de invitación Sandra y Faustino">
+  <button class="sobre-btn" id="sobreBtn" aria-label="Abrir invitación">Toca para abrir</button>
+  <video class="sobre-video" id="sobreVideo" muted playsinline preload="auto">
+    <source src="sobre-video.mp4" type="video/mp4">
+  </video>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
+
+<!-- AUDIO -->
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+  <button id="lightbox-close" aria-label="Cerrar">&#x2715;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<audio id="bgMusic" loop preload="none">
+  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-faustino-y-sandra/cancion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC BTN -->
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Música">
+  <svg class="vinyl" id="musicIcon" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="27" cy="27" r="27" fill="#111"/>
+    <circle cx="27" cy="27" r="24.5" stroke="#2a2a2a" stroke-width=".7"/>
+    <circle cx="27" cy="27" r="22.5" stroke="#1e1e1e" stroke-width=".6"/>
+    <circle cx="27" cy="27" r="20.5" stroke="#2a2a2a" stroke-width=".6"/>
+    <circle cx="27" cy="27" r="18.5" stroke="#1e1e1e" stroke-width=".6"/>
+    <circle cx="27" cy="27" r="16.5" stroke="#2a2a2a" stroke-width=".5"/>
+    <circle cx="27" cy="27" r="14.5" stroke="#1e1e1e" stroke-width=".5"/>
+    <circle cx="27" cy="27" r="12.5" stroke="#252525" stroke-width=".5"/>
+    <circle cx="27" cy="27" r="10" fill="#7D361D"/>
+    <circle cx="27" cy="27" r="9.2" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
+    <text x="27" y="24.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">SANDRA</text>
+    <text x="27" y="28" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="2.4" fill="rgba(255,255,255,.5)" letter-spacing=".5">&amp;</text>
+    <text x="27" y="31.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">FAUSTINO</text>
+    <circle cx="27" cy="27" r="1.8" fill="#111"/>
+    <ellipse cx="19" cy="14" rx="6" ry="3" fill="rgba(255,255,255,.04)" transform="rotate(-30 19 14)"/>
+  </svg>
+</button>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+
+<!-- ═══════════════ 1. HERO ════════════════════════════ -->
+<section id="hero">
+  <div class="h-bg" id="heroBg">
+    <img src="hero-novios.jpg" alt="Sandra y Faustino" id="heroPic">
+  </div>
+  <div class="h-ov"></div>
+
+  <div class="h-cnt" id="hCnt">
+    
+  </div>
+
+  <div class="h-scroll" id="hScroll">
+    <div class="h-scroll-line"></div>
+    <span>Desliza</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 1.5. FECHA ══════════════════════════ -->
+<section id="fecha">
+  <img class="fch-bg" src="fondo-nosotros.jpg" alt="" loading="eager">
+  <div class="fch-content">
+    <p class="fch-intro">Nosotros...</p>
+    <p class="fch-n1">Sandra</p>
+    <p class="fch-full">Iveth Morán Patiño</p>
+    <p class="fch-amp">y</p>
+    <p class="fch-n1">Faustino</p>
+    <p class="fch-full">García Trillo</p>
+    <p class="fch-honor">Tenemos el honor<br>de invitarte a celebrar<br>nuestra unión.</p>
+    <p class="fch-date">01.08.26</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. CUENTA REGRESIVA ══════════════ -->
+<section id="countdown">
+  <div class="cd-content">
+    <span class="cd-falta">Falta</span>
+    <div class="cd-row" role="timer" aria-label="Cuenta regresiva para la boda">
+      <div class="cd-cell">
+        <span class="cd-num" id="cd-d">--</span>
+        <span class="cd-lbl">Días</span>
+      </div>
+      <span class="cd-sep" aria-hidden="true">:</span>
+      <div class="cd-cell">
+        <span class="cd-num" id="cd-h">--</span>
+        <span class="cd-lbl">Horas</span>
+      </div>
+      <span class="cd-sep" aria-hidden="true">:</span>
+      <div class="cd-cell">
+        <span class="cd-num" id="cd-m">--</span>
+        <span class="cd-lbl">Min</span>
+      </div>
+      <span class="cd-sep" aria-hidden="true">:</span>
+      <div class="cd-cell">
+        <span class="cd-num" id="cd-s">--</span>
+        <span class="cd-lbl">Seg</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOTO BAND 1 -->
+<div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
+  <img src="banda1.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 15%">
+  <div class="foto-band-overlay"></div>
+  <div class="foto-band-caption">Juntos por siempre</div>
+</div>
+
+<!-- ═══════════════ 3. UBICACIONES ═══════════════════ -->
+<section id="location">
+
+  <div class="loc-block">
+    <div class="loc-icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" stroke="var(--cream)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 38c0-12 6-18 10-24"/>
+        <path d="M44 38c0-12-6-18-10-24"/>
+        <ellipse cx="20" cy="40" rx="6" ry="3"/>
+        <ellipse cx="44" cy="40" rx="6" ry="3"/>
+        <line x1="20" y1="43" x2="20" y2="54"/>
+        <line x1="44" y1="43" x2="44" y2="54"/>
+        <ellipse cx="20" cy="55" rx="7" ry="2"/>
+        <ellipse cx="44" cy="55" rx="7" ry="2"/>
+        <path d="M32 10l-1-4M32 10l1-4M30 7h4"/>
+      </svg>
+    </div>
+    <p class="loc-title">Recepción</p>
+    <div class="loc-photo" id="loc-photo-1">
+      <img src="salon-venue.jpg" alt="Centro Contemporáneo De Artes" loading="lazy">
+    </div>
+    <p class="loc-time">6:30 pm</p>
+    <p class="loc-venue">Centro Contemporáneo De Artes<br>Cdad. Nezahualcóyotl, Méx.</p>
+    <a href="https://www.google.com/maps/place/Centro+Contempor%C3%A1neo+De+artes/@19.4197007,-99.0306306,17z"
+       target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════ 4. CALENDAR ══════════════════════ -->
+<section id="calendar">
+  <span class="lbl">No lo olvides</span>
+  <h2 class="ttl" style="font-size:26px">Guarda la Fecha</h2>
+  <div class="gline"></div>
+  <p class="cal-sub">Agrega nuestra boda a tu calendario<br>para no perderte ni un momento.</p>
+  <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Sandra+%26+Faustino&dates=20260801T183000/20260802T020000&details=Recepción+6:30+PM+·+Ceremonia+Civil+7:30+PM.+Centro+Contemporáneo+De+Artes,+Cdad.+Nezahualcóyotl.&location=C.+Virgen+del+Socorro+113,+Virgencitas,+57300+Cdad.+Nezahualcóyotl,+Méx."
+     target="_blank" rel="noopener" id="calBtn"
+     class="btn btn-olive" style="max-width:310px;margin:0 auto;display:flex">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    Agregar a Google Calendar
+  </a>
+</section>
+
+
+<!-- ═══════════════ 5. ITINERARIO ════════════════════ -->
+<section id="itinerary">
+  <p class="it-title">Itinerario</p>
+  <div class="it-line">
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">6:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 6h16l-8 12v6"/><line x1="11" y1="24" x2="21" y2="24"/>
+          <line x1="12" y1="11" x2="20" y2="11"/>
+          <circle cx="22" cy="8" r="1" fill="#C9A96E" stroke="none"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Recepción</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">7:00 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 5v8a8 8 0 0016 0V5"/>
+          <line x1="16" y1="21" x2="16" y2="27"/>
+          <line x1="11" y1="27" x2="21" y2="27"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Cóctel &amp; Aperitivos</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">7:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12.5" cy="16" r="6.5"/>
+          <circle cx="19.5" cy="16" r="6.5"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Ceremonia Civil</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">8:00 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="10" width="24" height="18" rx="2"/>
+          <circle cx="16" cy="19" r="5"/>
+          <path d="M11 10l2-4h6l2 4"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Fotografías</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">8:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="16" r="9"/>
+          <circle cx="16" cy="16" r="6" stroke-dasharray="2 2" opacity=".5"/>
+          <path d="M7 7l4 4M25 7l-4 4"/>
+          <line x1="7" y1="7" x2="7" y2="10"/>
+          <line x1="25" y1="7" x2="25" y2="10"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Cena</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">9:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="7" r="2.5"/>
+          <circle cx="20" cy="8" r="2"/>
+          <path d="M12 10v7l-3 9"/><path d="M12 17l3 9"/>
+          <path d="M9 13h6"/>
+          <path d="M20 10v5l3 8"/><path d="M20 15l-2 8"/>
+          <path d="M18 12h5"/><path d="M15 13l3-1"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">¡A Bailar!</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">10:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="16,4 19.5,13 29,13 21.5,18.5 24.5,28 16,22.5 7.5,28 10.5,18.5 3,13 12.5,13"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Sorpresa</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">1:30 am</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="22" width="18" height="6" rx="1.5"/>
+          <rect x="9" y="16" width="14" height="6" rx="1.5"/>
+          <rect x="11" y="10" width="10" height="6" rx="1.5"/>
+          <path d="M16 10v-4"/>
+          <circle cx="16" cy="5" r="1" fill="#C9A96E" stroke="none"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Desvelados</span></div>
+    </div>
+
+  </div>
+  <p style="text-align:center;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--peach-accent);letter-spacing:1px;opacity:.85;">
+    Te pedimos puntualidad para disfrutar cada momento juntos.
+  </p>
+</section>
+
+
+<!-- ═══════════════ 6. GALERÍA ═══════════════════════ -->
+<section id="gallery">
+  <span class="lbl">Nuestra historia</span>
+  <h2 class="ttl">Galería</h2>
+  <div class="gline"></div>
+  <p class="gal-sub"><em>Momentos que atesoramos</em></p>
+
+  <div class="wheel-scene" id="wheel-scene">
+    <div class="wheel-ring" id="wheel-ring">
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780195010931-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780195099868-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198649055-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198661843-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198667705-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="hero-photo.png" alt="Sandra y Faustino" loading="lazy"></div>
+    </div>
+  </div>
+  <span class="gal-hint">Arrastra para girar · Toca para ampliar</span>
+</section>
+
+
+<!-- ═══════════════ 7. DRESS CODE ════════════════════ -->
+<section id="dresscode">
+  <p class="dc-title">Código de Vestimenta</p>
+
+  <div class="dc-outfits">
+    <div class="dc-outfit">
+      <img src="caballero.png" alt="Caballero, traje formal" loading="lazy">
+    </div>
+    <div class="dc-outfit">
+      <img src="dama.png" alt="Dama, vestido formal" loading="lazy">
+    </div>
+  </div>
+
+  <p class="dc-type-txt">Formal</p>
+  <p class="dc-msg">¡Vengan elegantes a celebrar con nosotros!</p>
+  <p class="dc-msg">Mujeres, reserven el color blanco exclusivamente para la novia.</p>
+</section>
+
+
+<!-- FOTO BAND 2 -->
+<div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
+  <img src="banda2.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 20%">
+  <div class="foto-band-overlay"></div>
+  <div class="foto-band-caption">Nuestro amor</div>
+</div>
+
+<!-- ═══════════════ 8. FAMILIA ════════════════════════ -->
+<section id="family">
+  <img class="fam-bg" src="fondo-familia.jpg" alt="" loading="lazy">
+  <span class="lbl">Con amor de</span>
+  <h2 class="ttl">Familia</h2>
+  <div class="gline"></div>
+
+  <p class="fam-ttl">Padres del Novio</p>
+  <div class="fam-card">
+    <p class="fam-nms">
+      <span>Faustino García Saenz</span>
+      <span class="fam-sep">&amp;</span>
+      <span>Sofia Trillo Sandoval</span>
+    </p>
+  </div>
+
+  <div class="sdiv"></div>
+
+  <p class="fam-ttl">Padres de la Novia</p>
+  <div class="fam-card">
+    <p class="fam-nms">
+      <span>Floriberto Morán García</span>
+      <span class="fam-sep">&amp;</span>
+      <span>Marina Morán García</span>
+    </p>
+  </div>
+
+  <div class="sdiv"></div>
+
+  <p class="fam-ttl">Padrinos</p>
+  <div class="fam-card">
+    <p class="fam-nms">
+      <span>Heriberto Dominguez</span>
+      <span class="fam-sep">&amp;</span>
+      <span>Lucila Sanchez Nuñez</span>
+    </p>
+  </div>
+
+  <div class="sdiv"></div>
+
+  <div class="fam-card">
+    <p class="fam-nms">
+      <span>Alejandro Soberano Leyva</span>
+      <span class="fam-sep">&amp;</span>
+      <span>Rosalia Morán García</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 9. MESA DE REGALOS ══════════════ -->
+<section id="gifts" style="background:#FEFBF5;padding:72px 22px 80px;text-align:center;">
+  <div class="gifts-head">
+    <span class="lbl">Mesa de regalos</span>
+    <h2 class="ttl">Tu Presencia es el Mejor Regalo</h2>
+    <div class="gline"></div>
+    <p class="gifts-sub">Si deseas hacernos un obsequio, una aportación<br>a nuestra nueva vida juntos será muy bienvenida.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;align-items:center;gap:0;margin:44px auto 0;">
+    <!-- Sobre interactivo -->
+    <button class="env-interactive" aria-label="Sobre — toca para abrir" aria-expanded="false">
+      <div class="env-body">
+        <svg class="env-svg" viewBox="0 0 260 200" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="fs-env-fill" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#f9f4ec"/>
+              <stop offset="100%" stop-color="#fdf8f0"/>
+            </linearGradient>
+          </defs>
+          <!-- Cuerpo -->
+          <rect x="18" y="52" width="224" height="132" rx="10"
+                fill="url(#fs-env-fill)" stroke="rgba(201,169,110,.55)" stroke-width="1.4"/>
+          <!-- V central (pliegue inferior) -->
+          <path d="M18 184 L130 110 L242 184" stroke="rgba(201,169,110,.4)" stroke-width="1" fill="none"/>
+          <!-- Líneas decorativas lluvia -->
+          <line x1="90"  y1="30" x2="90"  y2="20" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+          <line x1="130" y1="24" x2="130" y2="14" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".65"/>
+          <line x1="170" y1="30" x2="170" y2="20" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+          <line x1="110" y1="18" x2="110" y2="10" stroke="#c9a96e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
+          <line x1="150" y1="18" x2="150" y2="10" stroke="#c9a96e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
+          <!-- Sello F&S -->
+          <circle cx="130" cy="118" r="16" fill="rgba(201,169,110,.14)" stroke="rgba(201,169,110,.5)" stroke-width="1"/>
+          <text x="130" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#7D361D" opacity=".85">F&amp;S</text>
+        </svg>
+        <!-- Solapa animable -->
+        <div class="env-flap-wrap" aria-hidden="true">
+          <svg viewBox="0 0 224 86" preserveAspectRatio="none" style="width:100%;height:100%">
+            <defs>
+              <linearGradient id="fs-flap-fill" x1="0" y1="1" x2="1" y2="0">
+                <stop offset="0%" stop-color="#C9A96E"/>
+                <stop offset="100%" stop-color="#fdf8f0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0 0 L112 86 L224 0 Z"
+                  fill="url(#fs-flap-fill)" stroke="rgba(201,169,110,.6)" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Contenido revelado -->
+      <div class="env-open-content" aria-live="polite">
+        <svg class="env-mailbox-icon" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <rect x="8" y="22" width="36" height="24" rx="5"/>
+          <path d="M8 30 Q26 38 44 30"/>
+          <rect x="18" y="8" width="16" height="16" rx="2"/>
+          <path d="M18 8 Q26 3 34 8"/>
+          <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
+        </svg>
+        <p class="env-title">Lluvia de Sobres</p>
+        <p class="env-desc">El día de la boda habrá una urna especial<br>donde podrás depositar tu sobre con mucho cariño.</p>
+      </div>
+    </button>
+    <p class="env-tap-hint">Toca el sobre</p>
+  </div>
+</section>
+
+
+<!-- FOTO BAND 3 -->
+<div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
+  <img src="banda3.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 0%">
+  <div class="foto-band-overlay"></div>
+  <div class="foto-band-caption">Por siempre nosotros</div>
+</div>
+
+<!-- ═══════════════ 10. RSVP ════════════════════════ -->
+<section id="rsvp">
+  <span class="lbl">Confirmación de asistencia</span>
+  <h2 class="ttl">¿Nos acompañas?</h2>
+  <div class="gline"></div>
+
+  <p class="rsvp-date-big">1 de Agosto de 2026</p>
+
+  <p class="rsvp-sub">
+    Confirma antes del<br>
+    <span class="rsvp-dl">12 de Julio de 2026</span>
+  </p>
+
+  <div class="rsvp-form-wrap">
+    <p id="rsvp-pases-note" style="display:none"></p>
+    <div class="rsvp-pases-display" id="rsvp-pases-display" style="display:none">
+      <span class="rsvp-pases-label">Pases</span>
+      <span class="rsvp-pases-num" id="rsvp-pases-num">…</span>
+    </div>
+
+    <div class="rsvp-toggle">
+      <button class="rsvp-toggle-btn" id="btnYes" type="button">Asistiré</button>
+      <button class="rsvp-toggle-btn" id="btnNo" type="button">No podré asistir</button>
+    </div>
+
+    <div class="rsvp-fields" id="rsvp-fields" style="display:none"></div>
+
+    <button type="button" id="rsvpConfirmBtn" class="btn btn-olive rsvp-submit-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="rsvp-btn-text">Confirmar asistencia</span>
+    </button>
+
+    <p id="rsvp-feedback"></p>
+  </div>
+</section>
+
+
+<!-- ═══════════════ 11. FOOTER ═══════════════════════ -->
+<footer id="footer">
+  <div class="ft-logo" style="display:flex;justify-content:center;padding:32px 0 0;">
+    <img src="logo-pareja.png" alt="Sandra y Faustino" loading="lazy" style="width:180px;height:auto;filter:drop-shadow(0 4px 20px rgba(201,169,110,.35));">
+  </div>
+
+  <div class="ft-body">
+    <p class="ft-msg">Te esperamos con mucho cariño...</p>
+    <p class="ft-nofaltes">¡No Faltes!</p>
+    <p class="ft-date">1 de Agosto de 2026</p>
+
+    <svg class="ft-rings" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="goldBand" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#e8d48b"/>
+          <stop offset="25%" stop-color="#c9a96e"/>
+          <stop offset="50%" stop-color="#f0dda0"/>
+          <stop offset="75%" stop-color="#b8944e"/>
+          <stop offset="100%" stop-color="#d4b678"/>
+        </linearGradient>
+        <linearGradient id="goldInner" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#a07830"/>
+          <stop offset="50%" stop-color="#c9a050"/>
+          <stop offset="100%" stop-color="#8a6828"/>
+        </linearGradient>
+        <linearGradient id="diamTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4f0fa"/>
+          <stop offset="100%" stop-color="#8cc8e0"/>
+        </linearGradient>
+        <linearGradient id="diamLeft" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#a8dced"/>
+          <stop offset="100%" stop-color="#6ab0d0"/>
+        </linearGradient>
+        <linearGradient id="diamRight" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#c0e8f5"/>
+          <stop offset="100%" stop-color="#7ec0dc"/>
+        </linearGradient>
+        <linearGradient id="diamBottom" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#90c8e0"/>
+          <stop offset="100%" stop-color="#5898b8"/>
+        </linearGradient>
+        <linearGradient id="goldShine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#fff8e0" stop-opacity=".6"/>
+          <stop offset="40%" stop-color="#fff8e0" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#fff8e0" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="ringShadow" x="-10%" y="-10%" width="130%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#b8944e" flood-opacity=".18"/>
+        </filter>
+      </defs>
+      <g filter="url(#ringShadow)">
+        <ellipse cx="68" cy="64" rx="22" ry="22" stroke="url(#goldBand)" stroke-width="5.5" fill="none"/>
+        <ellipse cx="68" cy="64" rx="17.5" ry="17.5" stroke="url(#goldInner)" stroke-width="1" fill="none" opacity=".5"/>
+        <ellipse cx="68" cy="64" rx="25" ry="25" stroke="#f0dda0" stroke-width=".5" fill="none" opacity=".3"/>
+        <path d="M50 52 Q56 40 70 40" stroke="url(#goldShine)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+        <path d="M52 76 Q68 84 84 76" stroke="#b8944e" stroke-width=".4" fill="none" opacity=".3" stroke-dasharray="2 3"/>
+      </g>
+      <g filter="url(#ringShadow)">
+        <ellipse cx="48" cy="44" rx="22" ry="22" stroke="url(#goldBand)" stroke-width="5" fill="none"/>
+        <ellipse cx="48" cy="44" rx="17.5" ry="17.5" stroke="url(#goldInner)" stroke-width="1" fill="none" opacity=".5"/>
+        <ellipse cx="48" cy="44" rx="25" ry="25" stroke="#f0dda0" stroke-width=".5" fill="none" opacity=".3"/>
+        <path d="M32 32 Q38 21 52 20" stroke="url(#goldShine)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".6"/>
+        <ellipse cx="48" cy="44" rx="19.8" ry="19.8" stroke="#d4b678" stroke-width=".6" fill="none" opacity=".25"/>
+      </g>
+      <g>
+        <path d="M41.5 24 L44 18" stroke="#c9a96e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M54.5 24 L52 18" stroke="#c9a96e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M43 25 L45 19" stroke="#d4b678" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5"/>
+        <path d="M53 25 L51 19" stroke="#d4b678" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5"/>
+        <path d="M42 24 Q48 28 54 24" stroke="#c9a96e" stroke-width="1.5" fill="none"/>
+        <polygon points="48,4 40,14 48,12 56,14" fill="url(#diamTop)"/>
+        <polygon points="40,14 48,12 44,18" fill="url(#diamLeft)" opacity=".85"/>
+        <polygon points="56,14 48,12 52,18" fill="url(#diamRight)" opacity=".85"/>
+        <polygon points="40,14 56,14 48,22" fill="url(#diamBottom)" opacity=".75"/>
+        <polygon points="44,10 52,10 50,13 46,13" fill="#e0f4fc" opacity=".6"/>
+        <path d="M48 4 L40 14 L48 22 L56 14 Z" stroke="#6ab0d0" stroke-width=".6" fill="none" opacity=".5"/>
+        <line x1="48" y1="4" x2="48" y2="12" stroke="#b0dced" stroke-width=".4" opacity=".4"/>
+        <circle cx="45" cy="9" r=".8" fill="#fff" opacity=".8"/>
+        <circle cx="51" cy="12" r=".5" fill="#fff" opacity=".6"/>
+        <line x1="43" y1="6" x2="41" y2="4" stroke="#fff" stroke-width=".5" opacity=".4" stroke-linecap="round"/>
+        <line x1="55" y1="8" x2="57" y2="6" stroke="#fff" stroke-width=".5" opacity=".35" stroke-linecap="round"/>
+      </g>
+    </svg>
+
+    <div class="el-sep"></div>
+    <a href="https://www.instagram.com/elysium.invitaciones/" target="_blank" rel="noopener" class="el-credit">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <span>@elysium.invitaciones</span>
+    </a>
+  </div>
+</footer>
+
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+/* ── BOOT ─────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sobreBtn = document.getElementById('sobreBtn');
+  const sobreVid = document.getElementById('sobreVideo');
+  const loaderEl = document.getElementById('loader');
+
+  function initInvitation() {
+    addSectionWaves();
+    addSectionMedals();
+    addCorners();
+    addWindOrns();
+    addAuras();
+    heroAnim();
+    initGlobalParticles();
+    scrollAnims();
+    // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
+    if(typeof countdown === 'function') countdown();
+    const aud2 = document.getElementById('bgMusic');
+    if (aud2) { aud2.play().then(() => { document.getElementById('musicBtn')?.classList.add('on'); }).catch(()=>{}); }
+  }
+
+  sobreBtn.addEventListener('click', () => {
+    sobreBtn.style.opacity = '0';
+    sobreBtn.style.pointerEvents = 'none';
+    sobreVid.play();
+    function crossfade(){
+      sobreVid.style.opacity = '1';
+      gsap.to('.sobre-img',{opacity:0, duration:.5, ease:'power2.out'});
+    }
+    if(sobreVid.readyState >= 2){ crossfade(); }
+    else { sobreVid.addEventListener('playing', crossfade, {once:true}); }
+  });
+
+  const VIDEO_CUT = 4.2;
+  let videoCutDone = false;
+  sobreVid.addEventListener('timeupdate', () => {
+    if(!videoCutDone && sobreVid.currentTime >= VIDEO_CUT){
+      videoCutDone = true;
+      sobreVid.pause();
+      gsap.to(loaderEl, {
+        opacity: 0, duration: .6, ease: 'power2.out',
+        onComplete() {
+          loaderEl.remove();
+          initInvitation();
+          ambientWind();
+        }
+      });
+    }
+  });
+});
+
+/* ── SCROLL PROGRESS ─────────────────────────────────── */
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('prog').style.width =
+    (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+
+/* ── TOAST ───────────────────────────────────────────── */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ── HERO ANIMATIONS ─────────────────────────────────── */
+function heroAnim() {
+  gsap.set('#hMono', { opacity: 0, scale: .85 });
+  gsap.set('#hScroll', { opacity: 0 });
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  tl
+    .to('#hMono',  { opacity: 1, scale: 1, duration: 1.2 }, .2)
+    .to('#hScroll',{ opacity: 1, duration: .5 }, 1.4);
+  /* hero parallax removed — keep image clean */
+}
+
+/* ── PARTÍCULAS GLOBALES (bokeh flotante) ─────────────── */
+function initGlobalParticles() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cvs = document.createElement('canvas');
+  cvs.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:500;';
+  document.body.appendChild(cvs);
+  const ctx = cvs.getContext('2d');
+  const COLS = ['rgba(201,169,110,','rgba(212,197,178,','rgba(125,54,29,','rgba(180,150,90,'];
+  let W, H;
+  const COUNT = 34;
+  const pts = [];
+
+  function resize() { W = cvs.width = window.innerWidth; H = cvs.height = window.innerHeight; }
+
+  function spawn(anywhere) {
+    const a = (0.055 + Math.random() * 0.12).toFixed(2);
+    return {
+      x: Math.random() * (W || 420),
+      y: anywhere ? Math.random() * (H || 750) : (H || 750) + 10,
+      r: 1.1 + Math.random() * 3.8,
+      vx: (Math.random() - 0.5) * 0.13,
+      vy: -(0.09 + Math.random() * 0.2),
+      fill: COLS[Math.floor(Math.random() * COLS.length)] + a + ')',
+      ph: Math.random() * Math.PI * 2,
+    };
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  for (let i = 0; i < COUNT; i++) pts.push(spawn(true));
+
+  (function tick() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = pts.length - 1; i >= 0; i--) {
+      const p = pts[i];
+      p.ph += 0.006; p.x += p.vx + Math.sin(p.ph) * 0.08; p.y += p.vy;
+      if (p.y < -8)     Object.assign(pts[i], spawn(false));
+      if (p.x < -8)     p.x = W + 4;
+      if (p.x > W + 8)  p.x = -4;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.fill; ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  })();
+}
+
+/* ── SCROLL ANIMATIONS ───────────────────────────────── */
+function scrollAnims() {
+  const ease = 'power3.out';
+
+  document.querySelectorAll('section').forEach(sec => {
+    const els = sec.querySelectorAll('.lbl,.ttl,.gline');
+    if (els.length) {
+      gsap.from(els, {
+        opacity: 0, y: 22, duration: .7, stagger: .1, ease,
+        scrollTrigger: { trigger: sec, start: 'top 88%', once: true }
+      });
+    }
+  });
+
+  gsap.from('.cd-content', {
+    opacity: 0, y: 18, duration: .7, ease,
+    scrollTrigger: { trigger: '#countdown', start: 'top 85%', once: true }
+  });
+
+  ScrollTrigger.create({
+    trigger: '#location', start: 'top 78%', once: true,
+    onEnter() { gsap.from('.loc-block', { opacity: 0, y: 36, duration: .75, stagger: .18, ease }); }
+  });
+
+  gsap.from('#calendar .cal-sub', { opacity: 0, y: 14, duration: .6, ease, scrollTrigger: { trigger: '#calendar', start: 'top 84%', once: true } });
+  gsap.from('#calBtn', { y: 14, duration: .55, ease: 'back.out(1.4)', scrollTrigger: { trigger: '#calendar', start: 'top 85%', once: true } });
+
+  ScrollTrigger.create({
+    trigger: '#itinerary', start: 'top 78%', once: true,
+    onEnter() { gsap.from('.it-step', { opacity: 0, y: 28, duration: .6, stagger: .12, ease }); }
+  });
+
+  ScrollTrigger.create({
+    trigger: '#dresscode', start: 'top 78%', once: true,
+    onEnter() {
+      gsap.from('.dc-outfits', { opacity: 0, y: 24, duration: .7, ease });
+      gsap.from('.dc-type-txt', { opacity: 0, y: 16, duration: .6, delay: .25, ease });
+      gsap.from('.dc-msg', { opacity: 0, y: 14, duration: .55, stagger: .15, delay: .4, ease });
+    }
+  });
+
+  gsap.from('.fam-ttl', { opacity: 0, y: 18, duration: .6, stagger: .2, ease, scrollTrigger: { trigger: '#family', start: 'top 78%', once: true } });
+  gsap.from('.fam-card', { opacity: 0, y: 20, duration: .55, stagger: .08, ease, scrollTrigger: { trigger: '#family', start: 'top 78%', once: true } });
+
+  gsap.from('.rsvp-form-wrap', { opacity: 0, y: 18, duration: .6, ease, scrollTrigger: { trigger: '#rsvp', start: 'top 82%', once: true } });
+
+  gsap.from('.ft-logo', { opacity: 0, y: -20, duration: .8, ease, scrollTrigger: { trigger: '#footer', start: 'top 90%', once: true } });
+  gsap.from(['.ft-msg','.ft-nofaltes','.ft-rings'], { opacity: 0, y: 24, duration: .7, stagger: .15, ease, scrollTrigger: { trigger: '.ft-body', start: 'top 90%', once: true } });
+}
+
+/* ── COUNTDOWN ───────────────────────────────────────── */
+const WED = new Date('2026-08-01T18:30:00');
+let prevS = '';
+function pad(n) { return String(n).padStart(2,'0'); }
+function countdown() {
+  const d = WED - Date.now();
+  if (d <= 0) return;
+  const days = Math.floor(d / 86400000);
+  const hrs  = Math.floor((d % 86400000) / 3600000);
+  const mins = Math.floor((d % 3600000)  / 60000);
+  const secs = Math.floor((d % 60000)    / 1000);
+  document.getElementById('cd-d').textContent = pad(days);
+  document.getElementById('cd-h').textContent = pad(hrs);
+  document.getElementById('cd-m').textContent = pad(mins);
+  const sEl = document.getElementById('cd-s');
+  const ns  = pad(secs);
+  if (ns !== prevS) {
+    gsap.fromTo(sEl, { y: -6, opacity: .3 }, { y: 0, opacity: 1, duration: .22, ease: 'power2.out' });
+    sEl.textContent = ns;
+    prevS = ns;
+  }
+}
+
+// Arrancar cuenta regresiva inmediatamente (no esperar al loader)
+countdown();
+setInterval(countdown, 1000);
+
+/* ── MUSIC ───────────────────────────────────────────── */
+const aud = document.getElementById('bgMusic');
+const mBtn = document.getElementById('musicBtn');
+let playing = false;
+
+function startMusic() {
+  if (playing) return;
+  aud.play().then(() => { playing = true; mBtn.classList.add('on'); }).catch(() => {});
+}
+function toggleMusic() {
+  if (playing) { aud.pause(); mBtn.classList.remove('on'); playing = false; }
+  else startMusic();
+}
+aud.play().then(() => { playing = true; mBtn.classList.add('on'); }).catch(() => {
+  const onFirstInteraction = () => startMusic();
+  document.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('click', onFirstInteraction, { once: true });
+});
+
+/* ── SOBRE INTERACTIVO (LLUVIA DE SOBRES) ────────────── */
+gsap.fromTo('.gifts-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.1,scrollTrigger:{trigger:'.gifts-head',start:'top 80%'}});
+(function(){
+  var btn = document.querySelector('.env-interactive');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var isOpen = btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  btn.addEventListener('touchstart', function(e){
+    e.preventDefault();
+    var isOpen = btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }, {passive:false});
+})();
+
+/* ── RSVP · PANEL INTEGRATION (patrón estándar) ──────── */
+(function(){
+  const PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
+  const RSVP_URL  = 'https://boda-faustino-y-sandra.vercel.app';
+  const DEADLINE  = new Date(2026, 6, 12, 23, 59, 59, 999);
+  const frozen    = Date.now() > DEADLINE.getTime();
+  const params    = new URLSearchParams(location.search);
+  const urlPara   = (params.get('para') || '').trim();
+  const rawP      = parseInt(params.get('pases') || '1', 10);
+  let pasesAsignados = (isNaN(rawP) || rawP < 1 || rawP > 20) ? 1 : rawP;
+
+  let rsvpChoice = null;
+  let savedNames = [];
+  const noteEl   = document.getElementById('rsvp-pases-note');
+  const dispEl   = document.getElementById('rsvp-pases-display');
+  const numEl    = document.getElementById('rsvp-pases-num');
+  const fieldsEl = document.getElementById('rsvp-fields');
+  const btnYes   = document.getElementById('btnYes');
+  const btnNo    = document.getElementById('btnNo');
+  const btnConf  = document.getElementById('rsvpConfirmBtn');
+  const btnText  = document.getElementById('rsvp-btn-text');
+  const feedEl   = document.getElementById('rsvp-feedback');
+  if(!btnConf || !btnYes) return;
+
+  if(urlPara){
+    noteEl.textContent = 'Esta invitación es para ' + urlPara;
+    noteEl.style.display = 'block';
+    dispEl.style.display = 'flex';
+    btnYes.disabled = true;
+    btnNo.disabled  = true;
+  } else {
+    numEl.textContent = pasesAsignados;
+  }
+
+  function renderFields(n){
+    fieldsEl.innerHTML = '';
+    for(let i=0;i<n;i++){
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.className = 'rsvp-input';
+      inp.placeholder = n === 1 ? 'Tu nombre completo' : 'Invitado ' + (i+1);
+      inp.autocomplete = 'off';
+      inp.maxLength = 60;
+      inp.value = savedNames[i] || '';
+      ((idx) => inp.addEventListener('input', function(){ savedNames[idx] = this.value; }))(i);
+      fieldsEl.appendChild(inp);
+    }
+  }
+
+  function selectRsvp(choice){
+    rsvpChoice = choice;
+    if(choice === 'yes'){
+      btnYes.className = 'rsvp-toggle-btn rsvp-toggle-selected-yes';
+      btnNo.className  = 'rsvp-toggle-btn';
+      renderFields(pasesAsignados);
+      fieldsEl.style.display = 'flex';
+    } else {
+      btnYes.className = 'rsvp-toggle-btn';
+      btnNo.className  = 'rsvp-toggle-btn rsvp-toggle-selected-no';
+      fieldsEl.style.display = 'none';
+      fieldsEl.innerHTML = '';
+    }
+  }
+
+  btnYes.addEventListener('click', () => selectRsvp('yes'));
+  btnNo.addEventListener('click',  () => selectRsvp('no'));
+
+  if(urlPara){
+    fetch(PANEL_API + '?nombre=' + encodeURIComponent(urlPara) + '&url_boda=' + encodeURIComponent(RSVP_URL))
+      .then(r => r.json())
+      .then(resp => {
+        const d = resp.invitado;
+        if(d && typeof d.pases === 'number' && d.pases > 0 && d.pases <= 20){
+          pasesAsignados = d.pases;
+        }
+        numEl.textContent = pasesAsignados;
+        btnYes.disabled = false;
+        btnNo.disabled  = false;
+        if(d && (d.estado === 'confirmado' || d.estado === 'declino')){
+          if(d.nombres_confirmados && d.nombres_confirmados.length){
+            savedNames = d.nombres_confirmados.slice();
+          }
+          selectRsvp(d.estado === 'confirmado' ? 'yes' : 'no');
+          btnText.textContent = 'Actualizar respuesta';
+          feedEl.textContent = d.estado === 'confirmado'
+            ? '¡Ya tienes confirmada tu asistencia! Puedes actualizar tu respuesta.'
+            : 'Ya tienes registrado que no podrás asistir. Puedes cambiar tu respuesta.';
+        }
+      })
+      .catch(() => {
+        numEl.textContent = pasesAsignados;
+        btnYes.disabled = false;
+        btnNo.disabled  = false;
+      });
+  }
+
+  if(frozen){
+    btnYes.disabled = true;
+    btnNo.disabled  = true;
+    btnConf.disabled = true;
+    btnText.textContent = 'Fecha límite alcanzada';
+    feedEl.textContent = 'La fecha para confirmar asistencia ha pasado.';
+  }
+
+  btnConf.addEventListener('click', () => {
+    if(frozen) return;
+    if(!rsvpChoice){
+      feedEl.style.color = '#9a4a3a';
+      feedEl.textContent = 'Por favor selecciona si asistirás o no.';
+      return;
+    }
+    let nombres = [];
+    if(rsvpChoice === 'yes'){
+      const inputs = fieldsEl.querySelectorAll('.rsvp-input');
+      for(let i=0;i<inputs.length;i++){
+        const v = inputs[i].value.trim();
+        if(v) nombres.push(v);
+      }
+      if(nombres.length === 0){
+        feedEl.style.color = '#9a4a3a';
+        feedEl.textContent = 'Por favor escribe al menos un nombre.';
+        return;
+      }
+    }
+    btnText.textContent = 'Enviando…';
+    btnConf.disabled = true;
+    feedEl.textContent = ''; feedEl.style.color = '';
+    fetch(PANEL_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: urlPara || 'Invitado',
+        url_boda: RSVP_URL,
+        estado: rsvpChoice === 'yes' ? 'confirmado' : 'declino',
+        pases_confirmados: rsvpChoice === 'yes' ? nombres.length : 0,
+        nombres_confirmados: nombres
+      })
+    })
+    .then(r => r.json())
+    .then(() => {
+      btnText.textContent = 'Actualizar respuesta';
+      btnConf.disabled = false;
+      feedEl.style.color = 'var(--peach)';
+      feedEl.textContent = rsvpChoice === 'yes'
+        ? '¡Tu asistencia ha sido confirmada! Nos vemos pronto.'
+        : 'Hemos registrado que no podrás asistir. ¡Gracias por avisarnos!';
+    })
+    .catch(() => {
+      btnText.textContent = 'Confirmar asistencia';
+      btnConf.disabled = false;
+      feedEl.style.color = '#9a4a3a';
+      feedEl.textContent = 'Error de conexión. Intenta de nuevo.';
+    });
+  });
+})();
+
+/* ── INYECTAR ONDAS A SECCIONES ──────────────────────── */
+function addSectionWaves() {
+  const targets = ['calendar','itinerary','gifts','album','dresscode','family','gallery','rsvp'];
+  const footer  = document.getElementById('footer');
+  const els = targets.map(id => document.getElementById(id)).filter(Boolean);
+  if (footer) els.push(footer);
+
+  const wavePaths = {
+    top: `
+      <path d="M0,19 Q110,6 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(201,169,110,.32)" stroke-width="1"/>
+      <path d="M0,26 Q110,13 220,26 T440,26 T660,26 T880,26 T1100,26 T1320,26 T1540,26 T1760,26" fill="none" stroke="rgba(201,169,110,.16)" stroke-width=".8"/>
+    `,
+    bot: `
+      <path d="M0,19 Q110,32 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(201,169,110,.32)" stroke-width="1"/>
+      <path d="M0,12 Q110,25 220,12 T440,12 T660,12 T880,12 T1100,12 T1320,12 T1540,12 T1760,12" fill="none" stroke="rgba(201,169,110,.16)" stroke-width=".8"/>
+    `
+  };
+
+  els.forEach(sec => {
+    ['top','bot'].forEach(pos => {
+      const w = document.createElement('div');
+      w.className = `sec-wave sec-wave-${pos}`;
+      w.setAttribute('aria-hidden','true');
+      w.innerHTML = `<svg viewBox="0 0 1760 38" preserveAspectRatio="none">${wavePaths[pos]}</svg>`;
+      sec.insertBefore(w, sec.firstChild);
+    });
+  });
+}
+
+/* ── MEDALLONES EN SECCIONES ─────────────────────────── */
+function addSectionMedals() {
+  const map = {
+    'calendar'  : '✧',
+    'itinerary' : '❃',
+    'gifts'     : '✦',
+    'dresscode' : '❁',
+    'family'    : '❖',
+    'rsvp'      : '✹'
+  };
+  Object.keys(map).forEach(id => {
+    const sec = document.getElementById(id);
+    if (!sec) return;
+    const lbl = sec.querySelector('.lbl');
+    if (!lbl) return;
+    const m = document.createElement('div');
+    m.className = 'sec-medal';
+    m.innerHTML = `<span>${map[id]}</span>`;
+    gsap.set(m, { opacity: 0, scale: .7 });
+    sec.insertBefore(m, lbl);
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 86%', once: true,
+      onEnter() { gsap.to(m, { opacity: 1, scale: 1, duration: .9, ease: 'back.out(1.6)' }); }
+    });
+  });
+}
+
+/* ── CORNER ORNAMENTS ────────────────────────────────── */
+function addCorners() {
+  document.querySelectorAll('section,footer').forEach(el => {
+    el.style.position = 'relative';
+    ['tl','tr','bl','br'].forEach(p => {
+      const c = document.createElement('div');
+      c.className = `corner ${p}`;
+      el.appendChild(c);
+    });
+    ScrollTrigger.create({
+      trigger: el, start: 'top 90%', once: true,
+      onEnter() {
+        el.querySelectorAll('.corner').forEach((c, i) =>
+          setTimeout(() => c.classList.add('on'), i * 110)
+        );
+      }
+    });
+  });
+}
+
+/* ── WIND ORNAMENTS ──────────────────────────────────── */
+function addWindOrns() {
+  document.querySelectorAll('section').forEach(sec => {
+    const lbl = sec.querySelector('.lbl');
+    if (!lbl) return;
+    const orn = document.createElement('div');
+    orn.className = 'wind-orn';
+    orn.textContent = '✦';
+    gsap.set(orn, { opacity: 0 });
+    sec.insertBefore(orn, lbl);
+    ScrollTrigger.create({
+      trigger: sec, start: 'top 88%', once: true,
+      onEnter() { gsap.to(orn, { opacity: 1, duration: 1.2, ease: 'power2.out' }); }
+    });
+  });
+}
+
+/* ── SECTION AURAS ───────────────────────────────────── */
+function addAuras() {
+  document.querySelectorAll('section').forEach(el => {
+    const aura = document.createElement('div');
+    aura.className = 'sec-aura';
+    el.insertBefore(aura, el.firstChild);
+    ScrollTrigger.create({
+      trigger: el, start: 'top 78%', once: true,
+      onEnter() { aura.classList.add('on'); }
+    });
+  });
+}
+
+/* ── VIENTO AMBIENTAL ────────────────────────────────── */
+function ambientWind() {
+  const layer = document.createElement('div');
+  Object.assign(layer.style, {
+    position:'fixed', inset:'0', pointerEvents:'none', zIndex:'2', overflow:'hidden'
+  });
+  document.body.appendChild(layer);
+
+  function spawn() {
+    const el  = document.createElement('div');
+    const len = 55 + Math.random() * 200;
+    const h   = 0.5 + Math.random() * 1.5;
+    const op  = 0.04 + Math.random() * 0.08;
+    const top = Math.random() * 100;
+    const dur = 7 + Math.random() * 10;
+    const yOf = (Math.random() - 0.5) * 40;
+    const ang = (Math.random() - 0.5) * 6;
+    Object.assign(el.style, {
+      position:'absolute', width:len+'px', height:h+'px', borderRadius:'100px',
+      background:`linear-gradient(to right,transparent,rgba(201,169,110,${op}),transparent)`,
+      top:top+'%', left:-(len+20)+'px', transform:`rotate(${ang}deg)`, willChange:'transform'
+    });
+    layer.appendChild(el);
+    gsap.to(el, {
+      x: window.innerWidth + len + 50, y: yOf, duration: dur, ease: 'none',
+      delay: Math.random() * 1.5,
+      onComplete() { el.remove(); spawn(); }
+    });
+  }
+  for (let i = 0; i < 8; i++) setTimeout(spawn, i * 900);
+}
+
+/* ── GALLERY — RUEDA 3D con inercia ──────────────────── */
+(function initWheel(){
+  var cards  = document.querySelectorAll('.wheel-card');
+  var ring   = document.getElementById('wheel-ring');
+  if (!ring || cards.length === 0) return;
+
+  var n       = cards.length;
+  var radius  = 320;
+  var rot     = 0;
+  var vel     = 0;
+  var isDrag  = false;
+  var startX  = 0;
+  var startRot = 0;
+  var lastX   = 0;
+  var rafId   = null;
+
+  cards.forEach(function(card, i){
+    card.style.transform = 'rotateY(' + (360 / n * i) + 'deg) translateZ(' + radius + 'px)';
+  });
+
+  function setRot(r){
+    rot = r;
+    gsap.set(ring, { rotateY: rot });
+  }
+
+  function inertia(){
+    if (Math.abs(vel) < 0.05){ vel = 0; return; }
+    vel *= 0.94;
+    setRot(rot + vel);
+    rafId = requestAnimationFrame(inertia);
+  }
+
+  ring.addEventListener('mousedown', function(e){
+    cancelAnimationFrame(rafId);
+    isDrag = true; vel = 0;
+    startX = e.clientX; startRot = rot; lastX = e.clientX;
+    ring.classList.add('dragging');
+  });
+  window.addEventListener('mousemove', function(e){
+    if (!isDrag) return;
+    var dx = e.clientX - startX;
+    vel = (e.clientX - lastX) * 0.5;
+    lastX = e.clientX;
+    setRot(startRot + dx * 0.45);
+  });
+  window.addEventListener('mouseup', function(){
+    if (!isDrag) return;
+    isDrag = false;
+    ring.classList.remove('dragging');
+    rafId = requestAnimationFrame(inertia);
+  });
+
+  ring.addEventListener('touchstart', function(e){
+    cancelAnimationFrame(rafId);
+    isDrag = true; vel = 0;
+    startX = e.touches[0].clientX; startRot = rot; lastX = startX;
+  }, { passive: true });
+  window.addEventListener('touchmove', function(e){
+    if (!isDrag) return;
+    var dx = e.touches[0].clientX - startX;
+    vel = (e.touches[0].clientX - lastX) * 0.5;
+    lastX = e.touches[0].clientX;
+    setRot(startRot + dx * 0.45);
+  }, { passive: true });
+  window.addEventListener('touchend', function(){
+    if (!isDrag) return;
+    isDrag = false;
+    rafId = requestAnimationFrame(inertia);
+  });
+
+  gsap.fromTo('.wheel-scene',{opacity:0,y:30},{opacity:1,y:0,duration:1.1,ease:'power3.out',
+    scrollTrigger:{trigger:'.wheel-scene', start:'top 82%'}});
+
+  gsap.fromTo('#gallery > .lbl, #gallery > .ttl, #gallery > .gline, #gallery > .gal-sub',
+    {opacity:0, y:18},{opacity:1, y:0, duration:1, stagger:.1,
+     scrollTrigger:{trigger:'#gallery', start:'top 80%'}});
+
+  // Lightbox
+  var lb      = document.getElementById('lightbox');
+  var lbImg   = document.getElementById('lightbox-img');
+  var lbClose = document.getElementById('lightbox-close');
+  if(lb && lbImg){
+    function openLb(src, alt){
+      lbImg.src = src; lbImg.alt = alt || '';
+      lb.setAttribute('aria-hidden','false');
+      lb.classList.add('is-open');
+      gsap.fromTo(lb,   {opacity:0}, {opacity:1, duration:.35, ease:'power2.out'});
+      gsap.fromTo(lbImg,{opacity:0, scale:.88},{opacity:1, scale:1, duration:.45, ease:'back.out(1.4)'});
+    }
+    function closeLb(){
+      gsap.to(lb,   {opacity:0, duration:.3, ease:'power2.in',
+        onComplete:function(){ lb.classList.remove('is-open'); lb.setAttribute('aria-hidden','true'); lbImg.src=''; }});
+      gsap.to(lbImg,{opacity:0, scale:.88, duration:.28, ease:'power2.in'});
+    }
+    cards.forEach(function(card){
+      card.addEventListener('click', function(){
+        var img = card.querySelector('img');
+        if(img) openLb(img.src, img.alt);
+      });
+    });
+    if(lbClose) lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.classList.contains('is-open')) closeLb(); });
+  }
+})();
+
+/* foto-band parallax zoom */
+document.querySelectorAll('.foto-band').forEach(function(band){
+  ScrollTrigger.create({
+    trigger:band,start:'top 90%',end:'bottom 10%',
+    onEnter:function(){band.classList.add('is-visible')},
+    onLeaveBack:function(){band.classList.remove('is-visible')}
+  });
+});
+</script>
+</body>
+</html>
