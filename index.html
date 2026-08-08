@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#FEFBF5">
-  <title>Sandra &amp; Faustino · 1 · Agosto · 2026</title>
-  <meta name="description" content="Invitación de boda de Sandra Iveth Morán Patiño y Faustino García Trillo · 1 de agosto de 2026 · Cdad. Nezahualcóyotl">
+  <meta name="theme-color" content="#f6f4ee">
+  <title>Boda Leonardo &amp; Jovanna | 19 de Septiembre 2026</title>
+  <meta name="description" content="Con amor y alegría, Leonardo Alcántara y Jovanna Ballinas los invitan a su boda el 19 de septiembre de 2026 en Acatzingo de Hidalgo, Puebla.">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://boda-faustino-y-sandra.vercel.app/">
-  <meta property="og:title"       content="Sandra &amp; Faustino · Boda · 1 Agosto 2026">
-  <meta property="og:description" content="Nos casamos el 1 de agosto de 2026 en Cdad. Nezahualcóyotl. ¡Estás invitado!">
-  <meta property="og:image"       content="https://boda-faustino-y-sandra.vercel.app/sobre.jpg">
+  <meta property="og:url"         content="https://boda-leonardo-y-jovanna.vercel.app/">
+  <meta property="og:title"       content="Boda Leonardo &amp; Jovanna · 19 Septiembre 2026">
+  <meta property="og:description" content="Con amor y alegría, Leonardo Alcántara y Jovanna Ballinas los invitan a su boda el 19 de septiembre de 2026 en Acatzingo de Hidalgo, Puebla.">
+  <meta property="og:image"       content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
   <meta name="twitter:card"       content="summary_large_image">
-  <meta name="twitter:image"      content="https://boda-faustino-y-sandra.vercel.app/sobre.jpg">
+  <meta name="twitter:image"      content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
@@ -27,13 +27,13 @@
 
 /* ── TOKENS ───────────────────────────────────────────── */
 :root {
-  --peach:        #C9A96E;
+  --peach:        #edbe7e;
   --peach-lt:     #D4C5B2;
-  --peach-accent: #7D361D;
-  --peach-dim:    rgba(201,169,110,.14);
+  --peach-accent: #675032;
+  --peach-dim:    rgba(237,190,126,.14);
   --cream:        #1A1A1A;
-  --ink:          #FEFBF5;
-  --ink2:         #FBF6EE;
+  --ink:          #f6f4ee;
+  --ink2:         #f4e8c8;
   --ink3:         #F5EDE1;
   --spring:       cubic-bezier(.34,1.56,.64,1);
   --smooth:       cubic-bezier(.25,.46,.45,.94);
@@ -103,7 +103,7 @@ section{padding:64px 22px}
 #prog{
   position:fixed;top:0;left:0;height:2px;width:0%;z-index:1000;
   background:linear-gradient(to right,var(--peach),var(--peach-lt));
-  box-shadow:0 0 10px rgba(201,169,110,.5);
+  box-shadow:0 0 10px rgba(237,190,126,.5);
   transition:width .08s linear;pointer-events:none;
 }
 
@@ -131,7 +131,7 @@ section{padding:64px 22px}
   transform:translateX(-50%) translateY(16px);
   background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border:1px solid var(--peach);color:var(--peach);
-  box-shadow:0 8px 30px rgba(201,169,110,.18);
+  box-shadow:0 8px 30px rgba(237,190,126,.18);
   padding:11px 22px;border-radius:40px;
   font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;
   opacity:0;transition:all .4s var(--spring);
@@ -154,14 +154,14 @@ section{padding:64px 22px}
   position:relative;overflow:hidden;
   transition:background .25s, transform .2s var(--spring);
 }
-.btn:active{transform:scale(.96);background:rgba(201,169,110,.08)}
+.btn:active{transform:scale(.96);background:rgba(237,190,126,.08)}
 .btn+.btn{margin-top:10px}
 .btn-olive{
   background:var(--peach);color:#fff;font-weight:700;
-  box-shadow:0 4px 22px rgba(201,169,110,.25);
+  box-shadow:0 4px 22px rgba(237,190,126,.25);
   transition:all .3s var(--spring);
 }
-.btn-olive:active{background:rgba(201,169,110,.85);transform:scale(.96)}
+.btn-olive:active{background:rgba(237,190,126,.85);transform:scale(.96)}
 
 /* ── HERO ─────────────────────────────────────────────── */
 #hero{
@@ -283,8 +283,8 @@ section{padding:64px 22px}
 .fch-honor{
   margin-top:28px;
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(17px,4.5vw,21px);font-weight:400;font-style:italic;
-  color:#4a3828;line-height:1.6;
+  font-size:clamp(15px,4vw,18px);font-weight:400;font-style:italic;
+  color:#4a3828;line-height:1.7;
   letter-spacing:.3px;
 }
 .fch-date{
@@ -298,9 +298,9 @@ section{padding:64px 22px}
 #countdown{
   position:relative;overflow:hidden;padding:0;
   background:
-    radial-gradient(ellipse 80% 55% at 12% 25%, rgba(201,169,110,.18) 0%, transparent 52%),
-    radial-gradient(ellipse 60% 70% at 88% 78%, rgba(125,54,29,.14) 0%, transparent 48%),
-    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(201,169,110,.22) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 55% at 12% 25%, rgba(237,190,126,.18) 0%, transparent 52%),
+    radial-gradient(ellipse 60% 70% at 88% 78%, rgba(103,80,50,.14) 0%, transparent 48%),
+    radial-gradient(ellipse 100% 50% at 50% 100%, rgba(237,190,126,.22) 0%, transparent 50%),
     linear-gradient(170deg, #2c1a10 0%, #3d2b1e 30%, #2c1a10 65%, #1a1008 100%);
   -webkit-mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
   mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
@@ -309,8 +309,8 @@ section{padding:64px 22px}
   content:'';position:absolute;inset:0;pointer-events:none;
   background-image:repeating-linear-gradient(
     45deg,
-    rgba(201,169,110,.03) 0px,
-    rgba(201,169,110,.03) 1px,
+    rgba(237,190,126,.03) 0px,
+    rgba(237,190,126,.03) 1px,
     transparent 1px,
     transparent 30px
   );
@@ -320,7 +320,7 @@ section{padding:64px 22px}
   transform:translate(-50%,-50%);
   width:320px;height:320px;
   border-radius:50%;
-  background:radial-gradient(circle, rgba(201,169,110,.06) 0%, transparent 70%);
+  background:radial-gradient(circle, rgba(237,190,126,.06) 0%, transparent 70%);
   pointer-events:none;
 }
 .cd-content{
@@ -377,16 +377,16 @@ section{padding:64px 22px}
 .loc-photo{
   width:210px;height:210px;border-radius:50%;
   margin:0 auto 22px;overflow:hidden;
-  background:rgba(201,169,110,.06);
-  border:2px solid rgba(201,169,110,.14);
+  background:rgba(237,190,126,.06);
+  border:2px solid rgba(237,190,126,.14);
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 36px rgba(125,54,29,.1);
+  box-shadow:0 10px 36px rgba(103,80,50,.1);
 }
 .loc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
 .loc-ph-txt{
   font-family:'Lato',sans-serif;font-size:9px;
   letter-spacing:2px;text-transform:uppercase;
-  color:rgba(125,54,29,.3);
+  color:rgba(103,80,50,.3);
 }
 .loc-time{
   font-family:'Cormorant Garamond',serif;
@@ -400,18 +400,18 @@ section{padding:64px 22px}
 }
 .loc-btn{
   display:inline-block;padding:11px 30px;border-radius:30px;
-  background:rgba(201,169,110,.12);color:var(--cream);
+  background:rgba(237,190,126,.12);color:var(--cream);
   font-family:'Lato',sans-serif;font-size:11px;
   letter-spacing:2.5px;text-transform:uppercase;font-weight:600;
-  text-decoration:none;border:1px solid rgba(201,169,110,.25);
+  text-decoration:none;border:1px solid rgba(237,190,126,.25);
   transition:background .3s,border-color .3s;
 }
-.loc-btn:hover{background:rgba(201,169,110,.22);border-color:rgba(201,169,110,.45);}
+.loc-btn:hover{background:rgba(237,190,126,.22);border-color:rgba(237,190,126,.45);}
 
 /* ── CALENDAR ─────────────────────────────────────────── */
 #calendar{
   background:var(--ink3);padding:54px 22px;text-align:center;
-  border-top:1px solid rgba(201,169,110,.09);border-bottom:1px solid rgba(201,169,110,.09);
+  border-top:1px solid rgba(237,190,126,.09);border-bottom:1px solid rgba(237,190,126,.09);
 }
 .cal-sub{font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:14px 0 28px;font-weight:500;}
 
@@ -427,7 +427,7 @@ section{padding:64px 22px}
 }
 .it-line::before{
   content:'';position:absolute;top:0;bottom:0;left:50%;
-  width:2px;background:rgba(125,54,29,.2);transform:translateX(-50%);
+  width:2px;background:rgba(103,80,50,.2);transform:translateX(-50%);
 }
 .it-step{
   position:relative;width:100%;display:flex;align-items:center;
@@ -438,32 +438,32 @@ section{padding:64px 22px}
 .it-right{text-align:left;padding-left:40px;}
 .it-circle{
   width:54px;height:54px;border-radius:50%;flex-shrink:0;
-  background:rgba(125,54,29,.1);
-  border:1px solid rgba(125,54,29,.2);
+  background:rgba(103,80,50,.1);
+  border:1px solid rgba(103,80,50,.2);
   display:flex;align-items:center;justify-content:center;
   position:relative;z-index:2;
 }
 .it-circle svg{width:28px;height:28px;}
 .it-left::after{
   content:'';position:absolute;right:-8px;top:50%;
-  width:28px;height:1px;background:rgba(125,54,29,.25);
+  width:28px;height:1px;background:rgba(103,80,50,.25);
   transform:translateY(-50%);
 }
 .it-left::before{
   content:'';position:absolute;right:-10px;top:50%;
   width:5px;height:5px;border-radius:50%;
-  background:rgba(125,54,29,.35);
+  background:rgba(103,80,50,.35);
   transform:translate(0,-50%);z-index:1;
 }
 .it-right::before{
   content:'';position:absolute;left:-8px;top:50%;
-  width:28px;height:1px;background:rgba(125,54,29,.25);
+  width:28px;height:1px;background:rgba(103,80,50,.25);
   transform:translateY(-50%);
 }
 .it-right::after{
   content:'';position:absolute;left:-10px;top:50%;
   width:5px;height:5px;border-radius:50%;
-  background:rgba(125,54,29,.35);
+  background:rgba(103,80,50,.35);
   transform:translate(0,-50%);z-index:1;
 }
 .it-left,.it-right{position:relative;}
@@ -473,7 +473,7 @@ section{padding:64px 22px}
 }
 .it-time{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:17px;font-weight:400;color:rgba(125,54,29,.7);
+  font-size:17px;font-weight:400;color:rgba(103,80,50,.7);
 }
 
 /* ── DRESSCODE ────────────────────────────────────────── */
@@ -529,7 +529,7 @@ section{padding:64px 22px}
 }
 .foto-band .foto-band-overlay{
   position:absolute;inset:0;
-  background:rgba(125,54,29,.12);
+  background:rgba(103,80,50,.12);
   mix-blend-mode:multiply;
   pointer-events:none;
 }
@@ -569,12 +569,12 @@ section{padding:64px 22px}
 }
 #family > *:not(.fam-bg){position:relative;z-index:2;}
 .fam-card{
-  text-align:center;border:1px solid rgba(201,169,110,.2);border-radius:14px;
+  text-align:center;border:1px solid rgba(237,190,126,.2);border-radius:14px;
   padding:28px 28px;background:rgba(255,255,255,.88);max-width:360px;margin:0 auto;
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   transition:transform .45s cubic-bezier(.34,1.56,.64,1),border-color .3s;
 }
-.fam-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.3)}
+.fam-card:hover{transform:translateY(-4px);border-color:rgba(237,190,126,.3)}
 .fam-ttl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--peach-accent);text-align:center;margin:0 0 6px;}
 .fam-nms{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);line-height:1.5;font-weight:500;margin:0;display:flex;flex-direction:column;align-items:center;}
 .fam-sep{display:block;font-family:'Great Vibes',cursive;font-size:26px;color:var(--peach);line-height:1;margin:6px 0;}
@@ -612,7 +612,7 @@ section{padding:64px 22px}
   margin-left:-95px;margin-top:-132px;
   border-radius:16px;
   overflow:hidden;
-  border:1.5px solid rgba(201,169,110,.45);
+  border:1.5px solid rgba(237,190,126,.45);
   box-shadow:0 12px 40px rgba(0,0,0,.22);
   user-select:none;
   -webkit-user-select:none;
@@ -626,7 +626,7 @@ section{padding:64px 22px}
   filter:saturate(.95) contrast(1.03);
 }
 .wheel-card:hover{
-  box-shadow:0 14px 50px rgba(201,169,110,.3),0 4px 12px rgba(0,0,0,.15);
+  box-shadow:0 14px 50px rgba(237,190,126,.3),0 4px 12px rgba(0,0,0,.15);
 }
 .gal-hint{
   font-family:'Cormorant Garamond',serif;
@@ -642,24 +642,24 @@ section{padding:64px 22px}
 /* ── LIGHTBOX ─────────────────────────────────────────── */
 #lightbox{position:fixed;inset:0;z-index:9990;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);background:rgba(8,12,24,.84);backdrop-filter:blur(18px) saturate(1.15);-webkit-backdrop-filter:blur(18px) saturate(1.15);opacity:0;cursor:zoom-out;}
 #lightbox.is-open{display:flex;}
-#lightbox-img{max-width:min(94vw,1400px);max-height:min(86vh,1000px);width:auto;height:auto;object-fit:contain;border-radius:14px;box-shadow:0 28px 90px rgba(0,0,0,.6),0 0 0 1px rgba(201,169,110,.2);opacity:0;transform:scale(.88);}
-#lightbox-close{position:absolute;top:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);width:48px;height:48px;border:1px solid rgba(201,169,110,.45);background:rgba(10,10,5,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:50%;color:#fff;font-size:26px;line-height:1;font-family:'Lato',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .3s;}
-#lightbox-close:hover{background:rgba(30,20,5,.8);border-color:rgba(201,169,110,.7);transform:scale(1.08)}
+#lightbox-img{max-width:min(94vw,1400px);max-height:min(86vh,1000px);width:auto;height:auto;object-fit:contain;border-radius:14px;box-shadow:0 28px 90px rgba(0,0,0,.6),0 0 0 1px rgba(237,190,126,.2);opacity:0;transform:scale(.88);}
+#lightbox-close{position:absolute;top:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);width:48px;height:48px;border:1px solid rgba(237,190,126,.45);background:rgba(10,10,5,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:50%;color:#fff;font-size:26px;line-height:1;font-family:'Lato',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s,transform .3s;}
+#lightbox-close:hover{background:rgba(30,20,5,.8);border-color:rgba(237,190,126,.7);transform:scale(1.08)}
 
 /* ── GIFTS / SOBRE INTERACTIVO ───────────────────────── */
 .gifts-head{text-align:center;margin-bottom:0;max-width:640px;margin-left:auto;margin-right:auto}
-.gifts-sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:rgba(125,54,29,.75);line-height:1.7;margin-top:12px;font-style:italic;}
+.gifts-sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:rgba(103,80,50,.75);line-height:1.7;margin-top:12px;font-style:italic;}
 .env-interactive{display:flex;flex-direction:column;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;}
 .env-body{perspective:700px;position:relative;width:260px;height:200px;}
 .env-body svg.env-svg{width:100%;height:100%;}
 .env-flap-wrap{position:absolute;top:46px;left:18px;width:224px;height:86px;transform-origin:top center;transform-style:preserve-3d;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .65s cubic-bezier(.4,0,.2,1);pointer-events:none;z-index:2;}
 .env-interactive.open .env-flap-wrap{transform:rotateX(-175deg);}
 .env-open-content{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s .3s ease,opacity .4s .38s ease;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 20px;text-align:center;pointer-events:none;}
-.env-interactive.open .env-open-content{max-height:240px;opacity:1;pointer-events:auto;}
-.env-mailbox-icon{width:40px;height:40px;color:#C9A96E;margin-top:10px;}
+.env-interactive.open .env-open-content{max-height:300px;opacity:1;pointer-events:auto;}
+.env-mailbox-icon{width:40px;height:40px;color:#edbe7e;margin-top:10px;}
 .env-title{font-family:'Great Vibes',cursive;font-size:34px;color:var(--cream);letter-spacing:.5px;line-height:1.2;margin-top:4px;}
-.env-desc{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(125,54,29,.75);line-height:1.75;}
-.env-tap-hint{font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#7d361d;opacity:.65;margin-top:6px;transition:opacity .3s;}
+.env-desc{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(103,80,50,.75);line-height:1.75;}
+.env-tap-hint{font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#675032;opacity:.65;margin-top:6px;transition:opacity .3s;}
 .env-interactive.open~.env-tap-hint{opacity:0;pointer-events:none;}
 @keyframes env-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 .env-body{animation:env-breathe 3.6s ease-in-out infinite;}
@@ -677,16 +677,16 @@ section{padding:64px 22px}
 .rsvp-form-wrap{max-width:340px;margin:0 auto;text-align:center;padding:0 4px}
 .rsvp-submit-btn:disabled{opacity:.55;cursor:not-allowed}
 #rsvp-pases-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--peach);margin:0 auto 16px;line-height:1.5;text-align:center}
-.rsvp-pases-display{max-width:300px;margin:0 auto 18px;padding:14px 26px;background:rgba(201,169,110,.10);border:1px solid rgba(201,169,110,.35);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.rsvp-pases-display{max-width:300px;margin:0 auto 18px;padding:14px 26px;background:rgba(237,190,126,.10);border:1px solid rgba(237,190,126,.35);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .rsvp-pases-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream)}
 .rsvp-pases-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:32px;color:var(--peach);line-height:1}
 .rsvp-toggle{display:flex;gap:10px;max-width:340px;margin:0 auto 16px}
-.rsvp-toggle-btn{flex:1;padding:13px 8px;border:1.5px solid rgba(201,169,110,.4);background:#fff;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:600;color:var(--cream);border-radius:8px;transition:all .25s}
+.rsvp-toggle-btn{flex:1;padding:13px 8px;border:1.5px solid rgba(237,190,126,.4);background:#fff;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:600;color:var(--cream);border-radius:8px;transition:all .25s}
 .rsvp-toggle-btn:disabled{opacity:.45;cursor:not-allowed}
-.rsvp-toggle-btn.rsvp-toggle-selected-yes{background:rgba(201,169,110,.18);border-color:var(--peach);color:var(--cream)}
+.rsvp-toggle-btn.rsvp-toggle-selected-yes{background:rgba(237,190,126,.18);border-color:var(--peach);color:var(--cream)}
 .rsvp-toggle-btn.rsvp-toggle-selected-no{background:rgba(26,26,26,.06);border-color:var(--cream);color:var(--cream)}
 .rsvp-fields{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto 16px}
-.rsvp-input{width:100%;padding:13px 16px;border:1.5px solid rgba(201,169,110,.32);border-radius:8px;background:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);outline:none;transition:border-color .3s;-webkit-appearance:none;min-height:48px}
+.rsvp-input{width:100%;padding:13px 16px;border:1.5px solid rgba(237,190,126,.32);border-radius:8px;background:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);outline:none;transition:border-color .3s;-webkit-appearance:none;min-height:48px}
 .rsvp-input:focus{border-color:var(--peach)}
 .rsvp-input::placeholder{color:rgba(26,26,26,.4);font-style:italic}
 #rsvp-feedback{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;font-weight:600;text-align:center;margin:14px auto 0;max-width:340px;line-height:1.5;min-height:18px;color:var(--peach)}
@@ -700,11 +700,11 @@ section{padding:64px 22px}
   position:relative;width:100%;
   pointer-events:none;z-index:0;
   overflow:hidden;
-  
+
 }
 .ft-logo img{
   width:100%;height:auto;display:block;
-  
+
 }
 .ft-body{
   padding:0 28px 52px;
@@ -726,12 +726,12 @@ section{padding:64px 22px}
   font-family:'Le Major','Bodoni Moda',serif;
   font-size:clamp(16px,4.5vw,20px);font-weight:400;
   letter-spacing:4px;text-transform:uppercase;
-  color:#C9A96E;margin-bottom:32px;
+  color:#edbe7e;margin-bottom:32px;
 }
 .ft-rings{
   width:120px;height:auto;margin:0 auto 40px;display:block;
 }
-.el-sep{width:44px;height:1px;background:rgba(201,169,110,.18);margin:0 auto 16px}
+.el-sep{width:44px;height:1px;background:rgba(237,190,126,.18);margin:0 auto 16px}
 .el-credit{
   display:inline-flex;align-items:center;gap:8px;
   color:var(--peach);opacity:.55;
@@ -754,8 +754,8 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 /* ── SEC MEDAL ────────────────────────────────────────── */
 .sec-medal{position:relative;width:56px;height:56px;margin:0 auto 18px;}
-.sec-medal::before{content:'';position:absolute;inset:-10px;border:1px dashed rgba(201,169,110,.28);border-radius:50%;animation:secMedalRotate 36s linear infinite;}
-.sec-medal::after{content:'';position:absolute;inset:0;border:1px solid rgba(201,169,110,.32);border-radius:50%;animation:secMedalBreathe 5s ease-in-out infinite;}
+.sec-medal::before{content:'';position:absolute;inset:-10px;border:1px dashed rgba(237,190,126,.28);border-radius:50%;animation:secMedalRotate 36s linear infinite;}
+.sec-medal::after{content:'';position:absolute;inset:0;border:1px solid rgba(237,190,126,.32);border-radius:50%;animation:secMedalBreathe 5s ease-in-out infinite;}
 .sec-medal span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--peach);font-size:16px;}
 @keyframes secMedalRotate{to{transform:rotate(360deg)}}
 @keyframes secMedalBreathe{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.08);opacity:1}}
@@ -766,8 +766,8 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   gap:8px;margin-bottom:10px;font-size:5px;letter-spacing:10px;color:var(--peach);
   pointer-events:none;animation:windOrnPulse 9s ease-in-out infinite;
 }
-.wind-orn::before,.wind-orn::after{content:'';flex:1;max-width:36px;height:1px;background:linear-gradient(to right,transparent,rgba(201,169,110,.55));}
-.wind-orn::after{background:linear-gradient(to left,transparent,rgba(201,169,110,.55))}
+.wind-orn::before,.wind-orn::after{content:'';flex:1;max-width:36px;height:1px;background:linear-gradient(to right,transparent,rgba(237,190,126,.55));}
+.wind-orn::after{background:linear-gradient(to left,transparent,rgba(237,190,126,.55))}
 @keyframes windOrnPulse{0%,100%{opacity:.28;letter-spacing:10px}50%{opacity:.55;letter-spacing:13px}}
 
 /* ── CORNERS ──────────────────────────────────────────── */
@@ -776,10 +776,10 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 .corner.tr{top:12px;right:12px;border-top-width:1px;border-right-width:1px}
 .corner.bl{bottom:12px;left:12px;border-bottom-width:1px;border-left-width:1px}
 .corner.br{bottom:12px;right:12px;border-bottom-width:1px;border-right-width:1px}
-.corner.on{border-color:rgba(201,169,110,.3)}
+.corner.on{border-color:rgba(237,190,126,.3)}
 
 /* ── AURA ─────────────────────────────────────────────── */
-.sec-aura{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 20%,rgba(201,169,110,.042) 0%,transparent 65%);opacity:0;transition:opacity 1.8s ease;}
+.sec-aura{position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 50% 20%,rgba(237,190,126,.042) 0%,transparent 65%);opacity:0;transition:opacity 1.8s ease;}
 .sec-aura.on{opacity:1}
 
 /* ── SHIMMER ──────────────────────────────────────────── */
@@ -809,7 +809,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 <!-- LOADER (SOBRE) -->
 <div id="loader">
-  <img class="sobre-img" src="sobre.jpg" alt="Sobre de invitación Sandra y Faustino">
+  <img class="sobre-img" src="sobre.jpg" alt="Sobre de invitación Leonardo y Jovanna">
   <button class="sobre-btn" id="sobreBtn" aria-label="Abrir invitación">Toca para abrir</button>
   <video class="sobre-video" id="sobreVideo" muted playsinline preload="auto">
     <source src="sobre-video.mp4" type="video/mp4">
@@ -827,7 +827,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 </div>
 
 <audio id="bgMusic" loop preload="none">
-  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-faustino-y-sandra/cancion.mp3" type="audio/mpeg">
+  <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-leonardo-y-jovanna/cancion.mp3" type="audio/mpeg">
 </audio>
 
 <!-- MUSIC BTN -->
@@ -841,11 +841,11 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
     <circle cx="27" cy="27" r="16.5" stroke="#2a2a2a" stroke-width=".5"/>
     <circle cx="27" cy="27" r="14.5" stroke="#1e1e1e" stroke-width=".5"/>
     <circle cx="27" cy="27" r="12.5" stroke="#252525" stroke-width=".5"/>
-    <circle cx="27" cy="27" r="10" fill="#7D361D"/>
+    <circle cx="27" cy="27" r="10" fill="#675032"/>
     <circle cx="27" cy="27" r="9.2" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
-    <text x="27" y="24.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">SANDRA</text>
+    <text x="27" y="24.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">JOVANNA</text>
     <text x="27" y="28" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="2.4" fill="rgba(255,255,255,.5)" letter-spacing=".5">&amp;</text>
-    <text x="27" y="31.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">FAUSTINO</text>
+    <text x="27" y="31.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">LEONARDO</text>
     <circle cx="27" cy="27" r="1.8" fill="#111"/>
     <ellipse cx="19" cy="14" rx="6" ry="3" fill="rgba(255,255,255,.04)" transform="rotate(-30 19 14)"/>
   </svg>
@@ -858,12 +858,12 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 <!-- ═══════════════ 1. HERO ════════════════════════════ -->
 <section id="hero">
   <div class="h-bg" id="heroBg">
-    <img src="hero-novios.jpg" alt="Sandra y Faustino" id="heroPic">
+    <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg" alt="Leonardo y Jovanna" id="heroPic">
   </div>
   <div class="h-ov"></div>
 
   <div class="h-cnt" id="hCnt">
-    
+
   </div>
 
   <div class="h-scroll" id="hScroll">
@@ -878,13 +878,13 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <img class="fch-bg" src="fondo-nosotros.jpg" alt="" loading="eager">
   <div class="fch-content">
     <p class="fch-intro">Nosotros...</p>
-    <p class="fch-n1">Sandra</p>
-    <p class="fch-full">Iveth Morán Patiño</p>
+    <p class="fch-n1">Jovanna</p>
+    <p class="fch-full">Araceli Ballinas Villafán</p>
     <p class="fch-amp">y</p>
-    <p class="fch-n1">Faustino</p>
-    <p class="fch-full">García Trillo</p>
-    <p class="fch-honor">Tenemos el honor<br>de invitarte a celebrar<br>nuestra unión.</p>
-    <p class="fch-date">01.08.26</p>
+    <p class="fch-n1">Leonardo</p>
+    <p class="fch-full">Alcántara Martínez</p>
+    <p class="fch-honor">"Mejores son dos que uno… Y cordón de tres dobleces no se rompe pronto." Eclesiastés 4:9-10, 12 — Que Dios sea siempre el tercer hilo de nuestra historia.</p>
+    <p class="fch-date">19.09.26</p>
   </div>
 </section>
 
@@ -919,13 +919,32 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 <!-- FOTO BAND 1 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda1.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 15%">
+  <img src="banda1.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 15%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Juntos por siempre</div>
 </div>
 
 <!-- ═══════════════ 3. UBICACIONES ═══════════════════ -->
 <section id="location">
+
+  <div class="loc-block">
+    <div class="loc-icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none" stroke="var(--cream)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M32 8 L32 10"/>
+        <path d="M16 24 Q16 12 32 10 Q48 12 48 24 L48 38 Q48 50 32 56 Q16 50 16 38 Z"/>
+        <path d="M24 28 Q24 20 32 18 Q40 20 40 28 L40 36 Q40 44 32 48 Q24 44 24 36 Z" opacity=".4"/>
+        <circle cx="32" cy="28" r="4"/>
+      </svg>
+    </div>
+    <p class="loc-title">Ceremonia</p>
+    <div class="loc-photo" id="loc-photo-0">
+      <img src="iglesia.jpeg" alt="Parroquia de San Juan Evangelista" loading="lazy">
+    </div>
+    <p class="loc-time">1:00 pm</p>
+    <p class="loc-venue">Parroquia de San Juan Evangelista<br>(Santuario de la Virgen de los Dolores)<br>Acatzingo de Hidalgo, Pue.</p>
+    <a href="https://www.google.com/maps/place/Parroquia+de+San+Juan+Evangelista/data=!4m2!3m1!1s0x0:0xacccbec3b0662054"
+       target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
+  </div>
 
   <div class="loc-block">
     <div class="loc-icon" aria-hidden="true">
@@ -943,11 +962,11 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
     </div>
     <p class="loc-title">Recepción</p>
     <div class="loc-photo" id="loc-photo-1">
-      <img src="salon-venue.jpg" alt="Centro Contemporáneo De Artes" loading="lazy">
+      <img src="salon-venue.jpg" alt="Salón Jardín Cantera" loading="lazy">
     </div>
-    <p class="loc-time">6:30 pm</p>
-    <p class="loc-venue">Centro Contemporáneo De Artes<br>Cdad. Nezahualcóyotl, Méx.</p>
-    <a href="https://www.google.com/maps/place/Centro+Contempor%C3%A1neo+De+artes/@19.4197007,-99.0306306,17z"
+    <p class="loc-time">3:30 pm</p>
+    <p class="loc-venue">Salón Jardín Cantera<br>Acatzingo de Hidalgo, Pue.</p>
+    <a href="https://maps.app.goo.gl/qbhQ4Nte9qR9TmX2A"
        target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
   </div>
 
@@ -960,7 +979,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <h2 class="ttl" style="font-size:26px">Guarda la Fecha</h2>
   <div class="gline"></div>
   <p class="cal-sub">Agrega nuestra boda a tu calendario<br>para no perderte ni un momento.</p>
-  <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Sandra+%26+Faustino&dates=20260801T183000/20260802T020000&details=Recepción+6:30+PM+·+Ceremonia+Civil+7:30+PM.+Centro+Contemporáneo+De+Artes,+Cdad.+Nezahualcóyotl.&location=C.+Virgen+del+Socorro+113,+Virgencitas,+57300+Cdad.+Nezahualcóyotl,+Méx."
+  <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Leonardo+%26+Jovanna&dates=20260919T130000/20260920T010000&details=Ceremonia+Religiosa+1:00+PM+·+Recepción+3:30+PM+·+Ceremonia+Civil+4:00+PM+·+Parroquia+de+San+Juan+Evangelista+y+Salón+Jardín+Cantera,+Acatzingo+de+Hidalgo,+Pue.&location=Acatzingo+de+Hidalgo%2C+Puebla"
      target="_blank" rel="noopener" id="calBtn"
      class="btn btn-olive" style="max-width:310px;margin:0 auto;display:flex">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -975,33 +994,33 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <div class="it-line">
 
     <div class="it-step">
-      <div class="it-left"><span class="it-time">6:30 pm</span></div>
+      <div class="it-left"><span class="it-time">1:00 pm</span></div>
       <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 4 L16 5"/>
+          <path d="M8 14 Q8 8 16 6 Q24 8 24 14 L24 20 Q24 26 16 28 Q8 26 8 20 Z"/>
+          <circle cx="16" cy="14" r="3"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Ceremonia Religiosa</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">3:30 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
           <path d="M8 6h16l-8 12v6"/><line x1="11" y1="24" x2="21" y2="24"/>
           <line x1="12" y1="11" x2="20" y2="11"/>
-          <circle cx="22" cy="8" r="1" fill="#C9A96E" stroke="none"/>
+          <circle cx="22" cy="8" r="1" fill="#edbe7e" stroke="none"/>
         </svg>
       </div>
       <div class="it-right"><span class="it-label">Recepción</span></div>
     </div>
 
     <div class="it-step">
-      <div class="it-left"><span class="it-time">7:00 pm</span></div>
+      <div class="it-left"><span class="it-time">4:00 pm</span></div>
       <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 5v8a8 8 0 0016 0V5"/>
-          <line x1="16" y1="21" x2="16" y2="27"/>
-          <line x1="11" y1="27" x2="21" y2="27"/>
-        </svg>
-      </div>
-      <div class="it-right"><span class="it-label">Cóctel &amp; Aperitivos</span></div>
-    </div>
-
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">7:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12.5" cy="16" r="6.5"/>
           <circle cx="19.5" cy="16" r="6.5"/>
         </svg>
@@ -1010,21 +1029,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
     </div>
 
     <div class="it-step">
-      <div class="it-left"><span class="it-time">8:00 pm</span></div>
+      <div class="it-left"><span class="it-time">4:30 pm</span></div>
       <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="4" y="10" width="24" height="18" rx="2"/>
-          <circle cx="16" cy="19" r="5"/>
-          <path d="M11 10l2-4h6l2 4"/>
-        </svg>
-      </div>
-      <div class="it-right"><span class="it-label">Fotografías</span></div>
-    </div>
-
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">8:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="16" cy="16" r="9"/>
           <circle cx="16" cy="16" r="6" stroke-dasharray="2 2" opacity=".5"/>
           <path d="M7 7l4 4M25 7l-4 4"/>
@@ -1032,13 +1039,25 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
           <line x1="25" y1="7" x2="25" y2="10"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Cena</span></div>
+      <div class="it-right"><span class="it-label">Banquete</span></div>
     </div>
 
     <div class="it-step">
-      <div class="it-left"><span class="it-time">9:30 pm</span></div>
+      <div class="it-left"><span class="it-time">5:30 pm</span></div>
       <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 5v8a8 8 0 0016 0V5"/>
+          <line x1="16" y1="21" x2="16" y2="27"/>
+          <line x1="11" y1="27" x2="21" y2="27"/>
+        </svg>
+      </div>
+      <div class="it-right"><span class="it-label">Brindis</span></div>
+    </div>
+
+    <div class="it-step">
+      <div class="it-left"><span class="it-time">6:00 pm</span></div>
+      <div class="it-circle">
+        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="7" r="2.5"/>
           <circle cx="20" cy="8" r="2"/>
           <path d="M12 10v7l-3 9"/><path d="M12 17l3 9"/>
@@ -1047,31 +1066,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
           <path d="M18 12h5"/><path d="M15 13l3-1"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">¡A Bailar!</span></div>
-    </div>
-
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">10:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="16,4 19.5,13 29,13 21.5,18.5 24.5,28 16,22.5 7.5,28 10.5,18.5 3,13 12.5,13"/>
-        </svg>
-      </div>
-      <div class="it-right"><span class="it-label">Sorpresa</span></div>
-    </div>
-
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">1:30 am</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="7" y="22" width="18" height="6" rx="1.5"/>
-          <rect x="9" y="16" width="14" height="6" rx="1.5"/>
-          <rect x="11" y="10" width="10" height="6" rx="1.5"/>
-          <path d="M16 10v-4"/>
-          <circle cx="16" cy="5" r="1" fill="#C9A96E" stroke="none"/>
-        </svg>
-      </div>
-      <div class="it-right"><span class="it-label">Desvelados</span></div>
+      <div class="it-right"><span class="it-label">Inicio del Festejo · Baile de Novios · Vals</span></div>
     </div>
 
   </div>
@@ -1090,12 +1085,12 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
   <div class="wheel-scene" id="wheel-scene">
     <div class="wheel-ring" id="wheel-ring">
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780195010931-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780195099868-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198649055-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198661843-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/13b32766-d3cc-409b-a3a3-9d9b4a3d975c/1780198667705-0.jpg" alt="Sandra y Faustino" loading="lazy"></div>
-      <div class="wheel-card"><img src="hero-photo.png" alt="Sandra y Faustino" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="banda1.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="banda2.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="banda3.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="hero-photo.png" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="fondo-nosotros.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
     </div>
   </div>
   <span class="gal-hint">Arrastra para girar · Toca para ampliar</span>
@@ -1108,22 +1103,22 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
   <div class="dc-outfits">
     <div class="dc-outfit">
-      <img src="caballero.png" alt="Caballero, traje formal" loading="lazy">
+      <img src="caballero.png" alt="Caballero, traje semi-formal" loading="lazy">
     </div>
     <div class="dc-outfit">
-      <img src="dama.png" alt="Dama, vestido formal" loading="lazy">
+      <img src="dama.png" alt="Dama, vestido semi-formal" loading="lazy">
     </div>
   </div>
 
-  <p class="dc-type-txt">Formal</p>
-  <p class="dc-msg">¡Vengan elegantes a celebrar con nosotros!</p>
-  <p class="dc-msg">Mujeres, reserven el color blanco exclusivamente para la novia.</p>
+  <p class="dc-type-txt">Semi-Formal</p>
+  <p class="dc-msg">¡Vengan elegantes a celebrar con nosotros este día tan especial!</p>
+  <p class="dc-msg">Mujeres, reserven el color blanco exclusivamente para la novia. Eviten el color verde oliva, reservado para damas de honor.</p>
 </section>
 
 
 <!-- FOTO BAND 2 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda2.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 20%">
+  <img src="banda2.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 20%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Nuestro amor</div>
 </div>
@@ -1138,9 +1133,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <p class="fam-ttl">Padres del Novio</p>
   <div class="fam-card">
     <p class="fam-nms">
-      <span>Faustino García Saenz</span>
+      <span>Juan Alcántara Xotlán</span>
       <span class="fam-sep">&amp;</span>
-      <span>Sofia Trillo Sandoval</span>
+      <span>Claudia Martínez Martínez</span>
     </p>
   </div>
 
@@ -1149,30 +1144,42 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <p class="fam-ttl">Padres de la Novia</p>
   <div class="fam-card">
     <p class="fam-nms">
-      <span>Floriberto Morán García</span>
+      <span>Germán Ballinas Salazar</span>
       <span class="fam-sep">&amp;</span>
-      <span>Marina Morán García</span>
+      <span>Angélica Villafán Flores</span>
     </p>
   </div>
 
   <div class="sdiv"></div>
 
-  <p class="fam-ttl">Padrinos</p>
+  <p class="fam-ttl">Padrinos de Velación</p>
   <div class="fam-card">
     <p class="fam-nms">
-      <span>Heriberto Dominguez</span>
+      <span>Rubén Salazar De La Luz</span>
       <span class="fam-sep">&amp;</span>
-      <span>Lucila Sanchez Nuñez</span>
+      <span>Concepción Salazar Victoria</span>
     </p>
   </div>
 
   <div class="sdiv"></div>
 
+  <p class="fam-ttl">Padrinos de Civil</p>
   <div class="fam-card">
     <p class="fam-nms">
-      <span>Alejandro Soberano Leyva</span>
+      <span>Liborio Martínez Martínez</span>
       <span class="fam-sep">&amp;</span>
-      <span>Rosalia Morán García</span>
+      <span>Leticia Martínez Martínez</span>
+    </p>
+  </div>
+
+  <div class="sdiv"></div>
+
+  <p class="fam-ttl">Padrinos de Lazo, Arras y Anillo</p>
+  <div class="fam-card">
+    <p class="fam-nms">
+      <span>David Jiménez González</span>
+      <span class="fam-sep">&amp;</span>
+      <span>Dolores Álvarez Salazar</span>
     </p>
   </div>
 </section>
@@ -1200,30 +1207,30 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
           </defs>
           <!-- Cuerpo -->
           <rect x="18" y="52" width="224" height="132" rx="10"
-                fill="url(#fs-env-fill)" stroke="rgba(201,169,110,.55)" stroke-width="1.4"/>
+                fill="url(#fs-env-fill)" stroke="rgba(237,190,126,.55)" stroke-width="1.4"/>
           <!-- V central (pliegue inferior) -->
-          <path d="M18 184 L130 110 L242 184" stroke="rgba(201,169,110,.4)" stroke-width="1" fill="none"/>
+          <path d="M18 184 L130 110 L242 184" stroke="rgba(237,190,126,.4)" stroke-width="1" fill="none"/>
           <!-- Líneas decorativas lluvia -->
-          <line x1="90"  y1="30" x2="90"  y2="20" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
-          <line x1="130" y1="24" x2="130" y2="14" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".65"/>
-          <line x1="170" y1="30" x2="170" y2="20" stroke="#C9A96E" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
-          <line x1="110" y1="18" x2="110" y2="10" stroke="#c9a96e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
-          <line x1="150" y1="18" x2="150" y2="10" stroke="#c9a96e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
-          <!-- Sello F&S -->
-          <circle cx="130" cy="118" r="16" fill="rgba(201,169,110,.14)" stroke="rgba(201,169,110,.5)" stroke-width="1"/>
-          <text x="130" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#7D361D" opacity=".85">F&amp;S</text>
+          <line x1="90"  y1="30" x2="90"  y2="20" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+          <line x1="130" y1="24" x2="130" y2="14" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" opacity=".65"/>
+          <line x1="170" y1="30" x2="170" y2="20" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+          <line x1="110" y1="18" x2="110" y2="10" stroke="#edbe7e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
+          <line x1="150" y1="18" x2="150" y2="10" stroke="#edbe7e" stroke-width="1"   stroke-linecap="round" opacity=".38"/>
+          <!-- Sello L&J -->
+          <circle cx="130" cy="118" r="16" fill="rgba(237,190,126,.14)" stroke="rgba(237,190,126,.5)" stroke-width="1"/>
+          <text x="130" y="123" text-anchor="middle" font-family="Georgia,serif" font-size="11" fill="#675032" opacity=".85">L&amp;J</text>
         </svg>
         <!-- Solapa animable -->
         <div class="env-flap-wrap" aria-hidden="true">
           <svg viewBox="0 0 224 86" preserveAspectRatio="none" style="width:100%;height:100%">
             <defs>
               <linearGradient id="fs-flap-fill" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stop-color="#C9A96E"/>
+                <stop offset="0%" stop-color="#edbe7e"/>
                 <stop offset="100%" stop-color="#fdf8f0"/>
               </linearGradient>
             </defs>
             <path d="M0 0 L112 86 L224 0 Z"
-                  fill="url(#fs-flap-fill)" stroke="rgba(201,169,110,.6)" stroke-width="1.5" stroke-linejoin="round"/>
+                  fill="url(#fs-flap-fill)" stroke="rgba(237,190,126,.6)" stroke-width="1.5" stroke-linejoin="round"/>
           </svg>
         </div>
       </div>
@@ -1236,8 +1243,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
           <path d="M18 8 Q26 3 34 8"/>
           <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
         </svg>
-        <p class="env-title">Lluvia de Sobres</p>
-        <p class="env-desc">El día de la boda habrá una urna especial<br>donde podrás depositar tu sobre con mucho cariño.</p>
+        <p class="env-title">Mesa de Regalos</p>
+        <p class="env-desc"><strong>Banco Azteca</strong><br>CLABE: 1276 5201 3960 1806 92<br>Titular: Leonardo Alcántara Martínez</p>
+        <p class="env-desc" style="margin-top:6px">También habrá una urna especial el día de la boda para tu sobre con mucho cariño.</p>
       </div>
     </button>
     <p class="env-tap-hint">Toca el sobre</p>
@@ -1247,7 +1255,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 <!-- FOTO BAND 3 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda3.jpg" alt="Sandra y Faustino" loading="lazy" style="object-position:center 0%">
+  <img src="banda3.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 0%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Por siempre nosotros</div>
 </div>
@@ -1258,11 +1266,11 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <h2 class="ttl">¿Nos acompañas?</h2>
   <div class="gline"></div>
 
-  <p class="rsvp-date-big">1 de Agosto de 2026</p>
+  <p class="rsvp-date-big">19 de Septiembre de 2026</p>
 
   <p class="rsvp-sub">
     Confirma antes del<br>
-    <span class="rsvp-dl">12 de Julio de 2026</span>
+    <span class="rsvp-dl">5 de Septiembre de 2026</span>
   </p>
 
   <div class="rsvp-form-wrap">
@@ -1292,19 +1300,19 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 <!-- ═══════════════ 11. FOOTER ═══════════════════════ -->
 <footer id="footer">
   <div class="ft-logo" style="display:flex;justify-content:center;padding:32px 0 0;">
-    <img src="logo-pareja.png" alt="Sandra y Faustino" loading="lazy" style="width:180px;height:auto;filter:drop-shadow(0 4px 20px rgba(201,169,110,.35));">
+    <img src="logo-pareja.png" alt="Leonardo y Jovanna" loading="lazy" style="width:180px;height:auto;filter:drop-shadow(0 4px 20px rgba(237,190,126,.35));">
   </div>
 
   <div class="ft-body">
-    <p class="ft-msg">Te esperamos con mucho cariño...</p>
+    <p class="ft-msg">Porque no sabemos qué nos deparará el camino, pero sí sabemos con quién queremos recorrerlo.</p>
     <p class="ft-nofaltes">¡No Faltes!</p>
-    <p class="ft-date">1 de Agosto de 2026</p>
+    <p class="ft-date">19 de Septiembre de 2026</p>
 
     <svg class="ft-rings" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
         <linearGradient id="goldBand" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stop-color="#e8d48b"/>
-          <stop offset="25%" stop-color="#c9a96e"/>
+          <stop offset="25%" stop-color="#edbe7e"/>
           <stop offset="50%" stop-color="#f0dda0"/>
           <stop offset="75%" stop-color="#b8944e"/>
           <stop offset="100%" stop-color="#d4b678"/>
@@ -1354,11 +1362,11 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
         <ellipse cx="48" cy="44" rx="19.8" ry="19.8" stroke="#d4b678" stroke-width=".6" fill="none" opacity=".25"/>
       </g>
       <g>
-        <path d="M41.5 24 L44 18" stroke="#c9a96e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-        <path d="M54.5 24 L52 18" stroke="#c9a96e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M41.5 24 L44 18" stroke="#edbe7e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+        <path d="M54.5 24 L52 18" stroke="#edbe7e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
         <path d="M43 25 L45 19" stroke="#d4b678" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5"/>
         <path d="M53 25 L51 19" stroke="#d4b678" stroke-width=".8" fill="none" stroke-linecap="round" opacity=".5"/>
-        <path d="M42 24 Q48 28 54 24" stroke="#c9a96e" stroke-width="1.5" fill="none"/>
+        <path d="M42 24 Q48 28 54 24" stroke="#edbe7e" stroke-width="1.5" fill="none"/>
         <polygon points="48,4 40,14 48,12 56,14" fill="url(#diamTop)"/>
         <polygon points="40,14 48,12 44,18" fill="url(#diamLeft)" opacity=".85"/>
         <polygon points="56,14 48,12 52,18" fill="url(#diamRight)" opacity=".85"/>
@@ -1472,7 +1480,7 @@ function initGlobalParticles() {
   cvs.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:500;';
   document.body.appendChild(cvs);
   const ctx = cvs.getContext('2d');
-  const COLS = ['rgba(201,169,110,','rgba(212,197,178,','rgba(125,54,29,','rgba(180,150,90,'];
+  const COLS = ['rgba(237,190,126,','rgba(212,197,178,','rgba(103,80,50,','rgba(180,150,90,'];
   let W, H;
   const COUNT = 34;
   const pts = [];
@@ -1562,7 +1570,7 @@ function scrollAnims() {
 }
 
 /* ── COUNTDOWN ───────────────────────────────────────── */
-const WED = new Date('2026-08-01T18:30:00');
+const WED = new Date('2026-09-19T13:00:00');
 let prevS = '';
 function pad(n) { return String(n).padStart(2,'0'); }
 function countdown() {
@@ -1626,8 +1634,8 @@ gsap.fromTo('.gifts-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger
 /* ── RSVP · PANEL INTEGRATION (patrón estándar) ──────── */
 (function(){
   const PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
-  const RSVP_URL  = 'https://boda-faustino-y-sandra.vercel.app';
-  const DEADLINE  = new Date(2026, 6, 12, 23, 59, 59, 999);
+  const RSVP_URL  = 'https://boda-leonardo-y-jovanna.vercel.app';
+  const DEADLINE  = new Date(2026, 8, 5, 23, 59, 59, 999);
   const frozen    = Date.now() > DEADLINE.getTime();
   const params    = new URLSearchParams(location.search);
   const urlPara   = (params.get('para') || '').trim();
@@ -1788,12 +1796,12 @@ function addSectionWaves() {
 
   const wavePaths = {
     top: `
-      <path d="M0,19 Q110,6 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(201,169,110,.32)" stroke-width="1"/>
-      <path d="M0,26 Q110,13 220,26 T440,26 T660,26 T880,26 T1100,26 T1320,26 T1540,26 T1760,26" fill="none" stroke="rgba(201,169,110,.16)" stroke-width=".8"/>
+      <path d="M0,19 Q110,6 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(237,190,126,.32)" stroke-width="1"/>
+      <path d="M0,26 Q110,13 220,26 T440,26 T660,26 T880,26 T1100,26 T1320,26 T1540,26 T1760,26" fill="none" stroke="rgba(237,190,126,.16)" stroke-width=".8"/>
     `,
     bot: `
-      <path d="M0,19 Q110,32 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(201,169,110,.32)" stroke-width="1"/>
-      <path d="M0,12 Q110,25 220,12 T440,12 T660,12 T880,12 T1100,12 T1320,12 T1540,12 T1760,12" fill="none" stroke="rgba(201,169,110,.16)" stroke-width=".8"/>
+      <path d="M0,19 Q110,32 220,19 T440,19 T660,19 T880,19 T1100,19 T1320,19 T1540,19 T1760,19" fill="none" stroke="rgba(237,190,126,.32)" stroke-width="1"/>
+      <path d="M0,12 Q110,25 220,12 T440,12 T660,12 T880,12 T1100,12 T1320,12 T1540,12 T1760,12" fill="none" stroke="rgba(237,190,126,.16)" stroke-width=".8"/>
     `
   };
 
@@ -1904,7 +1912,7 @@ function ambientWind() {
     const ang = (Math.random() - 0.5) * 6;
     Object.assign(el.style, {
       position:'absolute', width:len+'px', height:h+'px', borderRadius:'100px',
-      background:`linear-gradient(to right,transparent,rgba(201,169,110,${op}),transparent)`,
+      background:`linear-gradient(to right,transparent,rgba(237,190,126,${op}),transparent)`,
       top:top+'%', left:-(len+20)+'px', transform:`rotate(${ang}deg)`, willChange:'transform'
     });
     layer.appendChild(el);
