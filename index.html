@@ -434,8 +434,8 @@ section{padding:64px 22px}
     radial-gradient(ellipse 60% 70% at 88% 78%, rgba(103,80,50,.14) 0%, transparent 48%),
     radial-gradient(ellipse 100% 50% at 50% 100%, rgba(237,190,126,.22) 0%, transparent 50%),
     linear-gradient(170deg, #2c1a10 0%, #3d2b1e 30%, #2c1a10 65%, #1a1008 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
-  mask-image:linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  -webkit-mask-image:linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image:linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
 #countdown::before{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -459,39 +459,71 @@ section{padding:64px 22px}
   position:relative;z-index:2;
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:64px 20px 60px;
+  padding:74px 20px 70px;
   text-align:center;
 }
-.cd-row{
-  display:flex;align-items:flex-start;justify-content:center;
-  gap:0;width:100%;
+/* Encabezado editorial "El Gran Día" */
+.cd-eyebrow{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--peach);display:inline-block;
+  padding-left:5px;margin-bottom:16px;
 }
-.cd-cell{
-  display:flex;flex-direction:column;align-items:center;
-  flex:1;
+.cd-eyebrow::before,.cd-eyebrow::after{
+  content:'';display:inline-block;width:26px;height:1px;
+  background:rgba(237,190,126,.65);vertical-align:middle;
+  margin:0 12px 3px 0;
+}
+.cd-eyebrow::after{margin:0 0 3px 12px}
+.cd-h2{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(32px,9vw,42px);line-height:1.14;
+  color:#FDF9F1;margin-bottom:8px;letter-spacing:.4px;
+}
+.cd-h2 em{font-style:italic;font-weight:600;color:var(--peach)}
+.cd-sub{
+  font-family:'Great Vibes',cursive;font-weight:400;
+  font-size:clamp(26px,7vw,32px);line-height:1.25;
+  color:var(--peach);margin-bottom:34px;
+}
+/* Cuadros de la cuenta regresiva */
+.cd-grid{
+  display:flex;align-items:stretch;justify-content:center;
+  gap:9px;width:100%;max-width:372px;
+  font-variant-numeric:tabular-nums;
+  perspective:1200px;
+}
+.cd-box{
+  flex:1 1 0;min-width:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:20px 4px 15px;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(237,190,126,.36);border-radius:11px;
+  background:linear-gradient(160deg,rgba(255,247,232,.11) 0%,rgba(237,190,126,.05) 100%);
+  box-shadow:0 1px 2px rgba(0,0,0,.20),0 14px 32px -16px rgba(0,0,0,.62),
+             inset 0 1px 0 rgba(255,247,232,.10);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+}
+/* hairline a media altura: el guiño al reloj de estación */
+.cd-box::before{
+  content:'';position:absolute;top:50%;left:0;right:0;height:1px;
+  background:rgba(237,190,126,.20);
 }
 .cd-num{
-  font-family:'Cormorant Garamond',serif;font-weight:400;
-  font-size:clamp(38px,10vw,64px);line-height:1;
-  color:#FBF6EE;font-variant-numeric:tabular-nums;
-  display:block;
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(34px,9.2vw,46px);line-height:1;
+  color:#FDF9F1;display:block;letter-spacing:.5px;
 }
 .cd-lbl{
-  font-family:'Lato',sans-serif;font-weight:500;
-  font-size:8px;letter-spacing:3.5px;text-transform:uppercase;
-  color:rgba(212,197,178,.55);margin-top:8px;
+  font-family:'Lato',sans-serif;font-weight:600;
+  font-size:9px;letter-spacing:2.4px;text-transform:uppercase;
+  color:rgba(244,232,200,.88);margin-top:11px;padding-left:2.4px;
 }
 .cd-falta{
-  font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;
-  font-size:22px;letter-spacing:2px;
-  color:rgba(212,197,178,.7);margin-bottom:18px;
+  font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;
+  font-size:19px;letter-spacing:1.6px;
+  color:rgba(244,232,200,.82);margin-top:26px;
   display:block;text-align:center;
-}
-.cd-sep{
-  font-family:'Cormorant Garamond',serif;font-weight:300;
-  font-size:clamp(28px,7vw,50px);color:rgba(255,255,255,.35);
-  line-height:1;padding:0 2px;margin-top:3px;
-  align-self:flex-start;
 }
 
 /* ── LOCATION ─────────────────────────────────────────── */
@@ -848,6 +880,10 @@ section{padding:64px 22px}
   color:#1A1A1A;line-height:1.5;
   margin-bottom:12px;
 }
+.ft-msg2{
+  font-size:clamp(19px,5.2vw,25px);
+  color:#3a2c1e;margin-bottom:26px;
+}
 .ft-nofaltes{
   font-family:'Great Vibes',cursive;
   font-size:clamp(48px,13vw,68px);font-weight:400;
@@ -926,6 +962,120 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 /* ── WISP ─────────────────────────────────────────────── */
 .wisp{position:absolute;border-radius:100px;pointer-events:none;will-change:transform,opacity;}
 
+/* ── CITA BÍBLICA ─────────────────────────────────────── */
+#cita{
+  background:#FEFBF5;text-align:center;
+  padding:8px 26px 66px;position:relative;
+}
+.cita-orn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin:0 auto 24px;max-width:190px;
+  color:var(--peach);font-size:11px;letter-spacing:2px;
+}
+.cita-orn::before,.cita-orn::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(to right,transparent,rgba(237,190,126,.7));
+}
+.cita-orn::after{background:linear-gradient(to left,transparent,rgba(237,190,126,.7))}
+.cita-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(19px,5.2vw,22px);font-weight:500;font-style:italic;
+  line-height:1.7;color:#33261a;
+  max-width:360px;margin:0 auto;letter-spacing:.2px;
+}
+.cita-ref{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:3.4px;text-transform:uppercase;
+  color:var(--peach-accent);margin-top:20px;padding-left:3.4px;
+}
+.cita-nota{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:500;line-height:1.75;
+  color:#4a3828;max-width:340px;margin:0 auto;
+}
+
+/* ── MENSAJE DE BIENVENIDA ────────────────────────────── */
+#bienvenida{
+  background:var(--ink3);position:relative;overflow:hidden;
+  padding:64px 22px 70px;
+  border-top:1px solid rgba(237,190,126,.10);
+  border-bottom:1px solid rgba(237,190,126,.10);
+}
+.bv-card{
+  position:relative;z-index:2;
+  max-width:360px;margin:30px auto 0;
+  padding:34px 26px 30px;
+  background:rgba(255,255,255,.80);
+  border:1px solid rgba(237,190,126,.26);border-radius:16px;
+  box-shadow:0 14px 40px -22px rgba(103,80,50,.45);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  text-align:center;
+}
+.bv-card::before,.bv-card::after{
+  content:'';position:absolute;width:22px;height:22px;
+  border:1px solid rgba(237,190,126,.5);pointer-events:none;
+}
+.bv-card::before{top:11px;left:11px;border-width:1px 0 0 1px;border-radius:4px 0 0 0}
+.bv-card::after{bottom:11px;right:11px;border-width:0 1px 1px 0;border-radius:0 0 4px 0}
+.bv-p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:500;line-height:1.75;
+  color:#33261a;letter-spacing:.2px;
+}
+.bv-p + .bv-p{margin-top:18px}
+.bv-sign{
+  display:block;margin-top:24px;
+  font-family:'Great Vibes',cursive;
+  font-size:32px;line-height:1.2;color:var(--peach-accent);
+}
+
+/* ── PÉTALOS DESCENDENTES ─────────────────────────────── */
+#falling-petals{
+  position:fixed;top:0;bottom:0;left:50%;
+  width:min(100vw,430px);transform:translateX(-50%);
+  pointer-events:none;overflow:hidden;
+  z-index:4;opacity:0;transition:opacity .9s ease;
+}
+#falling-petals.on{opacity:1}
+.petal{
+  position:absolute;top:-40px;left:0;
+  /* forma orgánica: 8 radios asimétricos, sin imagen ni SVG */
+  border-radius:60% 40% 60% 40% / 70% 60% 40% 30%;
+  opacity:0;transform-origin:50% 0%;
+  filter:drop-shadow(0 2px 4px rgba(103,80,50,.18));
+  will-change:transform,opacity;
+}
+.petal::before{
+  content:'';position:absolute;inset:15% 45% 15% 45%;
+  background:rgba(103,80,50,.16);border-radius:50%;
+}
+
+/* ── SCROLL REVEALS (.fu) ─────────────────────────────── */
+/* El estado oculto SÓLO existe si el JS activó la clase en <html>.
+   Si el JS falla, .fu nunca se oculta y todo el contenido es visible. */
+html.js-fu .fu{
+  opacity:0;transform:translateY(26px);
+  transition:opacity .85s var(--smooth),transform .85s var(--smooth);
+  will-change:opacity,transform;
+}
+html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
+
+/* ── CALENDARIO · 2 BOTONES ───────────────────────────── */
+.cal-btns{display:flex;flex-direction:column;gap:10px;max-width:310px;margin:0 auto}
+.cal-btns .btn,.cal-btns .btn+.btn{margin-top:0}
+/* El botón Apple va en outline con texto marrón: legible para todos */
+.cal-btns .btn:not(.btn-olive){
+  color:var(--peach-accent);font-weight:700;
+  border-color:rgba(237,190,126,.8);
+  background:rgba(255,255,255,.6);
+}
+.cal-btns .btn:not(.btn-olive):active{background:rgba(237,190,126,.16)}
+.cal-note{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16px;color:var(--peach-accent);
+  margin-top:16px;line-height:1.6;
+}
+
 /* ── REDUCED MOTION ───────────────────────────────────── */
 @media(prefers-reduced-motion:reduce){
   .lbl,.ft-nms,.wind-orn,.h-frame,.gline::after,
@@ -938,6 +1088,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   .sobre-broche i,.hand-ring{animation:none!important;opacity:0!important}
   .sobre-broche{animation:sobreFadeIn 1s ease .5s forwards!important}
   #sobre-hand{animation:handIn .8s ease 1s forwards!important}
+  /* Reveals y pétalos: el contenido SIEMPRE visible, la lluvia se apaga */
+  html.js-fu .fu{opacity:1!important;transform:none!important;transition:none!important}
+  #falling-petals{display:none!important}
 }
   </style>
 </head>
@@ -973,6 +1126,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 <!-- SCROLL PROGRESS -->
 <div id="prog"></div>
+
+<!-- PÉTALOS DESCENDENTES (los inyecta spawnPetals por JS) -->
+<div id="falling-petals" aria-hidden="true"></div>
 
 <!-- AUDIO -->
 <!-- LIGHTBOX -->
@@ -1058,42 +1214,51 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 <section id="fecha">
   <img class="fch-bg" src="fondo-nosotros.jpg" alt="" loading="eager">
   <div class="fch-content">
-    <p class="fch-intro">Nosotros...</p>
-    <p class="fch-n1">Jovanna</p>
-    <p class="fch-full">Araceli Ballinas Villafán</p>
-    <p class="fch-amp">y</p>
-    <p class="fch-n1">Leonardo</p>
-    <p class="fch-full">Alcántara Martínez</p>
-    <p class="fch-honor">"Mejores son dos que uno… Y cordón de tres dobleces no se rompe pronto." Eclesiastés 4:9-10, 12 — Que Dios sea siempre el tercer hilo de nuestra historia.</p>
-    <p class="fch-date">19.09.26</p>
+    <p class="fch-intro fu">Nosotros...</p>
+    <p class="fch-n1 fu">Jovanna</p>
+    <p class="fch-full fu">Araceli Ballinas Villafán</p>
+    <p class="fch-amp fu">y</p>
+    <p class="fch-n1 fu">Leonardo</p>
+    <p class="fch-full fu">Alcántara Martínez</p>
+    <p class="fch-date fu">19.09.26</p>
   </div>
 </section>
 
-<!-- ═══════════════ 2. CUENTA REGRESIVA ══════════════ -->
-<section id="countdown">
-  <div class="cd-content">
-    <span class="cd-falta">Falta</span>
-    <div class="cd-row" role="timer" aria-label="Cuenta regresiva para la boda">
-      <div class="cd-cell">
-        <span class="cd-num" id="cd-d">--</span>
-        <span class="cd-lbl">Días</span>
-      </div>
-      <span class="cd-sep" aria-hidden="true">:</span>
-      <div class="cd-cell">
-        <span class="cd-num" id="cd-h">--</span>
-        <span class="cd-lbl">Horas</span>
-      </div>
-      <span class="cd-sep" aria-hidden="true">:</span>
-      <div class="cd-cell">
-        <span class="cd-num" id="cd-m">--</span>
-        <span class="cd-lbl">Min</span>
-      </div>
-      <span class="cd-sep" aria-hidden="true">:</span>
-      <div class="cd-cell">
-        <span class="cd-num" id="cd-s">--</span>
-        <span class="cd-lbl">Seg</span>
-      </div>
-    </div>
+<!-- ═══════════════ 1.6. CITA BÍBLICA ═══════════════════ -->
+<section id="cita">
+  <div class="cita-orn fu" aria-hidden="true">✦</div>
+  <blockquote class="cita-txt fu">
+    “Mejores son dos que uno, porque si cayeren, el uno levantará a su compañero…
+    Y cordón de tres dobleces no se rompe pronto.”
+  </blockquote>
+  <p class="cita-ref fu">Eclesiastés 4:9-10, 12</p>
+  <div class="gline"></div>
+  <p class="cita-nota fu">
+    Que Dios sea siempre el tercer hilo de nuestra historia, quien fortalezca nuestro amor,
+    guíe nuestros pasos y nos acompañe en cada capítulo de este nuevo camino.
+  </p>
+</section>
+
+<!-- ═══════════════ 1.7. MENSAJE DE BIENVENIDA ══════════ -->
+<section id="bienvenida">
+  <span class="lbl">Con el corazón</span>
+  <h2 class="ttl">Mensaje de Bienvenida</h2>
+  <div class="gline"></div>
+
+  <div class="bv-card">
+    <p class="bv-p fu">
+      Hay historias que comienzan con un encuentro, pero se convierten en eternidad cuando dos
+      personas deciden caminar juntas, con la gracia y la bendición de la mano de Dios.
+    </p>
+    <p class="bv-p fu">
+      Por eso hemos decidido unir nuestras vidas, nuestros sueños y nuestros caminos en el hermoso
+      comienzo de una nueva historia.
+    </p>
+    <p class="bv-p fu">
+      Con mucho amor y alegría, queremos invitarte a ser parte de nuestra celebración, a ser testigo
+      de este “sí” que nace del amor y de esta promesa que queremos llevar con nosotros toda la vida.
+    </p>
+    <span class="bv-sign fu">Leonardo &amp; Jovanna</span>
   </div>
 </section>
 
@@ -1160,18 +1325,28 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <h2 class="ttl" style="font-size:26px">Guarda la Fecha</h2>
   <div class="gline"></div>
   <p class="cal-sub">Agrega nuestra boda a tu calendario<br>para no perderte ni un momento.</p>
-  <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Leonardo+%26+Jovanna&dates=20260919T130000/20260920T010000&details=Ceremonia+Religiosa+1:00+PM+·+Recepción+3:30+PM+·+Ceremonia+Civil+4:00+PM+·+Parroquia+de+San+Juan+Evangelista+y+Salón+Jardín+Cantera,+Acatzingo+de+Hidalgo,+Pue.&location=Acatzingo+de+Hidalgo%2C+Puebla"
-     target="_blank" rel="noopener" id="calBtn"
-     class="btn btn-olive" style="max-width:310px;margin:0 auto;display:flex">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Agregar a Google Calendar
-  </a>
+
+  <div class="cal-btns">
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Leonardo+%26+Jovanna&dates=20260919T130000/20260920T010000&details=Ceremonia+Religiosa+1:00+PM+·+Recepción+3:30+PM+·+Ceremonia+Civil+4:00+PM+·+Parroquia+de+San+Juan+Evangelista+y+Salón+Jardín+Cantera,+Acatzingo+de+Hidalgo,+Pue.&location=Acatzingo+de+Hidalgo%2C+Puebla"
+       target="_blank" rel="noopener" id="calBtn"
+       class="btn btn-olive">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Google Calendar
+    </a>
+
+    <button type="button" id="calBtnIos" class="btn" aria-label="Descargar el evento para Apple Calendario en iPhone o iPad">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg>
+      Apple / iOS
+    </button>
+  </div>
+
+  <p class="cal-note fu">Android e iPhone: elige tu calendario y guarda la fecha.</p>
 </section>
 
 
 <!-- ═══════════════ 5. ITINERARIO ════════════════════ -->
 <section id="itinerary">
-  <p class="it-title">Itinerario</p>
+  <p class="it-title fu">Itinerario</p>
   <div class="it-line">
 
     <div class="it-step">
@@ -1251,7 +1426,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
     </div>
 
   </div>
-  <p style="text-align:center;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--peach-accent);letter-spacing:1px;opacity:.85;">
+  <p class="fu" style="text-align:center;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--peach-accent);letter-spacing:1px;">
     Te pedimos puntualidad para disfrutar cada momento juntos.
   </p>
 </section>
@@ -1274,13 +1449,13 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
       <div class="wheel-card"><img src="fondo-nosotros.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
     </div>
   </div>
-  <span class="gal-hint">Arrastra para girar · Toca para ampliar</span>
+  <span class="gal-hint fu">Arrastra para girar · Toca para ampliar</span>
 </section>
 
 
 <!-- ═══════════════ 7. DRESS CODE ════════════════════ -->
 <section id="dresscode">
-  <p class="dc-title">Código de Vestimenta</p>
+  <p class="dc-title fu">Código de Vestimenta</p>
 
   <div class="dc-outfits">
     <div class="dc-outfit">
@@ -1441,15 +1616,45 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <div class="foto-band-caption">Por siempre nosotros</div>
 </div>
 
+<!-- ═══════════════ 9.5. CUENTA REGRESIVA ═══════════ -->
+<section id="countdown">
+  <div class="cd-content">
+    <span class="cd-eyebrow fu">Cuenta regresiva</span>
+    <h2 class="cd-h2 fu">Nuestro <em>gran</em> día</h2>
+    <p class="cd-sub fu">hasta el gran momento</p>
+
+    <div class="cd-grid" role="timer" aria-label="Cuenta regresiva para la boda">
+      <div class="cd-box">
+        <span class="cd-num" id="cd-d">--</span>
+        <span class="cd-lbl">Días</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-h">--</span>
+        <span class="cd-lbl">Horas</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-m">--</span>
+        <span class="cd-lbl">Min</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-s">--</span>
+        <span class="cd-lbl">Seg</span>
+      </div>
+    </div>
+
+    <span class="cd-falta fu">para decirnos «sí, acepto»</span>
+  </div>
+</section>
+
 <!-- ═══════════════ 10. RSVP ════════════════════════ -->
 <section id="rsvp">
   <span class="lbl">Confirmación de asistencia</span>
   <h2 class="ttl">¿Nos acompañas?</h2>
   <div class="gline"></div>
 
-  <p class="rsvp-date-big">19 de Septiembre de 2026</p>
+  <p class="rsvp-date-big fu">19 de Septiembre de 2026</p>
 
-  <p class="rsvp-sub">
+  <p class="rsvp-sub fu">
     Confirma antes del<br>
     <span class="rsvp-dl">5 de Septiembre de 2026</span>
   </p>
@@ -1486,8 +1691,9 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
   <div class="ft-body">
     <p class="ft-msg">Porque no sabemos qué nos deparará el camino, pero sí sabemos con quién queremos recorrerlo.</p>
+    <p class="ft-msg ft-msg2">Un amor elegido, una vida compartida y Dios como nuestro guía.</p>
     <p class="ft-nofaltes">¡No Faltes!</p>
-    <p class="ft-date">19 de Septiembre de 2026</p>
+    <p class="ft-date fu">19 de Septiembre de 2026</p>
 
     <svg class="ft-rings" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
@@ -1588,7 +1794,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function initInvitation() {
     // Cada inicializador va aislado: si uno falla, el resto de la invitación sigue viva
     [addSectionWaves, addSectionMedals, addCorners, addWindOrns, addAuras,
-     heroAnim, initGlobalParticles, scrollAnims].forEach(fn => {
+     heroAnim, initGlobalParticles, initReveals, spawnPetals,
+     setupPetalsVisibility, initIcsButton, scrollAnims].forEach(fn => {
       try { fn(); } catch (e) { console.error(e); }
     });
     // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
@@ -1737,6 +1944,189 @@ function initGlobalParticles() {
   })();
 }
 
+/* ── SCROLL REVEALS PROGRESIVOS (IntersectionObserver) ──
+   Cada elemento con .fu aparece al entrar en pantalla, escalonado
+   respecto a sus hermanos. El estado oculto vive bajo `html.js-fu`,
+   así que si este JS no llega a correr todo queda visible. */
+function initReveals() {
+  const els = document.querySelectorAll('.fu');
+  if (!els.length) return;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) return;   // sin js-fu = todo visible
+
+  // Stagger: cada .fu espera según cuántos hermanos .fu lo preceden
+  els.forEach(el => {
+    let i = 0, prev = el.previousElementSibling;
+    while (prev) { if (prev.classList.contains('fu')) i++; prev = prev.previousElementSibling; }
+    el.dataset.fuDelay = Math.min(i, 5) * 90;
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const el = en.target;
+      io.unobserve(el);
+      const d = parseInt(el.dataset.fuDelay || 0, 10);
+      if (d) setTimeout(() => el.classList.add('is-in'), d);
+      else el.classList.add('is-in');
+    });
+  }, { rootMargin: '0px 0px -11% 0px', threshold: 0.01 });
+
+  // El estado oculto se activa sólo cuando el observador ya está listo
+  document.documentElement.classList.add('js-fu');
+  els.forEach(el => io.observe(el));
+
+  // Red de seguridad: nada puede quedarse invisible para siempre
+  setTimeout(() => {
+    document.querySelectorAll('.fu:not(.is-in)').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-in');
+    });
+  }, 2500);
+}
+
+/* ── PÉTALOS DESCENDENTES ────────────────────────────────
+   Sin imágenes ni SVG: cada pétalo es un <div> con border-radius
+   asimétrico. Sólo transform + opacity (GPU). Máx. 14 a la vez. */
+function spawnPetals() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wrap = document.getElementById('falling-petals');
+  if (!wrap) return;
+
+  // dorado · crema · sage · taupe — la paleta de la invitación
+  const colors = ['#edbe7e', '#f4e8c8', '#98bb81', '#D4C5B2', '#e6d3a6', '#b6cfa2'];
+  const count  = window.innerWidth < 480 ? 11 : 14;
+
+  function fall(p) {
+    const startX  = Math.random() * 100;
+    const drift   = (Math.random() - 0.5) * 90;
+    const dur     = 10 + Math.random() * 8;        // 10 s – 18 s
+    const rot     = 240 + Math.random() * 620;
+    const sway    = 22 + Math.random() * 34;
+
+    gsap.set(p, { left: startX + '%', y: -40, x: 0, rotation: 0, opacity: 0 });
+
+    const tl = gsap.timeline({ delay: Math.random() * 0.5, onComplete() { fall(p); } });
+    tl.to(p, { opacity: .55 + Math.random() * .3, duration: 1.2, ease: 'power1.out' }, 0)
+      .to(p, {
+        y: '+=' + (window.innerHeight + 380),
+        x: drift, rotation: rot,
+        duration: dur, ease: 'none'
+      }, 0)
+      .to(p, { x: '+=' + sway, duration: dur / 4, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 0)
+      .to(p, { opacity: 0, duration: 1.8, ease: 'power1.in' }, dur - 1.8);
+  }
+
+  for (let i = 0; i < count; i++) {
+    const p   = document.createElement('div');
+    const sz  = 8 + Math.random() * 10;            // 8 px – 18 px
+    const col = colors[i % colors.length];
+    p.className = 'petal';
+    p.style.cssText =
+      'width:'  + sz.toFixed(1) + 'px;' +
+      'height:' + (sz * 1.25).toFixed(1) + 'px;' +
+      'background:linear-gradient(135deg,' + col + ' 0%,' + col + 'dd 50%,' + col + '88 100%);';
+    wrap.appendChild(p);
+    ((el, idx) => gsap.delayedCall(idx * .6 + Math.random() * .8, () => fall(el)))(p, i);
+  }
+}
+
+/* La lluvia sólo vive desde el mensaje de bienvenida hasta el cierre */
+function setupPetalsVisibility() {
+  const layer = document.getElementById('falling-petals');
+  if (!layer) return;
+  const start = document.getElementById('bienvenida') || document.getElementById('countdown');
+  if (!start) return;
+
+  ScrollTrigger.create({
+    trigger: start, start: 'top 85%',
+    endTrigger: '#footer', end: 'bottom bottom',
+    onEnter()     { layer.classList.add('on'); },
+    onEnterBack() { layer.classList.add('on'); },
+    onLeave()     { layer.classList.remove('on'); },
+    onLeaveBack() { layer.classList.remove('on'); }
+  });
+}
+
+/* ── AGREGAR AL CALENDARIO · APPLE / iOS (.ics) ──────────
+   Se genera en el cliente con Blob, sin dependencias.
+   Horas en UTC: Puebla es UTC-6 todo el año (México sin horario de verano),
+   así que 13:00 local = 19:00 Z y el fin 20/sep 01:00 local = 07:00 Z. */
+function initIcsButton() {
+  const btn = document.getElementById('calBtnIos');
+  if (!btn) return;
+
+  function pad2(n){ return String(n).padStart(2, '0'); }
+  function stamp(d){
+    return d.getUTCFullYear() + pad2(d.getUTCMonth()+1) + pad2(d.getUTCDate()) + 'T' +
+           pad2(d.getUTCHours()) + pad2(d.getUTCMinutes()) + pad2(d.getUTCSeconds()) + 'Z';
+  }
+
+  // RFC 5545: en los valores TEXT hay que escapar \ ; , y los saltos de línea
+  function esc(s){
+    return String(s).replace(/\\/g,'\\\\').replace(/;/g,'\\;')
+                    .replace(/,/g,'\\,').replace(/\r?\n/g,'\\n');
+  }
+  // RFC 5545: ninguna línea puede pasar de 75 octetos; se pliega con CRLF + espacio
+  function fold(line){
+    if (line.length <= 74) return line;
+    let out = line.slice(0, 74), rest = line.slice(74);
+    while (rest.length > 73) { out += '\r\n ' + rest.slice(0, 73); rest = rest.slice(73); }
+    return out + '\r\n ' + rest;
+  }
+
+  function buildIcs(){
+    const titulo = 'Boda de Leonardo & Jovanna';
+    const desc = 'Ceremonia Religiosa 1:00 pm en la Parroquia de San Juan Evangelista. ' +
+                 'Recepcion 3:30 pm y Ceremonia Civil 4:00 pm en el Salon Jardin Cantera.';
+    return [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Elysium Invitaciones//Boda Leonardo y Jovanna//ES',
+      'CALSCALE:GREGORIAN',
+      'METHOD:PUBLISH',
+      'BEGIN:VEVENT',
+      'UID:boda-leonardo-jovanna-20260919@elysium-invitaciones',
+      'DTSTAMP:' + stamp(new Date()),
+      'DTSTART:20260919T190000Z',
+      'DTEND:20260920T070000Z',
+      'SUMMARY:' + esc(titulo),
+      'DESCRIPTION:' + esc(desc),
+      'LOCATION:' + esc('Acatzingo de Hidalgo, Puebla'),
+      'URL:https://boda-leonardo-y-jovanna.vercel.app',
+      'STATUS:CONFIRMED',
+      'TRANSP:OPAQUE',
+      'BEGIN:VALARM',
+      'ACTION:DISPLAY',
+      'DESCRIPTION:' + esc(titulo),
+      'TRIGGER:-P1D',
+      'END:VALARM',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].map(fold).join('\r\n') + '\r\n';
+  }
+
+  btn.addEventListener('click', function(){
+    try {
+      const blob = new Blob([buildIcs()], { type: 'text/calendar;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href = url;
+      a.download = 'Boda-Leonardo-y-Jovanna.ics';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      toast('Evento descargado · ábrelo en Calendario');
+    } catch (e) {
+      console.error(e);
+      toast('No se pudo generar el evento');
+    }
+  });
+}
+
 /* ── SCROLL ANIMATIONS ───────────────────────────────── */
 function scrollAnims() {
   const ease = 'power3.out';
@@ -1751,9 +2141,11 @@ function scrollAnims() {
     }
   });
 
-  gsap.from('.cd-content', {
-    opacity: 0, y: 18, duration: .7, ease,
-    scrollTrigger: { trigger: '#countdown', start: 'top 85%', once: true }
+  /* Cuenta regresiva: los cuadros entran escalonados con un leve giro 3D */
+  gsap.from('.cd-box', {
+    opacity: 0, y: 34, rotateX: -28, duration: .95, stagger: .11,
+    ease: 'power4.out',
+    scrollTrigger: { trigger: '.cd-grid', start: 'top 86%', once: true }
   });
 
   ScrollTrigger.create({
@@ -2046,6 +2438,7 @@ function addSectionWaves() {
 /* ── MEDALLONES EN SECCIONES ─────────────────────────── */
 function addSectionMedals() {
   const map = {
+    'bienvenida': '❦',
     'calendar'  : '✧',
     'itinerary' : '❃',
     'gifts'     : '✦',
