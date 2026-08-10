@@ -13,6 +13,7 @@
   <meta property="og:image"       content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:image"      content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23675032'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23edbe7e' stroke-width='1.6'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='27' fill='%23edbe7e'%3EL%26J%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
@@ -221,8 +222,12 @@ section{padding:64px 22px}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ── HELPERS ──────────────────────────────────────────── */
-.lbl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--peach);text-align:center;display:block}
-.ttl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;text-align:center;color:var(--cream);line-height:1.25;margin-top:6px}
+/* Eyebrow de sección. El dorado #edbe7e sobre crema da ~1.5:1 (ilegible),
+   así que el texto va en el marrón de la paleta y el dorado queda para los
+   filetes. En secciones oscuras se usa .lbl--light. */
+.lbl{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--peach-accent);text-align:center;display:block}
+.lbl--light{color:var(--peach)}
+.ttl{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;text-align:center;color:var(--cream);line-height:1.25;margin-top:6px}
 .gline{width:50px;height:1px;background:linear-gradient(to right,transparent,var(--peach),transparent);margin:18px auto}
 
 .btn{
@@ -230,15 +235,17 @@ section{padding:64px 22px}
   width:100%;padding:16px 16px;
   border:1px solid var(--peach);border-radius:7px;
   background:transparent;color:var(--peach);
-  font-family:'Lato',sans-serif;font-size:12px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
   text-decoration:none;cursor:pointer;-webkit-appearance:none;
   position:relative;overflow:hidden;
   transition:background .25s, transform .2s var(--spring);
 }
 .btn:active{transform:scale(.96);background:rgba(237,190,126,.08)}
 .btn+.btn{margin-top:10px}
+/* Botón sólido dorado: el texto va en marrón oscuro. En blanco daba 1.7:1
+   sobre #edbe7e; en #3a2a17 sube a ~8:1 y sigue leyéndose como oro. */
 .btn-olive{
-  background:var(--peach);color:#fff;font-weight:700;
+  background:var(--peach);color:#3a2a17;font-weight:700;
   box-shadow:0 4px 22px rgba(237,190,126,.25);
   transition:all .3s var(--spring);
 }
@@ -296,7 +303,7 @@ section{padding:64px 22px}
 }
 .h-badge{
   display:inline-flex;align-items:center;justify-content:center;
-  padding:10px 26px;
+  padding:11px 18px;max-width:100%;
   border:1px solid rgba(237,190,126,.55);border-radius:30px;
   background:rgba(44,26,16,.44);
   backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
@@ -304,14 +311,14 @@ section{padding:64px 22px}
 }
 .h-badge span{
   font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:13px;letter-spacing:3px;line-height:1.45;text-transform:uppercase;
-  color:var(--ink2);
+  font-size:13px;letter-spacing:1.9px;line-height:1.45;text-transform:uppercase;
+  color:var(--ink2);white-space:nowrap;
 }
 .h-scroll{
   position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:8px;z-index:5;
 }
-.h-scroll span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(103,80,50,.6);opacity:1;font-weight:600}
+.h-scroll span{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(103,80,50,.88);opacity:1;font-weight:700}
 .h-scroll-line{
   width:1px;height:38px;
   background:linear-gradient(to bottom,rgba(103,80,50,.45),transparent);
@@ -389,20 +396,20 @@ section{padding:64px 22px}
 }
 .fch-intro{
   font-family:'Cormorant Garamond',serif;
-  font-size:18px;font-weight:400;font-style:italic;
+  font-size:18px;font-weight:500;font-style:italic;
   color:#4a3828;margin-bottom:18px;
   letter-spacing:.5px;
 }
 .fch-n1{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(28px,7.5vw,38px);font-weight:300;
+  font-size:clamp(28px,7.5vw,38px);font-weight:400;
   color:#1A1A1A;line-height:1.15;
   letter-spacing:clamp(8px,2.5vw,14px);
   text-transform:uppercase;
 }
 .fch-full{
   font-family:'Lato',sans-serif;
-  font-size:clamp(12px,3.2vw,15px);font-weight:700;
+  font-size:clamp(13px,3.4vw,15px);font-weight:700;
   letter-spacing:clamp(3px,1vw,6px);
   color:#4a3828;margin-bottom:4px;
   text-transform:uppercase;
@@ -415,14 +422,14 @@ section{padding:64px 22px}
 .fch-honor{
   margin-top:28px;
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(15px,4vw,18px);font-weight:400;font-style:italic;
+  font-size:clamp(15px,4vw,18px);font-weight:500;font-style:italic;
   color:#4a3828;line-height:1.7;
   letter-spacing:.3px;
 }
 .fch-date{
   margin-top:14px;
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(22px,6vw,30px);font-weight:300;
+  font-size:clamp(22px,6vw,30px);font-weight:400;
   color:#1A1A1A;letter-spacing:clamp(4px,1.5vw,8px);
 }
 
@@ -434,8 +441,8 @@ section{padding:64px 22px}
     radial-gradient(ellipse 60% 70% at 88% 78%, rgba(103,80,50,.14) 0%, transparent 48%),
     radial-gradient(ellipse 100% 50% at 50% 100%, rgba(237,190,126,.22) 0%, transparent 50%),
     linear-gradient(170deg, #2c1a10 0%, #3d2b1e 30%, #2c1a10 65%, #1a1008 100%);
-  -webkit-mask-image:linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  mask-image:linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image:linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  mask-image:linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
 }
 #countdown::before{
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -465,7 +472,7 @@ section{padding:64px 22px}
 /* Encabezado editorial "El Gran Día" */
 .cd-eyebrow{
   font-family:'Lato',sans-serif;font-weight:700;
-  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  font-size:12px;letter-spacing:5px;text-transform:uppercase;
   color:var(--peach);display:inline-block;
   padding-left:5px;margin-bottom:16px;
 }
@@ -515,14 +522,14 @@ section{padding:64px 22px}
   color:#FDF9F1;display:block;letter-spacing:.5px;
 }
 .cd-lbl{
-  font-family:'Lato',sans-serif;font-weight:600;
-  font-size:9px;letter-spacing:2.4px;text-transform:uppercase;
-  color:rgba(244,232,200,.88);margin-top:11px;padding-left:2.4px;
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:12px;letter-spacing:1.8px;text-transform:uppercase;
+  color:#F4E8C8;margin-top:11px;padding-left:1.8px;
 }
 .cd-falta{
   font-family:'Cormorant Garamond',serif;font-weight:500;font-style:italic;
   font-size:19px;letter-spacing:1.6px;
-  color:rgba(244,232,200,.82);margin-top:26px;
+  color:rgba(244,232,200,.95);margin-top:26px;
   display:block;text-align:center;
 }
 
@@ -547,9 +554,13 @@ section{padding:64px 22px}
   position:relative;margin:0 -20px;line-height:0;overflow:hidden;
   background:rgba(237,190,126,.08);
 }
+/* Las fotos de los lugares son de cielo azul saturado y verde intenso:
+   se bajan de saturación y se calientan un punto para que no peleen con
+   el papel crema del resto de la invitación (mismo tratamiento que hospedaje). */
 .loc-photo img{
   width:100%;height:214px;object-fit:cover;object-position:center 42%;
   display:block;transition:transform 1.2s var(--smooth);
+  filter:saturate(.72) contrast(.96) brightness(1.04) sepia(.12);
 }
 .loc-block:hover .loc-photo img{transform:scale(1.05)}
 /* velo cálido: funde la foto con el papel de la tarjeta */
@@ -578,7 +589,7 @@ section{padding:64px 22px}
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(30px,7.6vw,36px);
   color:var(--cream);margin-bottom:4px;line-height:1.2;
-  font-weight:500;
+  font-weight:600;
 }
 .loc-time{
   font-family:'Cormorant Garamond',serif;
@@ -592,14 +603,14 @@ section{padding:64px 22px}
 }
 .loc-addr{
   font-family:'Cormorant Garamond',serif;
-  font-size:16px;font-weight:400;
-  color:rgba(26,26,26,.72);line-height:1.55;margin-bottom:20px;
+  font-size:17px;font-weight:500;
+  color:rgba(26,26,26,.82);line-height:1.6;margin-bottom:20px;
 }
 .loc-btn{
-  display:inline-block;padding:13px 32px;border-radius:30px;
-  background:rgba(237,190,126,.14);color:var(--cream);
-  font-family:'Lato',sans-serif;font-size:12px;
-  letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
+  display:inline-block;padding:14px 32px;border-radius:30px;
+  background:rgba(237,190,126,.18);color:var(--cream);
+  font-family:'Lato',sans-serif;font-size:13px;
+  letter-spacing:2.2px;text-transform:uppercase;font-weight:700;
   text-decoration:none;border:1px solid rgba(237,190,126,.45);
   transition:background .3s,border-color .3s,transform .2s var(--spring);
 }
@@ -643,8 +654,8 @@ section{padding:64px 22px}
   background:rgba(44,26,16,.58);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   border:1px solid rgba(237,190,126,.5);
-  font-family:'Lato',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:2.2px;text-transform:uppercase;color:#F7EDD9;
+  font-family:'Lato',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:#FBF4E6;
   line-height:1.4;
 }
 .hosp-body{padding:20px 20px 26px;text-align:center;}
@@ -653,14 +664,16 @@ section{padding:64px 22px}
   font-size:24px;color:var(--cream);line-height:1.25;margin-bottom:8px;
 }
 .hosp-addr{
-  font-family:'Cormorant Garamond',serif;font-weight:400;
-  font-size:16px;color:rgba(26,26,26,.75);line-height:1.55;margin-bottom:10px;
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:17px;color:rgba(26,26,26,.82);line-height:1.6;margin-bottom:6px;
 }
+/* el teléfono es un enlace tel:, necesita 44px de área táctil */
 .hosp-tel{
-  display:inline-flex;align-items:center;gap:7px;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:44px;padding:8px 14px;
   font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:17px;color:var(--peach-accent);text-decoration:none;
-  letter-spacing:.5px;margin-bottom:18px;
+  font-size:18px;color:var(--peach-accent);text-decoration:none;
+  letter-spacing:.5px;margin-bottom:12px;
 }
 .hosp-tel svg{width:15px;height:15px;flex-shrink:0}
 .hosp-note{
@@ -671,10 +684,10 @@ section{padding:64px 22px}
 
 /* ── CALENDAR ─────────────────────────────────────────── */
 #calendar{
-  background:var(--ink3);padding:54px 22px;text-align:center;
-  border-top:1px solid rgba(237,190,126,.09);border-bottom:1px solid rgba(237,190,126,.09);
+  background:var(--ink3);padding:62px 22px 64px;text-align:center;
+  border-top:1px solid rgba(237,190,126,.16);border-bottom:1px solid rgba(237,190,126,.16);
 }
-.cal-sub{font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:14px 0 28px;font-weight:500;}
+.cal-sub{font-size:17px;color:var(--cream);opacity:.82;line-height:1.7;margin:14px 0 26px;font-weight:500;}
 
 /* ── ITINERARY · caminito de curvas ───────────────────── */
 #itinerary{background:#FEFBF5;overflow:hidden;padding:64px 18px 70px;}
@@ -696,11 +709,14 @@ section{padding:64px 22px}
   overflow:visible;pointer-events:none;z-index:1;
 }
 .it-path path{fill:none;stroke-linecap:round;}
-.it-path-bg{stroke:rgba(103,80,50,.22);stroke-width:2;}
+.it-path-bg{stroke:rgba(103,80,50,.16);stroke-width:2;}
+/* El camino es dorado como los aros de los medallones (antes iba en marrón
+   oscuro y leía como una culebra negra sobre el papel crema). La sombra
+   marrón le da cuerpo para que se vea sin oscurecerlo. */
 .it-path-fill{
-  stroke:var(--peach-accent);stroke-width:2.2;
+  stroke:var(--peach);stroke-width:3;
   stroke-dasharray:1;stroke-dashoffset:1;
-  filter:drop-shadow(0 0 5px rgba(237,190,126,.55));
+  filter:drop-shadow(0 1px 1.5px rgba(103,80,50,.42));
 }
 
 .it-step{position:relative;min-height:132px;display:flex;align-items:center;}
@@ -770,7 +786,7 @@ section{padding:64px 22px}
 #dresscode{background:#2c1a10;overflow:hidden;padding:64px 22px 70px;}
 .dc-title{
   font-family:'Great Vibes',cursive;font-size:clamp(36px,9vw,48px);
-  color:#fff;text-align:center;margin-bottom:30px;line-height:1.1;
+  color:#fff;text-align:center;margin:8px 0 30px;line-height:1.1;
 }
 .dc-outfits{
   display:flex;align-items:stretch;justify-content:center;
@@ -804,7 +820,7 @@ section{padding:64px 22px}
 }
 .dc-type-txt{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(24px,6.4vw,32px);font-weight:500;
+  font-size:clamp(24px,6.4vw,32px);font-weight:600;
   letter-spacing:6px;text-transform:uppercase;
   color:#fff;text-align:center;margin-bottom:8px;
 }
@@ -815,7 +831,7 @@ section{padding:64px 22px}
 }
 .dc-msg{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:18px;font-weight:400;color:rgba(255,255,255,.9);
+  font-size:18px;font-weight:500;color:rgba(255,255,255,.94);
   text-align:center;line-height:1.7;max-width:340px;margin:0 auto;
 }
 .dc-msg + .dc-msg{margin-top:18px;}
@@ -885,14 +901,16 @@ section{padding:64px 22px}
   mix-blend-mode:multiply;
   pointer-events:none;
 }
+/* la banda funde a crema en su 16% inferior: si la leyenda se queda ahí,
+   el dorado sobre crema desaparece. Se sube para que caiga sobre la foto. */
 .foto-band .foto-band-caption{
-  position:absolute;bottom:0;left:0;right:0;
-  text-align:center;padding:28px 20px 22px;
+  position:absolute;bottom:19%;left:0;right:0;
+  text-align:center;padding:0 20px;
   font-family:'Great Vibes',cursive;
-  font-size:clamp(22px,4vw,32px);
-  color:var(--peach);
+  font-size:clamp(26px,5.4vw,34px);
+  color:#F7E6C4;
   letter-spacing:.02em;
-  text-shadow:0 2px 12px rgba(0,0,0,.6);
+  text-shadow:0 2px 10px rgba(28,16,8,.85),0 0 34px rgba(28,16,8,.6);
   z-index:2;opacity:0;
   transform:translateY(12px);
   transition:opacity .8s .3s,transform .8s .3s;
@@ -927,25 +945,25 @@ section{padding:64px 22px}
   transition:transform .45s cubic-bezier(.34,1.56,.64,1),border-color .3s;
 }
 .fam-card:hover{transform:translateY(-4px);border-color:rgba(237,190,126,.3)}
-.fam-ttl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--peach-accent);text-align:center;margin:0 0 6px;}
+.fam-ttl{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--peach-accent);text-align:center;margin:0 0 6px;}
 .fam-nms{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);line-height:1.5;font-weight:500;margin:0;display:flex;flex-direction:column;align-items:center;}
 .fam-sep{display:block;font-family:'Great Vibes',cursive;font-size:26px;color:var(--peach);line-height:1;margin:6px 0;}
 .sdiv{height:36px}
 
 /* ── GALLERY — RUEDA 3D ───────────────────────────────── */
-#gallery{background:#FEFBF5;padding:84px 0 96px;position:relative;overflow:hidden;}
+#gallery{background:#FEFBF5;padding:72px 0 70px;position:relative;overflow:hidden;}
 #gallery > .lbl,
 #gallery > .ttl,
 #gallery > .gline,
 #gallery > .gal-sub{padding-left:22px;padding-right:22px}
-.gal-sub{text-align:center;font-size:14px;color:var(--cream);opacity:.65;line-height:1.85;margin:12px 0 0;letter-spacing:.5px;font-weight:500;}
-.gal-sub em{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--peach);font-style:italic;}
+.gal-sub{text-align:center;font-size:15px;color:var(--cream);opacity:.8;line-height:1.85;margin:10px 0 0;letter-spacing:.5px;font-weight:500;}
+.gal-sub em{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--peach-accent);font-style:italic;font-weight:500;}
 /* Rueda 3D */
 .wheel-scene{
   position:relative;
   width:100%;
-  height:560px;
-  margin:40px auto 0;
+  height:430px;
+  margin:24px auto 0;
   perspective:1600px;
   transform-style:preserve-3d;
   overflow:visible;
@@ -982,12 +1000,12 @@ section{padding:64px 22px}
 }
 .gal-hint{
   font-family:'Cormorant Garamond',serif;
-  font-style:italic;
-  font-size:13px;
-  letter-spacing:.3em;
-  color:var(--peach);
-  margin-top:28px;
-  opacity:.7;
+  font-style:italic;font-weight:600;
+  font-size:14px;line-height:1.7;
+  letter-spacing:.16em;
+  color:var(--peach-accent);
+  margin-top:14px;
+  opacity:.9;
   text-transform:uppercase;
   text-align:center;display:block;padding:0 22px;
 }
@@ -1000,7 +1018,7 @@ section{padding:64px 22px}
 
 /* ── GIFTS / SOBRE INTERACTIVO ───────────────────────── */
 .gifts-head{text-align:center;margin-bottom:0;max-width:640px;margin-left:auto;margin-right:auto}
-.gifts-sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:rgba(103,80,50,.75);line-height:1.7;margin-top:12px;font-style:italic;}
+.gifts-sub{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#5a4326;line-height:1.7;margin-top:12px;font-style:italic;}
 .env-interactive{display:flex;flex-direction:column;align-items:center;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;border:none;background:none;padding:0;}
 .env-body{perspective:700px;position:relative;width:260px;height:200px;}
 .env-body svg.env-svg{width:100%;height:100%;}
@@ -1010,8 +1028,11 @@ section{padding:64px 22px}
 .env-interactive.open .env-open-content{max-height:300px;opacity:1;pointer-events:auto;}
 .env-mailbox-icon{width:40px;height:40px;color:#edbe7e;margin-top:10px;}
 .env-title{font-family:'Great Vibes',cursive;font-size:34px;color:var(--cream);letter-spacing:.5px;line-height:1.2;margin-top:4px;}
-.env-desc{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:rgba(103,80,50,.75);line-height:1.75;}
-.env-tap-hint{font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#675032;opacity:.65;margin-top:6px;transition:opacity .3s;}
+/* Datos bancarios: tienen que copiarse a mano, van grandes y sólidos. */
+.env-desc{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;font-style:italic;color:#4a3720;line-height:1.75;}
+.env-desc strong{font-weight:700;font-style:normal;letter-spacing:.5px}
+.env-clabe{font-style:normal;font-weight:600;letter-spacing:1.2px;font-variant-numeric:tabular-nums}
+.env-tap-hint{font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#675032;opacity:.85;margin-top:8px;transition:opacity .3s;}
 .env-interactive.open~.env-tap-hint{opacity:0;pointer-events:none;}
 @keyframes env-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 .env-body{animation:env-breathe 3.6s ease-in-out infinite;}
@@ -1020,18 +1041,18 @@ section{padding:64px 22px}
 #rsvp{background:var(--ink)}
 .rsvp-date-big{
   text-align:center;margin:18px 0 6px;
-  font-family:'Le Major','Bodoni Moda',serif;
-  font-size:clamp(26px,7vw,34px);font-weight:400;
-  color:var(--peach);letter-spacing:1.5px;line-height:1.2;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,7vw,34px);font-weight:600;
+  color:var(--peach-accent);letter-spacing:1.2px;line-height:1.25;
 }
-.rsvp-sub{text-align:center;font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:8px 0 28px;font-weight:500;}
-.rsvp-dl{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--peach);font-style:italic;font-weight:500;}
+.rsvp-sub{text-align:center;font-size:17px;color:var(--cream);opacity:.82;line-height:1.7;margin:8px 0 28px;font-weight:500;}
+.rsvp-dl{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--peach-accent);font-style:italic;font-weight:700;}
 .rsvp-form-wrap{max-width:340px;margin:0 auto;text-align:center;padding:0 4px}
 .rsvp-submit-btn:disabled{opacity:.55;cursor:not-allowed}
-#rsvp-pases-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--peach);margin:0 auto 16px;line-height:1.5;text-align:center}
+#rsvp-pases-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:17px;color:var(--peach-accent);margin:0 auto 16px;line-height:1.5;text-align:center}
 .rsvp-pases-display{max-width:300px;margin:0 auto 18px;padding:14px 26px;background:rgba(237,190,126,.10);border:1px solid rgba(237,190,126,.35);border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:14px}
 .rsvp-pases-label{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream)}
-.rsvp-pases-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:32px;color:var(--peach);line-height:1}
+.rsvp-pases-num{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:32px;color:var(--peach-accent);line-height:1}
 .rsvp-toggle{display:flex;gap:10px;max-width:340px;margin:0 auto 16px}
 .rsvp-toggle-btn{flex:1;padding:13px 8px;border:1.5px solid rgba(237,190,126,.4);background:#fff;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:600;color:var(--cream);border-radius:8px;transition:all .25s}
 .rsvp-toggle-btn:disabled{opacity:.45;cursor:not-allowed}
@@ -1041,7 +1062,7 @@ section{padding:64px 22px}
 .rsvp-input{width:100%;padding:13px 16px;border:1.5px solid rgba(237,190,126,.32);border-radius:8px;background:#fff;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--cream);outline:none;transition:border-color .3s;-webkit-appearance:none;min-height:48px}
 .rsvp-input:focus{border-color:var(--peach)}
 .rsvp-input::placeholder{color:rgba(26,26,26,.4);font-style:italic}
-#rsvp-feedback{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;font-weight:600;text-align:center;margin:14px auto 0;max-width:340px;line-height:1.5;min-height:18px;color:var(--peach)}
+#rsvp-feedback{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;font-weight:600;text-align:center;margin:14px auto 0;max-width:340px;line-height:1.5;min-height:18px;color:var(--peach-accent)}
 
 /* ── FOOTER ───────────────────────────────────────────── */
 #footer{
@@ -1058,13 +1079,28 @@ section{padding:64px 22px}
   width:100%;height:auto;display:block;
 
 }
+.ft-medal{
+  width:190px;height:auto;display:block;
+  filter:drop-shadow(0 6px 22px rgba(103,80,50,.34));
+}
+.ft-medal-arc{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:14px;letter-spacing:1.7px;text-transform:uppercase;
+}
+.ft-medal-mono{
+  font-family:'Great Vibes',cursive;font-size:74px;
+}
+.ft-medal-amp{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:26px;
+}
 .ft-body{
   padding:0 28px 52px;
   position:relative;z-index:2;
 }
 .ft-msg{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(22px,6vw,30px);font-weight:400;font-style:italic;
+  font-size:clamp(22px,6vw,30px);font-weight:500;font-style:italic;
   color:#1A1A1A;line-height:1.5;
   margin-bottom:12px;
 }
@@ -1078,23 +1114,26 @@ section{padding:64px 22px}
   color:#1a1a1a;line-height:1.1;
   margin-bottom:14px;
 }
+/* la fecha va en Cormorant 600, no en la display fina 'Le Major':
+   los trazos capilares la volvían casi invisible en pantalla */
 .ft-date{
-  font-family:'Le Major','Bodoni Moda',serif;
-  font-size:clamp(16px,4.5vw,20px);font-weight:400;
-  letter-spacing:4px;text-transform:uppercase;
-  color:#edbe7e;margin-bottom:32px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,4.8vw,21px);font-weight:600;
+  letter-spacing:3.4px;text-transform:uppercase;
+  color:var(--peach-accent);margin-bottom:32px;
 }
 .ft-rings{
   width:120px;height:auto;margin:0 auto 40px;display:block;
 }
-.el-sep{width:44px;height:1px;background:rgba(237,190,126,.18);margin:0 auto 16px}
+.el-sep{width:44px;height:1px;background:rgba(237,190,126,.35);margin:0 auto 10px}
 .el-credit{
   display:inline-flex;align-items:center;gap:8px;
-  color:var(--peach);opacity:.55;
-  font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;
+  min-height:44px;padding:10px 12px;
+  color:var(--peach-accent);opacity:.8;
+  font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;
   letter-spacing:1.5px;text-decoration:none;transition:opacity .25s;
 }
-.el-credit:hover{opacity:.75}
+.el-credit:hover{opacity:1}
 
 /* ── SECTION WAVES ────────────────────────────────────── */
 .sec-wave{position:absolute;left:0;right:0;height:38px;pointer-events:none;z-index:0;overflow:hidden;}
@@ -1145,7 +1184,7 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 
 /* ── LBL BREATHE ──────────────────────────────────────── */
 .lbl{animation:lblBreathe 7s ease-in-out infinite}
-@keyframes lblBreathe{0%,100%{letter-spacing:5px}50%{letter-spacing:5.7px}}
+@keyframes lblBreathe{0%,100%{letter-spacing:4px}50%{letter-spacing:4.6px}}
 
 /* ── WISP ─────────────────────────────────────────────── */
 .wisp{position:absolute;border-radius:100px;pointer-events:none;will-change:transform,opacity;}
@@ -1173,8 +1212,8 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
 }
 .cita-ref{
   font-family:'Lato',sans-serif;font-weight:700;
-  font-size:12px;letter-spacing:3.4px;text-transform:uppercase;
-  color:var(--peach-accent);margin-top:20px;padding-left:3.4px;
+  font-size:14px;letter-spacing:3.2px;text-transform:uppercase;
+  color:var(--peach-accent);margin-top:20px;padding-left:3.2px;
 }
 .cita-nota{
   font-family:'Cormorant Garamond',serif;
@@ -1453,7 +1492,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- FOTO BAND 1 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda1.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 15%">
+  <img src="banda1.jpg?v=2" alt="Leonardo y Jovanna caminando de la mano" loading="lazy" style="object-position:center 42%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Juntos por siempre</div>
 </div>
@@ -1575,7 +1614,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
   <p class="cal-sub">Agrega nuestra boda a tu calendario<br>para no perderte ni un momento.</p>
 
   <div class="cal-btns">
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Leonardo+%26+Jovanna&dates=20260919T130000/20260920T010000&details=Ceremonia+Religiosa+1:00+PM+·+Recepción+3:30+PM+·+Ceremonia+Civil+4:00+PM+·+Parroquia+de+San+Juan+Evangelista+y+Salón+Jardín+Cantera,+Acatzingo+de+Hidalgo,+Pue.&location=Acatzingo+de+Hidalgo%2C+Puebla"
+    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Leonardo+%26+Jovanna&dates=20260919T130000/20260920T010000&details=Ceremonia+Religiosa+1:00+PM+·+Recepción+3:30+PM+·+Ceremonia+Civil+4:00+PM+·+Parroquia+de+San+Juan+Evangelista+y+Salón+Jardín+Cantera,+Acatzingo+de+Hidalgo,+Pue.&location=Acatzingo+de+Hidalgo%2C+Puebla&ctz=America/Mexico_City"
        target="_blank" rel="noopener" id="calBtn"
        class="btn btn-olive">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -1753,20 +1792,21 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="wheel-scene" id="wheel-scene">
     <div class="wheel-ring" id="wheel-ring">
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="banda1.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="banda2.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="banda3.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="hero-photo.png" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="fondo-nosotros.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g6.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g2.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g4.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g3.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g1.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="g5.jpg" alt="Leonardo y Jovanna" loading="lazy"></div>
     </div>
   </div>
-  <span class="gal-hint fu">Arrastra para girar · Toca para ampliar</span>
+  <span class="gal-hint fu">Arrastra para girar<br>Toca una foto para ampliar</span>
 </section>
 
 
 <!-- ═══════════════ 7. DRESS CODE ════════════════════ -->
 <section id="dresscode">
+  <span class="lbl lbl--light">Etiqueta</span>
   <p class="dc-title fu">Código de Vestimenta</p>
 
   <div class="dc-outfits">
@@ -1817,7 +1857,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- FOTO BAND 2 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda2.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 20%">
+  <img src="banda2.jpg?v=2" alt="Leonardo y Jovanna en la escalinata" loading="lazy" style="object-position:center 46%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Nuestro amor</div>
 </div>
@@ -1943,7 +1983,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
           <rect x="20" y="28" width="12" height="2.5" rx="1.25" fill="currentColor" stroke="none" opacity=".4"/>
         </svg>
         <p class="env-title">Mesa de Regalos</p>
-        <p class="env-desc"><strong>Banco Azteca</strong><br>CLABE: 1276 5201 3960 1806 92<br>Titular: Leonardo Alcántara Martínez</p>
+        <p class="env-desc"><strong>Banco Azteca</strong><br>CLABE: <span class="env-clabe">1276 5201 3960 1806 92</span><br>Titular: Leonardo Alcántara Martínez</p>
         <p class="env-desc" style="margin-top:6px">También habrá una urna especial el día de la boda para tu sobre con mucho cariño.</p>
       </div>
     </button>
@@ -1954,7 +1994,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- FOTO BAND 3 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda3.jpg" alt="Leonardo y Jovanna" loading="lazy" style="object-position:center 0%">
+  <img src="banda3.jpg?v=2" alt="Leonardo y Jovanna junto al lago" loading="lazy" style="object-position:center 42%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Por siempre nosotros</div>
 </div>
@@ -2028,8 +2068,44 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- ═══════════════ 11. FOOTER ═══════════════════════ -->
 <footer id="footer">
+  <!-- Medallón de cierre. Antes era logo-pareja.png, un PNG heredado de la
+       plantilla base que decía «Sandra & Faustino · 01 Agosto 2026». Ahora es
+       SVG con los nombres y la fecha reales. -->
   <div class="ft-logo" style="display:flex;justify-content:center;padding:32px 0 0;">
-    <img src="logo-pareja.png" alt="Leonardo y Jovanna" loading="lazy" style="width:180px;height:auto;filter:drop-shadow(0 4px 20px rgba(237,190,126,.35));">
+    <svg class="ft-medal" viewBox="0 0 200 232" role="img" aria-label="Leonardo y Jovanna · 19 de Septiembre de 2026">
+      <defs>
+        <linearGradient id="ftGold" x1="0" y1="0" x2="0.7" y2="1">
+          <stop offset="0%"   stop-color="#f4e8c8"/>
+          <stop offset="38%"  stop-color="#edbe7e"/>
+          <stop offset="70%"  stop-color="#d9a95f"/>
+          <stop offset="100%" stop-color="#f2dda6"/>
+        </linearGradient>
+        <radialGradient id="ftInk" cx="42%" cy="34%" r="78%">
+          <stop offset="0%"   stop-color="#3d2b1e"/>
+          <stop offset="62%"  stop-color="#2c1a10"/>
+          <stop offset="100%" stop-color="#1a1008"/>
+        </radialGradient>
+        <path id="ftArcTop" d="M22,118 A78,96 0 0 1 178,118"/>
+        <path id="ftArcBot" d="M26,118 A74,92 0 0 0 174,118"/>
+      </defs>
+
+      <ellipse cx="100" cy="118" rx="97" ry="113" fill="url(#ftInk)"/>
+      <ellipse cx="100" cy="118" rx="97" ry="113" fill="none" stroke="url(#ftGold)" stroke-width="1.6"/>
+      <ellipse cx="100" cy="118" rx="90" ry="106" fill="none" stroke="url(#ftGold)" stroke-width=".7" opacity=".55"/>
+
+      <text class="ft-medal-arc" fill="url(#ftGold)">
+        <textPath href="#ftArcTop" startOffset="50%" text-anchor="middle">Leonardo &amp; Jovanna</textPath>
+      </text>
+      <text class="ft-medal-arc" fill="url(#ftGold)">
+        <textPath href="#ftArcBot" startOffset="50%" text-anchor="middle">19 · Septiembre · 2026</textPath>
+      </text>
+
+      <circle cx="15.5" cy="118" r="2.4" fill="url(#ftGold)"/>
+      <circle cx="184.5" cy="118" r="2.4" fill="url(#ftGold)"/>
+
+      <text class="ft-medal-mono" x="100" y="140" text-anchor="middle" fill="url(#ftGold)">L<tspan class="ft-medal-amp" dx="-4" dy="-8">&amp;</tspan><tspan dx="-4" dy="8">J</tspan></text>
+      <path d="M64 158 Q100 170 136 158" stroke="url(#ftGold)" stroke-width=".9" fill="none" opacity=".6"/>
+    </svg>
   </div>
 
   <div class="ft-body">
@@ -2052,21 +2128,23 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
           <stop offset="50%" stop-color="#c9a050"/>
           <stop offset="100%" stop-color="#8a6828"/>
         </linearGradient>
+        <!-- diamante en champán, no en azul hielo: el azul era el único
+             color frío de toda la invitación -->
         <linearGradient id="diamTop" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#d4f0fa"/>
-          <stop offset="100%" stop-color="#8cc8e0"/>
+          <stop offset="0%" stop-color="#fffdf7"/>
+          <stop offset="100%" stop-color="#f4e8c8"/>
         </linearGradient>
         <linearGradient id="diamLeft" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#a8dced"/>
-          <stop offset="100%" stop-color="#6ab0d0"/>
+          <stop offset="0%" stop-color="#f7eed8"/>
+          <stop offset="100%" stop-color="#e0cba4"/>
         </linearGradient>
         <linearGradient id="diamRight" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#c0e8f5"/>
-          <stop offset="100%" stop-color="#7ec0dc"/>
+          <stop offset="0%" stop-color="#fdf7e8"/>
+          <stop offset="100%" stop-color="#e6d3a6"/>
         </linearGradient>
         <linearGradient id="diamBottom" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#90c8e0"/>
-          <stop offset="100%" stop-color="#5898b8"/>
+          <stop offset="0%" stop-color="#e6d3a6"/>
+          <stop offset="100%" stop-color="#D4C5B2"/>
         </linearGradient>
         <linearGradient id="goldShine" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stop-color="#fff8e0" stop-opacity=".6"/>
@@ -2351,7 +2429,9 @@ function spawnPetals() {
     gsap.set(p, { left: startX + '%', y: -40, x: 0, rotation: 0, opacity: 0 });
 
     const tl = gsap.timeline({ delay: Math.random() * 0.5, onComplete() { fall(p); } });
-    tl.to(p, { opacity: .55 + Math.random() * .3, duration: 1.2, ease: 'power1.out' }, 0)
+    // opacidad baja a propósito: la capa va por encima del texto, si sube
+    // más los pétalos tapan palabras al pasar.
+    tl.to(p, { opacity: .26 + Math.random() * .2, duration: 1.2, ease: 'power1.out' }, 0)
       .to(p, {
         y: '+=' + (window.innerHeight + 380),
         x: drift, rotation: rot,
