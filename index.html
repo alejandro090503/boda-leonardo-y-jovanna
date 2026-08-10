@@ -526,51 +526,148 @@ section{padding:64px 22px}
   display:block;text-align:center;
 }
 
-/* ── LOCATION ─────────────────────────────────────────── */
-#location{background:#FEFBF5;position:relative;overflow:hidden;padding:64px 22px;}
-.loc-block{text-align:center;margin-bottom:56px;}
+/* ── LOCATION · tarjetas con foto del lugar ───────────── */
+#location{background:#FEFBF5;position:relative;overflow:hidden;padding:64px 22px 70px;}
+.loc-block{
+  position:relative;text-align:center;
+  background:#FFFDF8;
+  border:1px solid rgba(237,190,126,.34);
+  border-radius:20px;
+  box-shadow:0 2px 4px rgba(103,80,50,.05),
+             0 20px 44px -24px rgba(103,80,50,.62);
+  padding:0 20px 28px;
+  margin-bottom:34px;
+  overflow:hidden;
+}
 .loc-block:last-child{margin-bottom:0}
-.loc-icon{margin:0 auto 6px;}
-.loc-icon svg{width:56px;height:56px;}
+
+/* foto a sangre en la cabecera de la tarjeta.
+   OJO: el margen negativo debe igualar el padding lateral de .loc-block (20px) */
+.loc-photo{
+  position:relative;margin:0 -20px;line-height:0;overflow:hidden;
+  background:rgba(237,190,126,.08);
+}
+.loc-photo img{
+  width:100%;height:214px;object-fit:cover;object-position:center 42%;
+  display:block;transition:transform 1.2s var(--smooth);
+}
+.loc-block:hover .loc-photo img{transform:scale(1.05)}
+/* velo cálido: funde la foto con el papel de la tarjeta */
+.loc-photo::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(44,26,16,.20) 0%,
+    rgba(44,26,16,.02) 32%,
+    rgba(255,253,248,.14) 68%,
+    rgba(255,253,248,.82) 90%,
+    #FFFDF8 100%);
+}
+/* medallón con el icono, montado sobre el borde inferior de la foto */
+.loc-icon{
+  position:relative;z-index:2;
+  width:66px;height:66px;border-radius:50%;
+  margin:-33px auto 14px;
+  background:#FFFDF8;
+  border:1px solid rgba(237,190,126,.55);
+  box-shadow:0 8px 20px -10px rgba(103,80,50,.6),
+             inset 0 0 0 4px rgba(237,190,126,.10);
+  display:flex;align-items:center;justify-content:center;
+}
+.loc-icon svg{width:36px;height:36px;}
 .loc-title{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(36px,9vw,44px);
-  color:var(--cream);margin-bottom:22px;line-height:1.2;
+  font-size:clamp(30px,7.6vw,36px);
+  color:var(--cream);margin-bottom:4px;line-height:1.2;
   font-weight:500;
-}
-.loc-photo{
-  width:210px;height:210px;border-radius:50%;
-  margin:0 auto 22px;overflow:hidden;
-  background:rgba(237,190,126,.06);
-  border:2px solid rgba(237,190,126,.14);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 10px 36px rgba(103,80,50,.1);
-}
-.loc-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-.loc-ph-txt{
-  font-family:'Lato',sans-serif;font-size:9px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:rgba(103,80,50,.3);
 }
 .loc-time{
   font-family:'Cormorant Garamond',serif;
-  font-size:18px;font-weight:400;font-style:italic;
-  color:var(--cream);margin-bottom:6px;opacity:.65;
+  font-size:19px;font-weight:600;font-style:italic;
+  color:var(--peach-accent);margin-bottom:12px;letter-spacing:.6px;
 }
 .loc-venue{
   font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:500;
-  color:var(--cream);line-height:1.35;margin-bottom:20px;
+  font-size:21px;font-weight:600;
+  color:var(--cream);line-height:1.35;margin-bottom:6px;
+}
+.loc-addr{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:400;
+  color:rgba(26,26,26,.72);line-height:1.55;margin-bottom:20px;
 }
 .loc-btn{
-  display:inline-block;padding:11px 30px;border-radius:30px;
-  background:rgba(237,190,126,.12);color:var(--cream);
-  font-family:'Lato',sans-serif;font-size:11px;
-  letter-spacing:2.5px;text-transform:uppercase;font-weight:600;
-  text-decoration:none;border:1px solid rgba(237,190,126,.25);
-  transition:background .3s,border-color .3s;
+  display:inline-block;padding:13px 32px;border-radius:30px;
+  background:rgba(237,190,126,.14);color:var(--cream);
+  font-family:'Lato',sans-serif;font-size:12px;
+  letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
+  text-decoration:none;border:1px solid rgba(237,190,126,.45);
+  transition:background .3s,border-color .3s,transform .2s var(--spring);
 }
-.loc-btn:hover{background:rgba(237,190,126,.22);border-color:rgba(237,190,126,.45);}
+.loc-btn:hover{background:rgba(237,190,126,.24);border-color:rgba(237,190,126,.7);}
+.loc-btn:active{transform:scale(.96)}
+
+/* ── HOSPEDAJE ────────────────────────────────────────── */
+#hospedaje{background:#FEFBF5;padding:10px 22px 72px;position:relative;overflow:hidden;}
+.hosp-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;line-height:1.6;text-align:center;
+  color:rgba(26,26,26,.74);margin:0 auto 30px;max-width:330px;
+}
+.hosp-card{
+  background:#FFFDF8;
+  border:1px solid rgba(237,190,126,.34);
+  border-radius:18px;overflow:hidden;
+  box-shadow:0 2px 4px rgba(103,80,50,.05),
+             0 18px 40px -24px rgba(103,80,50,.6);
+  margin-bottom:26px;
+}
+.hosp-card:last-of-type{margin-bottom:0}
+.hosp-photo{position:relative;line-height:0;background:rgba(237,190,126,.08);}
+.hosp-photo img{
+  width:100%;height:190px;object-fit:cover;object-position:center 46%;
+  display:block;filter:saturate(.84) contrast(.97) brightness(1.02);
+  transition:transform 1.2s var(--smooth);
+}
+.hosp-card:hover .hosp-photo img{transform:scale(1.05)}
+.hosp-photo::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,
+    rgba(44,26,16,.16) 0%,
+    rgba(44,26,16,.02) 40%,
+    rgba(255,253,248,.55) 88%,
+    #FFFDF8 100%);
+}
+.hosp-num{
+  position:absolute;z-index:2;left:14px;top:14px;
+  padding:6px 14px;border-radius:20px;
+  background:rgba(44,26,16,.58);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  border:1px solid rgba(237,190,126,.5);
+  font-family:'Lato',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:2.2px;text-transform:uppercase;color:#F7EDD9;
+  line-height:1.4;
+}
+.hosp-body{padding:20px 20px 26px;text-align:center;}
+.hosp-name{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:24px;color:var(--cream);line-height:1.25;margin-bottom:8px;
+}
+.hosp-addr{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:16px;color:rgba(26,26,26,.75);line-height:1.55;margin-bottom:10px;
+}
+.hosp-tel{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:17px;color:var(--peach-accent);text-decoration:none;
+  letter-spacing:.5px;margin-bottom:18px;
+}
+.hosp-tel svg{width:15px;height:15px;flex-shrink:0}
+.hosp-note{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:16px;line-height:1.65;text-align:center;
+  color:rgba(26,26,26,.66);margin:28px auto 0;max-width:330px;
+}
 
 /* ── CALENDAR ─────────────────────────────────────────── */
 #calendar{
@@ -579,91 +676,182 @@ section{padding:64px 22px}
 }
 .cal-sub{font-size:16px;color:var(--cream);opacity:.72;line-height:1.7;margin:14px 0 28px;font-weight:500;}
 
-/* ── ITINERARY ────────────────────────────────────────── */
-#itinerary{background:#FEFBF5;overflow:hidden;padding:64px 22px;}
+/* ── ITINERARY · caminito de curvas ───────────────────── */
+#itinerary{background:#FEFBF5;overflow:hidden;padding:64px 18px 70px;}
 .it-title{
   font-family:'Great Vibes',cursive;font-size:clamp(40px,10vw,52px);
-  color:var(--cream);text-align:center;margin-bottom:36px;line-height:1.1;
+  color:var(--cream);text-align:center;margin-bottom:6px;line-height:1.1;
 }
-.it-line{
-  position:relative;display:flex;flex-direction:column;align-items:center;
-  padding:0;
-}
-.it-line::before{
-  content:'';position:absolute;top:0;bottom:0;left:50%;
-  width:2px;background:rgba(103,80,50,.2);transform:translateX(-50%);
-}
-.it-step{
-  position:relative;width:100%;display:flex;align-items:center;
-  min-height:90px;
-}
-.it-left,.it-right{flex:1;padding:8px 0;}
-.it-left{text-align:right;padding-right:40px;}
-.it-right{text-align:left;padding-left:40px;}
-.it-circle{
-  width:54px;height:54px;border-radius:50%;flex-shrink:0;
-  background:rgba(103,80,50,.1);
-  border:1px solid rgba(103,80,50,.2);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;z-index:2;
-}
-.it-circle svg{width:28px;height:28px;}
-.it-left::after{
-  content:'';position:absolute;right:-8px;top:50%;
-  width:28px;height:1px;background:rgba(103,80,50,.25);
-  transform:translateY(-50%);
-}
-.it-left::before{
-  content:'';position:absolute;right:-10px;top:50%;
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(103,80,50,.35);
-  transform:translate(0,-50%);z-index:1;
-}
-.it-right::before{
-  content:'';position:absolute;left:-8px;top:50%;
-  width:28px;height:1px;background:rgba(103,80,50,.25);
-  transform:translateY(-50%);
-}
-.it-right::after{
-  content:'';position:absolute;left:-10px;top:50%;
-  width:5px;height:5px;border-radius:50%;
-  background:rgba(103,80,50,.35);
-  transform:translate(0,-50%);z-index:1;
-}
-.it-left,.it-right{position:relative;}
-.it-label{
+.it-sub{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:17px;font-weight:500;color:var(--cream);line-height:1.3;
+  font-size:16px;letter-spacing:2.4px;text-transform:uppercase;
+  color:var(--peach-accent);text-align:center;margin-bottom:34px;
+}
+.it-line{position:relative;padding:6px 0;}
+
+/* el camino serpenteante (SVG; el JS recalcula la curva con las
+   posiciones reales de cada medallón para que encajen al pixel) */
+.it-path{
+  position:absolute;inset:0;width:100%;height:100%;
+  overflow:visible;pointer-events:none;z-index:1;
+}
+.it-path path{fill:none;stroke-linecap:round;}
+.it-path-bg{stroke:rgba(103,80,50,.22);stroke-width:2;}
+.it-path-fill{
+  stroke:var(--peach-accent);stroke-width:2.2;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  filter:drop-shadow(0 0 5px rgba(237,190,126,.55));
+}
+
+.it-step{position:relative;min-height:132px;display:flex;align-items:center;}
+.it-med{
+  position:absolute;top:50%;left:10%;
+  transform:translate(-50%,-50%);
+  width:64px;height:64px;border-radius:50%;z-index:3;
+  background:#FFFDF8;
+  border:1px solid rgba(237,190,126,.5);
+  box-shadow:0 6px 18px -8px rgba(103,80,50,.55),
+             inset 0 0 0 4px rgba(237,190,126,.10);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .5s ease,box-shadow .5s ease;
+}
+.it-step--r .it-med{left:90%}
+.it-med svg{width:34px;height:34px;display:block}
+.it-step.is-active .it-med{
+  border-color:var(--peach);
+  box-shadow:0 8px 22px -8px rgba(237,190,126,.85),
+             inset 0 0 0 4px rgba(237,190,126,.26);
+}
+
+.it-card{
+  position:relative;z-index:2;
+  flex:1 1 auto;min-width:0;
+  margin-left:calc(10% + 48px);
+  padding:15px 17px;border-radius:14px;
+  background:rgba(255,253,248,.94);
+  border:1px solid rgba(103,80,50,.15);
+  box-shadow:0 10px 26px -20px rgba(103,80,50,.7);
+  text-align:left;
+  transition:border-color .5s ease,box-shadow .5s ease,background .5s ease;
+}
+.it-step--r .it-card{
+  margin-left:0;margin-right:calc(10% + 48px);
+  text-align:right;
+}
+.it-step.is-active .it-card{
+  border-color:rgba(237,190,126,.62);
+  background:#FFFDF8;
+  box-shadow:0 14px 30px -20px rgba(103,80,50,.85);
 }
 .it-time{
+  display:block;
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:20px;line-height:1.15;letter-spacing:1px;
+  color:var(--peach-accent);margin-bottom:3px;
+}
+.it-label{
+  display:block;
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:17px;font-weight:400;color:rgba(103,80,50,.7);
+  font-size:18px;font-weight:600;color:var(--cream);line-height:1.35;
+}
+@media (max-width:340px){
+  .it-card{margin-left:calc(10% + 42px);padding:13px 14px}
+  .it-step--r .it-card{margin-right:calc(10% + 42px)}
+  .it-med{width:58px;height:58px}
+  .it-med svg{width:30px;height:30px}
+}
+.it-note{
+  text-align:center;margin-top:34px;
+  font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;
+  color:var(--peach-accent);letter-spacing:.8px;line-height:1.6;
 }
 
 /* ── DRESSCODE ────────────────────────────────────────── */
-#dresscode{background:#2c1a10;overflow:hidden;padding:64px 22px;}
+#dresscode{background:#2c1a10;overflow:hidden;padding:64px 22px 70px;}
 .dc-title{
   font-family:'Great Vibes',cursive;font-size:clamp(36px,9vw,48px);
-  color:#fff;text-align:center;margin-bottom:32px;line-height:1.1;
+  color:#fff;text-align:center;margin-bottom:30px;line-height:1.1;
 }
 .dc-outfits{
-  display:flex;align-items:flex-end;justify-content:center;
-  gap:24px;margin:0 auto 36px;max-width:300px;
+  display:flex;align-items:stretch;justify-content:center;
+  gap:0;margin:0 auto 32px;max-width:330px;
 }
-.dc-outfit{display:flex;flex-direction:column;align-items:center;}
-.dc-outfit img{height:200px;width:auto;object-fit:contain;}
+.dc-outfit{
+  flex:1;display:flex;flex-direction:column;align-items:center;
+  padding:6px 8px 0;
+}
+/* las siluetas son PNG negros con recortes transparentes (camisa, moño,
+   cinturón). El filtro las pasa a marfil para que lean sobre el fondo café. */
+.dc-outfit img{
+  height:186px;width:auto;object-fit:contain;
+  filter:brightness(0) invert(1) sepia(.24) saturate(1.4)
+         drop-shadow(0 8px 20px rgba(237,190,126,.28));
+  opacity:.95;
+}
+.dc-divider{
+  width:1px;flex-shrink:0;margin:16px 4px 26px;
+  background:linear-gradient(to bottom,transparent,rgba(237,190,126,.55) 20%,rgba(237,190,126,.55) 80%,transparent);
+}
+.dc-fig-name{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:17px;letter-spacing:3px;text-transform:uppercase;
+  color:#FFF6E6;margin-top:16px;
+}
+.dc-fig-hint{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:15px;letter-spacing:.8px;color:var(--peach);
+  margin-top:4px;text-align:center;line-height:1.5;
+}
 .dc-type-txt{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(22px,6vw,30px);font-weight:400;
+  font-size:clamp(24px,6.4vw,32px);font-weight:500;
   letter-spacing:6px;text-transform:uppercase;
-  color:#fff;text-align:center;margin-bottom:24px;
+  color:#fff;text-align:center;margin-bottom:8px;
+}
+.dc-type-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:17px;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--peach);text-align:center;margin-bottom:24px;
 }
 .dc-msg{
   font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:18px;font-weight:400;color:rgba(255,255,255,.88);
+  font-size:18px;font-weight:400;color:rgba(255,255,255,.9);
   text-align:center;line-height:1.7;max-width:340px;margin:0 auto;
 }
 .dc-msg + .dc-msg{margin-top:18px;}
+
+/* ── COLORES RESERVADOS (muestras con diagonal) ───────── */
+.dc-avoid{
+  margin:32px auto 0;max-width:340px;
+  border-top:1px solid rgba(237,190,126,.22);
+  padding-top:28px;
+}
+.dc-avoid-row{display:flex;align-items:center;justify-content:center;gap:16px;}
+.dc-avoid-row + .dc-avoid-row{margin-top:24px;}
+.dc-sw-group{display:flex;gap:10px;flex-shrink:0;}
+.dc-sw{
+  position:relative;display:block;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--sw);overflow:hidden;
+  border:1px solid rgba(244,232,200,.5);
+  box-shadow:0 4px 14px -6px rgba(0,0,0,.7);
+}
+.dc-sw::after{
+  content:'';position:absolute;left:50%;top:-8px;bottom:-8px;width:3px;
+  background:var(--swline,#FFF6E6);
+  transform:translateX(-50%) rotate(45deg);
+  box-shadow:0 0 0 1px rgba(44,26,16,.45);
+}
+.dc-avoid-txt{
+  flex:1;text-align:left;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;line-height:1.5;color:rgba(255,255,255,.9);
+}
+.dc-avoid-txt b{
+  display:block;font-weight:600;font-style:normal;
+  font-size:16px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--peach);margin-bottom:2px;
+}
 
 /* ── ALBUM QR ─────────────────────────────────────────── */
 #album{background:var(--ink)}
@@ -1272,50 +1460,110 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- ═══════════════ 3. UBICACIONES ═══════════════════ -->
 <section id="location">
+  <span class="lbl">Dónde nos vemos</span>
+  <h2 class="ttl">Nuestros Lugares</h2>
+  <div class="gline"></div>
 
   <div class="loc-block">
+    <div class="loc-photo">
+      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/iglesia-acatzingo-fachada.jpg"
+           alt="Parroquia de San Juan Evangelista, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 34%">
+    </div>
     <div class="loc-icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" stroke="var(--cream)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M32 8 L32 10"/>
-        <path d="M16 24 Q16 12 32 10 Q48 12 48 24 L48 38 Q48 50 32 56 Q16 50 16 38 Z"/>
-        <path d="M24 28 Q24 20 32 18 Q40 20 40 28 L40 36 Q40 44 32 48 Q24 44 24 36 Z" opacity=".4"/>
-        <circle cx="32" cy="28" r="4"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 5.6v6.6M17.6 8h4.8"/>
+        <path d="M11.5 19.5 20 12.2l8.5 7.3"/>
+        <path d="M13 19v17h14V19"/>
+        <path d="M17 36v-7.4a3 3 0 0 1 6 0V36"/>
+        <circle cx="20" cy="23.6" r="2"/>
+        <path d="M6.5 17h6.5v19H6.5z"/>
+        <path d="M5.8 17 9.75 12.6 13.7 17"/>
+        <path d="M9.75 21.6v3.6"/>
+        <path d="M27 17h6.5v19H27z"/>
+        <path d="M26.3 17 30.25 12.6 34.2 17"/>
+        <path d="M30.25 21.6v3.6"/>
+        <path d="M3.5 36h33"/>
       </svg>
     </div>
-    <p class="loc-title">Ceremonia</p>
-    <div class="loc-photo" id="loc-photo-0">
-      <img src="iglesia.jpeg" alt="Parroquia de San Juan Evangelista" loading="lazy">
-    </div>
+    <p class="loc-title">Ceremonia Religiosa</p>
     <p class="loc-time">1:00 pm</p>
-    <p class="loc-venue">Parroquia de San Juan Evangelista<br>(Santuario de la Virgen de los Dolores)<br>Acatzingo de Hidalgo, Pue.</p>
+    <p class="loc-venue">Parroquia de San Juan Evangelista</p>
+    <p class="loc-addr">Santuario de la Virgen de los Dolores<br>Av. 16 de Septiembre 205, San Gabriel<br>Acatzingo de Hidalgo, Pue.</p>
     <a href="https://www.google.com/maps/place/Parroquia+de+San+Juan+Evangelista/data=!4m2!3m1!1s0x0:0xacccbec3b0662054"
        target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
   </div>
 
   <div class="loc-block">
+    <div class="loc-photo">
+      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/salon-cantera-fachada.jpg"
+           alt="Salón Jardín Cantera, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 38%">
+    </div>
     <div class="loc-icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" stroke="var(--cream)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M20 38c0-12 6-18 10-24"/>
-        <path d="M44 38c0-12-6-18-10-24"/>
-        <ellipse cx="20" cy="40" rx="6" ry="3"/>
-        <ellipse cx="44" cy="40" rx="6" ry="3"/>
-        <line x1="20" y1="43" x2="20" y2="54"/>
-        <line x1="44" y1="43" x2="44" y2="54"/>
-        <ellipse cx="20" cy="55" rx="7" ry="2"/>
-        <ellipse cx="44" cy="55" rx="7" ry="2"/>
-        <path d="M32 10l-1-4M32 10l1-4M30 7h4"/>
+      <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8.5 36V19a11.5 11.5 0 0 1 23 0v17"/>
+        <path d="M13.5 36V19.6a6.5 6.5 0 0 1 13 0V36"/>
+        <path d="M4.5 36h31"/>
+        <circle cx="20" cy="7.6" r="2"/>
+        <circle cx="12.3" cy="11.1" r="1.6"/>
+        <circle cx="27.7" cy="11.1" r="1.6"/>
+        <path d="M16.4 10.1l1.4 1.7M23.6 10.1l-1.4 1.7"/>
       </svg>
     </div>
     <p class="loc-title">Recepción</p>
-    <div class="loc-photo" id="loc-photo-1">
-      <img src="salon-venue.jpg" alt="Salón Jardín Cantera" loading="lazy">
-    </div>
     <p class="loc-time">3:30 pm</p>
-    <p class="loc-venue">Salón Jardín Cantera<br>Acatzingo de Hidalgo, Pue.</p>
+    <p class="loc-venue">Salón Jardín Cantera</p>
+    <p class="loc-addr">C. 34 Poniente 1147, esq. 13 Norte<br>y carr. Nopalucan<br>Acatzingo de Hidalgo, Pue.</p>
     <a href="https://maps.app.goo.gl/qbhQ4Nte9qR9TmX2A"
        target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
   </div>
 
+</section>
+
+
+<!-- ═══════════════ 3.5. HOSPEDAJE ═══════════════════ -->
+<section id="hospedaje">
+  <span class="lbl">Para quedarse</span>
+  <h2 class="ttl">Hospedaje Sugerido</h2>
+  <div class="gline"></div>
+  <p class="hosp-sub">Si vienes de fuera, estas dos opciones están en el centro de Acatzingo, muy cerca de la iglesia y del salón.</p>
+
+  <div class="hosp-card">
+    <div class="hosp-photo">
+      <span class="hosp-num">Opción 1</span>
+      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-real-del-centro.jpg"
+           alt="Hotel Real del Centro, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 3%">
+    </div>
+    <div class="hosp-body">
+      <p class="hosp-name">Hotel Real del Centro</p>
+      <p class="hosp-addr">Av. Morelos 130, Centro<br>75150 Acatzingo de Hidalgo, Pue.</p>
+      <a class="hosp-tel" href="tel:+522494240658">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        249 424 0658
+      </a>
+      <a href="https://maps.google.com/?cid=15769766930255412675"
+         target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
+    </div>
+  </div>
+
+  <div class="hosp-card">
+    <div class="hosp-photo">
+      <span class="hosp-num">Opción 2</span>
+      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-hotel-espana.jpg"
+           alt="Hotel España, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 14%">
+    </div>
+    <div class="hosp-body">
+      <p class="hosp-name">Hotel España</p>
+      <p class="hosp-addr">C. 5 Norte 12, San Antonio<br>75150 Acatzingo de Hidalgo, Pue.</p>
+      <a class="hosp-tel" href="tel:+522494240993">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        249 424 0993
+      </a>
+      <a href="https://maps.google.com/?cid=12311063231792498206"
+         target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
+    </div>
+  </div>
+
+  <p class="hosp-note">Los dos hoteles están a unos pasos uno del otro. Te sugerimos reservar con anticipación.</p>
 </section>
 
 
@@ -1347,88 +1595,152 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 <!-- ═══════════════ 5. ITINERARIO ════════════════════ -->
 <section id="itinerary">
   <p class="it-title fu">Itinerario</p>
-  <div class="it-line">
+  <p class="it-sub fu">Sábado 19 de Septiembre</p>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">1:00 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M16 4 L16 5"/>
-          <path d="M8 14 Q8 8 16 6 Q24 8 24 14 L24 20 Q24 26 16 28 Q8 26 8 20 Z"/>
-          <circle cx="16" cy="14" r="3"/>
+  <div class="it-line" id="itLine">
+
+    <!-- el camino: el JS recalcula la curva con la posición real de cada medallón -->
+    <svg class="it-path" id="itPath" viewBox="0 0 340 792" preserveAspectRatio="none" aria-hidden="true">
+      <path class="it-path-bg" id="itPathBg" vector-effect="non-scaling-stroke"
+            d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+      <path class="it-path-fill" id="itPathFill" pathLength="1" vector-effect="non-scaling-stroke"
+            d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+    </svg>
+
+    <!-- 1 · CEREMONIA RELIGIOSA — iglesia -->
+    <div class="it-step it-step--l">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 5.6v6.6M17.6 8h4.8"/>
+          <path d="M11.5 19.5 20 12.2l8.5 7.3"/>
+          <path d="M13 19v17h14V19"/>
+          <path d="M17 36v-7.4a3 3 0 0 1 6 0V36"/>
+          <circle cx="20" cy="23.6" r="2"/>
+          <path d="M6.5 17h6.5v19H6.5z"/>
+          <path d="M5.8 17 9.75 12.6 13.7 17"/>
+          <path d="M9.75 21.6v3.6"/>
+          <path d="M27 17h6.5v19H27z"/>
+          <path d="M26.3 17 30.25 12.6 34.2 17"/>
+          <path d="M30.25 21.6v3.6"/>
+          <path d="M3.5 36h33"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Ceremonia Religiosa</span></div>
+      <div class="it-card">
+        <span class="it-time">1:00 pm</span>
+        <span class="it-label">Ceremonia Religiosa</span>
+      </div>
     </div>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">3:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 6h16l-8 12v6"/><line x1="11" y1="24" x2="21" y2="24"/>
-          <line x1="12" y1="11" x2="20" y2="11"/>
-          <circle cx="22" cy="8" r="1" fill="#edbe7e" stroke="none"/>
+    <!-- 2 · RECEPCIÓN — arco de bienvenida -->
+    <div class="it-step it-step--r">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8.5 36V19a11.5 11.5 0 0 1 23 0v17"/>
+          <path d="M13.5 36V19.6a6.5 6.5 0 0 1 13 0V36"/>
+          <path d="M4.5 36h31"/>
+          <circle cx="20" cy="7.6" r="2"/>
+          <circle cx="12.3" cy="11.1" r="1.6"/>
+          <circle cx="27.7" cy="11.1" r="1.6"/>
+          <path d="M16.4 10.1l1.4 1.7M23.6 10.1l-1.4 1.7"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Recepción</span></div>
+      <div class="it-card">
+        <span class="it-time">3:30 pm</span>
+        <span class="it-label">Recepción</span>
+      </div>
     </div>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">4:00 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12.5" cy="16" r="6.5"/>
-          <circle cx="19.5" cy="16" r="6.5"/>
+    <!-- 3 · CEREMONIA CIVIL — acta y pluma -->
+    <div class="it-step it-step--l">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.5 5h12.5L26 11v23H7.5z"/>
+          <path d="M20 5v6h6"/>
+          <path d="M11.5 17h11M11.5 21.5h11M11.5 26h6"/>
+          <path d="M35.5 16.4c-4.6 1.4-8.9 4.9-11.2 9.5l-1.7 3.4 3.5-1.6c4.7-2.2 8.3-6.3 9.4-11.3z"/>
+          <path d="M31.4 21 24.6 28.4"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Ceremonia Civil</span></div>
+      <div class="it-card">
+        <span class="it-time">4:00 pm</span>
+        <span class="it-label">Ceremonia Civil</span>
+      </div>
     </div>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">4:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="16" cy="16" r="9"/>
-          <circle cx="16" cy="16" r="6" stroke-dasharray="2 2" opacity=".5"/>
-          <path d="M7 7l4 4M25 7l-4 4"/>
-          <line x1="7" y1="7" x2="7" y2="10"/>
-          <line x1="25" y1="7" x2="25" y2="10"/>
+    <!-- 4 · BANQUETE — plato y cubiertos -->
+    <div class="it-step it-step--r">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="21" r="10.2"/>
+          <circle cx="20" cy="21" r="6.6" opacity=".42"/>
+          <path d="M5.4 5v7.2M9 5v7.2M12.6 5v7.2"/>
+          <path d="M5.4 12.2c0 2.4 1.5 3.7 3.6 4V36"/>
+          <path d="M12.6 12.2c0 2.4-1.5 3.7-3.6 4"/>
+          <path d="M31 5c2.6 3.6 2.6 9.4 0 13"/>
+          <path d="M31 5v31"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Banquete</span></div>
+      <div class="it-card">
+        <span class="it-time">4:30 pm</span>
+        <span class="it-label">Banquete</span>
+      </div>
     </div>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">5:30 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 5v8a8 8 0 0016 0V5"/>
-          <line x1="16" y1="21" x2="16" y2="27"/>
-          <line x1="11" y1="27" x2="21" y2="27"/>
+    <!-- 5 · BRINDIS — copas chocando -->
+    <div class="it-step it-step--l">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="rotate(14 12 30)">
+            <path d="M8 10.5H16L13.4 22.5H10.6Z"/>
+            <path d="M12 22.5V30"/>
+            <path d="M8.6 30h6.8"/>
+          </g>
+          <g transform="rotate(-14 28 30)">
+            <path d="M24 10.5H32L29.4 22.5H26.6Z"/>
+            <path d="M28 22.5V30"/>
+            <path d="M24.6 30h6.8"/>
+          </g>
+          <path d="M20 2.4l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z"/>
+          <path d="M32.8 6.4l.6 1.5 1.5.6-1.5.6-.6 1.5-.6-1.5-1.5-.6 1.5-.6z"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Brindis</span></div>
+      <div class="it-card">
+        <span class="it-time">5:30 pm</span>
+        <span class="it-label">Brindis</span>
+      </div>
     </div>
 
-    <div class="it-step">
-      <div class="it-left"><span class="it-time">6:00 pm</span></div>
-      <div class="it-circle">
-        <svg viewBox="0 0 32 32" fill="none" stroke="#edbe7e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="7" r="2.5"/>
-          <circle cx="20" cy="8" r="2"/>
-          <path d="M12 10v7l-3 9"/><path d="M12 17l3 9"/>
-          <path d="M9 13h6"/>
-          <path d="M20 10v5l3 8"/><path d="M20 15l-2 8"/>
-          <path d="M18 12h5"/><path d="M15 13l3-1"/>
+    <!-- 6 · BAILE — pareja bailando -->
+    <div class="it-step it-step--r">
+      <div class="it-med" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4.6 6.4v5.4"/>
+          <path d="M4.6 6.4c1.7.3 2.7 1.2 2.9 2.5"/>
+          <circle cx="3.2" cy="11.9" r="1.4"/>
+          <circle cx="11.5" cy="7.2" r="2.9"/>
+          <path d="M11.5 10.1 12.6 19"/>
+          <path d="M12.6 19 8.6 27.5l-1.2 7"/>
+          <path d="M12.6 19l3.8 7.5 1.2 7"/>
+          <path d="M11.9 12.9 19.6 11.2"/>
+          <path d="M11.9 12.9 7.4 17.4"/>
+          <circle cx="20.4" cy="11" r="1"/>
+          <circle cx="28.2" cy="6.2" r="2.7"/>
+          <path d="M28.2 8.9 27.6 14.6"/>
+          <path d="M27.9 11.8 21.2 11.1"/>
+          <path d="M27.9 11.8 33.4 9.4"/>
+          <path d="M24.2 14.6h7.1"/>
+          <path d="M24.2 14.6C22.9 21 21.4 27.4 19.6 33.4c5.5 1.4 11.1 1.4 16.6 0-1.9-6-3.6-12.4-4.9-18.8"/>
         </svg>
       </div>
-      <div class="it-right"><span class="it-label">Inicio del Festejo · Baile de Novios · Vals</span></div>
+      <div class="it-card">
+        <span class="it-time">6:00 pm</span>
+        <span class="it-label">Inicio del Festejo<br>Baile de Novios · Vals</span>
+      </div>
     </div>
 
   </div>
-  <p class="fu" style="text-align:center;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--peach-accent);letter-spacing:1px;">
-    Te pedimos puntualidad para disfrutar cada momento juntos.
-  </p>
+
+  <p class="it-note fu">Te pedimos puntualidad para disfrutar cada momento juntos.</p>
 </section>
 
 
@@ -1459,16 +1771,47 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="dc-outfits">
     <div class="dc-outfit">
-      <img src="caballero.png" alt="Caballero, traje semi-formal" loading="lazy">
+      <img src="caballero.png" alt="Silueta de caballero con traje" loading="lazy">
+      <span class="dc-fig-name">Caballero</span>
+      <span class="dc-fig-hint">Traje o saco<br>Semi-formal</span>
     </div>
+
+    <span class="dc-divider" aria-hidden="true"></span>
+
     <div class="dc-outfit">
-      <img src="dama.png" alt="Dama, vestido semi-formal" loading="lazy">
+      <img src="dama.png" alt="Silueta de dama con vestido" loading="lazy">
+      <span class="dc-fig-name">Dama</span>
+      <span class="dc-fig-hint">Vestido largo o midi<br>Semi-formal</span>
     </div>
   </div>
 
   <p class="dc-type-txt">Semi-Formal</p>
+  <p class="dc-type-sub">Jardín · Formal · Casual</p>
   <p class="dc-msg">¡Vengan elegantes a celebrar con nosotros este día tan especial!</p>
-  <p class="dc-msg">Mujeres, reserven el color blanco exclusivamente para la novia. Eviten el color verde oliva, reservado para damas de honor.</p>
+
+  <div class="dc-avoid">
+    <div class="dc-avoid-row">
+      <span class="dc-sw-group">
+        <span class="dc-sw" style="--sw:#FFFFFF;--swline:#2c1a10" role="img" aria-label="Color blanco reservado"></span>
+      </span>
+      <span class="dc-avoid-txt">
+        <b>Blanco</b>
+        Reservado exclusivamente para la novia.
+      </span>
+    </div>
+
+    <div class="dc-avoid-row">
+      <span class="dc-sw-group">
+        <span class="dc-sw" style="--sw:#6b8e23" role="img" aria-label="Verde olivo reservado"></span>
+        <span class="dc-sw" style="--sw:#696b2f" role="img" aria-label="Verde olivo oscuro reservado"></span>
+        <span class="dc-sw" style="--sw:#607119" role="img" aria-label="Verde olivo profundo reservado"></span>
+      </span>
+      <span class="dc-avoid-txt">
+        <b>Verde olivo</b>
+        Reservado para las damas de honor.
+      </span>
+    </div>
+  </div>
 </section>
 
 
@@ -2157,9 +2500,15 @@ function scrollAnims() {
   gsap.from('#calBtn', { y: 14, duration: .55, ease: 'back.out(1.4)', scrollTrigger: { trigger: '#calendar', start: 'top 85%', once: true } });
 
   ScrollTrigger.create({
-    trigger: '#itinerary', start: 'top 78%', once: true,
-    onEnter() { gsap.from('.it-step', { opacity: 0, y: 28, duration: .6, stagger: .12, ease }); }
+    trigger: '#hospedaje', start: 'top 80%', once: true,
+    onEnter() { gsap.from('.hosp-card', { opacity: 0, y: 30, duration: .7, stagger: .16, ease }); }
   });
+
+  ScrollTrigger.create({
+    trigger: '#itinerary', start: 'top 78%', once: true,
+    onEnter() { gsap.from('.it-card', { opacity: 0, y: 24, duration: .6, stagger: .1, ease }); }
+  });
+  initItinPath();
 
   ScrollTrigger.create({
     trigger: '#dresscode', start: 'top 78%', once: true,
@@ -2177,6 +2526,71 @@ function scrollAnims() {
 
   gsap.from('.ft-logo', { opacity: 0, y: -20, duration: .8, ease, scrollTrigger: { trigger: '#footer', start: 'top 90%', once: true } });
   gsap.from(['.ft-msg','.ft-nofaltes','.ft-rings'], { opacity: 0, y: 24, duration: .7, stagger: .15, ease, scrollTrigger: { trigger: '.ft-body', start: 'top 90%', once: true } });
+}
+
+/* ── ITINERARIO · caminito de curvas ─────────────────── */
+/* El SVG del markup ya trae una curva estática de respaldo. Aquí se
+   recalcula con la posición REAL de cada medallón para que la curva
+   pase exactamente por el centro de todos, en cualquier ancho. */
+function initItinPath() {
+  const line = document.getElementById('itLine');
+  const svg  = document.getElementById('itPath');
+  const bg   = document.getElementById('itPathBg');
+  const fill = document.getElementById('itPathFill');
+  if (!line || !svg || !bg || !fill) return;
+
+  const steps = Array.from(line.querySelectorAll('.it-step'));
+  const meds  = steps.map(s => s.querySelector('.it-med'));
+  if (meds.length < 2 || meds.some(m => !m)) return;
+
+  let pts = [];
+  let boxH = 1;
+
+  function buildPath() {
+    const box = line.getBoundingClientRect();
+    if (!box.width || !box.height) return;
+    boxH = box.height;
+    pts = meds.map(m => {
+      const r = m.getBoundingClientRect();
+      return { x: r.left - box.left + r.width / 2, y: r.top - box.top + r.height / 2 };
+    });
+    let d = 'M' + pts[0].x.toFixed(1) + ' ' + pts[0].y.toFixed(1);
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1], b = pts[i];
+      const half = (b.y - a.y) / 2;
+      d += 'C' + a.x.toFixed(1) + ' ' + (a.y + half).toFixed(1) +
+           ' ' + b.x.toFixed(1) + ' ' + (b.y - half).toFixed(1) +
+           ' ' + b.x.toFixed(1) + ' ' + b.y.toFixed(1);
+    }
+    svg.setAttribute('viewBox', '0 0 ' + box.width.toFixed(1) + ' ' + box.height.toFixed(1));
+    bg.setAttribute('d', d);
+    fill.setAttribute('d', d);
+  }
+
+  buildPath();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => { buildPath(); });
+  }
+
+  ScrollTrigger.create({
+    trigger: line, start: 'top 78%', end: 'bottom 60%', scrub: .5,
+    onRefresh: buildPath,
+    onUpdate(self) {
+      const p = self.progress;
+      fill.style.strokeDashoffset = (1 - p).toFixed(4);
+      steps.forEach((st, i) => {
+        const t = pts[i] ? pts[i].y / boxH : 0;
+        if (p >= t - 0.05) st.classList.add('is-active');
+        else st.classList.remove('is-active');
+      });
+    }
+  });
+
+  let rt;
+  window.addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { buildPath(); ScrollTrigger.refresh(); }, 200);
+  });
 }
 
 /* ── COUNTDOWN ───────────────────────────────────────── */
