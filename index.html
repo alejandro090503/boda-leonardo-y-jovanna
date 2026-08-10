@@ -70,15 +70,16 @@ section{padding:64px 22px}
   position:absolute;bottom:18%;left:50%;transform:translateX(-50%);
   z-index:3;
   padding:16px 44px;border-radius:40px;
-  background:rgba(30,30,20,.45);
+  background:rgba(52,37,21,.55);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.3);
+  border:1px solid rgba(237,190,126,.5);
   box-shadow:0 4px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.12);
   font-family:'Cormorant Garamond',serif;
   font-size:17px;font-weight:500;font-style:italic;
   letter-spacing:3.5px;text-transform:uppercase;
-  color:rgba(255,255,255,.92);
+  color:rgba(255,255,255,.94);
   text-shadow:0 1px 4px rgba(0,0,0,.35);
+  white-space:nowrap;
   cursor:pointer;
   opacity:0;
   animation:sobreFadeIn 1s ease .8s forwards;
@@ -87,8 +88,8 @@ section{padding:64px 22px}
 }
 .sobre-btn:active{transform:translateX(-50%) scale(.95)}
 .sobre-btn:hover{
-  background:rgba(30,30,20,.55);
-  border-color:rgba(255,255,255,.45);
+  background:rgba(52,37,21,.68);
+  border-color:rgba(237,190,126,.75);
 }
 .sobre-video{
   position:absolute;inset:0;
@@ -97,6 +98,86 @@ section{padding:64px 22px}
   opacity:0;
   z-index:2;
   transition:opacity .5s ease;
+}
+
+/* ── BROCHE DORADO SOBRE EL SELLO DE CERA ─────────────── */
+/* El sello (cera #675032 + broche dorado + iniciales L&J) está horneado
+   en sobre.jpg y en sobre-video-v2.mp4. Esta capa añade el brillo vivo
+   del oro. La foto usa object-fit:cover, así que el ancho renderizado es
+   max(100vw, 100vh × 0.5577) y el sello ocupa el 35.2% de ese ancho. */
+.sobre-broche{
+  position:absolute;left:50%;top:49.7%;
+  width:max(38.4vw,21.42vh);height:max(38.4vw,21.42vh);
+  transform:translate(-50%,-50%);
+  border-radius:50%;overflow:hidden;
+  z-index:2;pointer-events:none;
+  opacity:0;animation:sobreFadeIn 1.2s ease .6s forwards,brocheHalo 3.8s ease-in-out 1.6s infinite;
+}
+.sobre-broche::after{
+  content:'';position:absolute;inset:13.2%;border-radius:50%;
+  border:1px solid rgba(237,190,126,.42);
+  box-shadow:inset 0 0 26px rgba(237,190,126,.20);
+}
+.sobre-broche i{
+  position:absolute;top:-42%;left:-70%;width:42%;height:184%;
+  background:linear-gradient(90deg,transparent,rgba(255,247,228,.62),transparent);
+  transform:rotate(19deg);mix-blend-mode:screen;
+  animation:brocheGleam 5.4s ease-in-out 1.8s infinite;
+}
+@keyframes brocheHalo{
+  0%,100%{box-shadow:0 0 0 rgba(237,190,126,0)}
+  50%    {box-shadow:0 0 30px rgba(237,190,126,.32)}
+}
+@keyframes brocheGleam{
+  0%  {left:-70%;opacity:0}
+  10% {opacity:1}
+  42% {left:132%;opacity:0}
+  100%{left:132%;opacity:0}
+}
+
+/* ── MANITA (invitación a tocar) ──────────────────────── */
+#sobre-hand{
+  position:absolute;bottom:calc(18% + 80px);left:50%;
+  z-index:4;pointer-events:none;
+  width:52px;height:52px;color:var(--peach);
+  opacity:0;transform:translateX(-50%);
+  animation:handIn .9s ease 1.5s forwards,handTap 2.3s ease-in-out 2.3s infinite;
+  filter:drop-shadow(0 2px 3px rgba(44,26,16,.9)) drop-shadow(0 0 12px rgba(44,26,16,.55));
+}
+#sobre-hand svg{width:100%;height:100%;display:block;position:relative;z-index:1}
+/* disco tenue detrás de la manita: la mantiene legible sobre el papel claro y sobre la cera */
+#sobre-hand::before{
+  content:'';position:absolute;left:50%;top:52%;
+  width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;
+  background:radial-gradient(circle,rgba(44,26,16,.5) 0%,rgba(44,26,16,.26) 56%,transparent 73%);
+}
+.hand-ring{
+  position:absolute;left:50%;top:16%;
+  width:26px;height:26px;margin:-13px 0 0 -13px;
+  border-radius:50%;border:1.5px solid currentColor;
+  opacity:0;animation:handRing 2.3s ease-out 2.3s infinite;
+}
+.hand-ring2{animation-delay:2.65s}
+@keyframes handIn{to{opacity:.95}}
+@keyframes handTap{
+  0%,55%,100%{transform:translateX(-50%) translateY(0) scale(1)}
+  24%        {transform:translateX(-50%) translateY(10px) scale(.92)}
+  40%        {transform:translateX(-50%) translateY(0) scale(1)}
+}
+@keyframes handRing{
+  0%  {opacity:.8;transform:scale(.35)}
+  70% {opacity:0; transform:scale(2)}
+  100%{opacity:0; transform:scale(2)}
+}
+#loader.is-open #sobre-hand,
+#loader.is-open .sobre-broche{animation:brocheFadeOut .3s ease forwards}
+@keyframes brocheFadeOut{from{opacity:1}to{opacity:0}}
+
+/* ── DESTELLO AL ABRIR ────────────────────────────────── */
+#env-flash{
+  position:fixed;inset:0;z-index:10000;
+  background:radial-gradient(circle at 50% 46%,#ffffff 0%,#fffdf7 52%,#f7f2e7 100%);
+  opacity:0;pointer-events:none;will-change:opacity;
 }
 
 /* ── PROGRESS BAR ─────────────────────────────────────── */
@@ -163,14 +244,12 @@ section{padding:64px 22px}
 }
 .btn-olive:active{background:rgba(237,190,126,.85);transform:scale(.96)}
 
-/* ── HERO ─────────────────────────────────────────────── */
+/* ── HERO / PORTADA ───────────────────────────────────── */
 #hero{
-  min-height:100svh;display:flex;flex-direction:column;
-  align-items:center;justify-content:flex-start;
-  position:relative;overflow:hidden;padding:0 28px 88px;
-}
-.h-cnt{
-  margin-top:14vh;
+  position:relative;width:100%;
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;padding:0;background:#2c1a10;
 }
 .h-bg{
   position:absolute;inset:0;
@@ -178,49 +257,102 @@ section{padding:64px 22px}
 }
 .h-bg img,
 .h-bg video{
-  width:100%;height:100%;object-fit:cover;object-position:center 45%;
+  width:100%;height:100%;object-fit:cover;object-position:center 42%;
   display:block;
 }
 .h-ov{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to bottom, transparent 88%, var(--ink) 100%);
+  background:linear-gradient(to bottom,
+    rgba(44,26,16,.22) 0%,
+    rgba(44,26,16,.06) 30%,
+    rgba(44,26,16,.42) 54%,
+    rgba(44,26,16,.80) 73%,
+    rgba(44,26,16,.95) 88%,
+    #FEFBF5 100%);
 }
 .h-cnt{
-  position:relative;z-index:4;text-align:center;
+  position:relative;z-index:4;margin-top:auto;
+  padding:0 26px 96px;text-align:center;
   display:flex;flex-direction:column;align-items:center;
 }
-.h-monogram{
-  display:inline-block;position:relative;
-  line-height:1;margin-bottom:0;
-  text-shadow:0 2px 40px rgba(0,0,0,.35);
+.h-eyebrow{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;
+  font-size:13px;letter-spacing:3px;text-transform:uppercase;white-space:nowrap;
+  color:var(--ink2);margin-bottom:12px;opacity:0;
+  text-shadow:0 2px 16px rgba(30,18,8,.75);
 }
-.mono-f,.mono-s{
-  font-family:'Le Major','Bodoni Moda',serif;
-  color:rgba(255,255,255,.93);
-  display:inline-block;vertical-align:top;
+.h-names{
+  font-family:'Great Vibes',cursive;font-weight:400;
+  font-size:clamp(50px,14.5vw,64px);line-height:1.03;
+  color:#fff;margin-bottom:18px;
+  text-shadow:0 3px 30px rgba(30,18,8,.62);
+  transform:translateY(30px);opacity:0;
 }
-.mono-f{
-  font-size:160px;font-weight:400;font-style:italic;
-  position:relative;z-index:2;
+.h-amp{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:26px;letter-spacing:6px;color:var(--peach);
+  display:block;margin:2px 0 0;
+  text-shadow:0 2px 18px rgba(30,18,8,.6);
 }
-.mono-s{
-  font-size:160px;font-weight:400;font-style:normal;
-  margin-left:28px;position:relative;z-index:1;
+.h-badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 26px;
+  border:1px solid rgba(237,190,126,.55);border-radius:30px;
+  background:rgba(44,26,16,.44);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+  transform:translateY(16px);opacity:0;
+}
+.h-badge span{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:13px;letter-spacing:3px;line-height:1.45;text-transform:uppercase;
+  color:var(--ink2);
 }
 .h-scroll{
-  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;
+  position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;z-index:5;
 }
-.h-scroll span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:1;font-weight:500}
+.h-scroll span{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(103,80,50,.6);opacity:1;font-weight:600}
 .h-scroll-line{
-  width:1px;height:42px;
-  background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);
+  width:1px;height:38px;
+  background:linear-gradient(to bottom,rgba(103,80,50,.45),transparent);
   transform-origin:top;animation:scrollLine 2s ease-in-out infinite;
 }
 @keyframes scrollLine{
   0%{transform:scaleY(0);opacity:1}
   80%{transform:scaleY(1);opacity:.8}
   100%{transform:scaleY(1);opacity:0}
+}
+
+/* ── ORNAMENTO + FECHA (remate de la portada) ─────────── */
+.h-orn{display:flex;justify-content:center;padding:16px 0 0;background:#FEFBF5}
+.h-orn svg{width:184px;height:40px}
+.h-orn svg polygon:first-of-type{
+  transform-box:fill-box;transform-origin:center;
+  animation:ornSpin 15s linear infinite,ornGlow 3.4s ease-in-out infinite;
+}
+.h-orn svg polygon:nth-of-type(2),
+.h-orn svg polygon:nth-of-type(3){
+  transform-box:fill-box;transform-origin:center;
+  animation:ornSpinR 21s linear infinite;
+}
+.h-orn svg path:first-of-type{stroke-dasharray:6 5;animation:ornFlow 3.6s linear infinite}
+.h-orn svg path:nth-of-type(2){stroke-dasharray:4 7;animation:ornFlowR 4.6s linear infinite}
+@keyframes ornSpin  {to{transform:rotate(360deg)}}
+@keyframes ornSpinR {to{transform:rotate(-360deg)}}
+@keyframes ornFlow  {to{stroke-dashoffset:-22}}
+@keyframes ornFlowR {to{stroke-dashoffset:22}}
+@keyframes ornGlow{
+  0%,100%{filter:drop-shadow(0 0 1px rgba(237,190,126,.35))}
+  50%    {filter:drop-shadow(0 0 9px rgba(244,232,200,.95)) drop-shadow(0 0 3px rgba(237,190,126,.6))}
+}
+.h-fecha{padding:14px 26px 30px;text-align:center;background:#FEFBF5}
+.h-fecha-line{display:flex;align-items:center;justify-content:center;gap:12px}
+.h-fecha-line .fl-bar{flex:1 1 0;min-width:10px;max-width:58px;height:1px;background:linear-gradient(to right,transparent,var(--peach));opacity:.7}
+.h-fecha-line .fl-bar.right{background:linear-gradient(to left,transparent,var(--peach))}
+.h-fecha-txt{
+  flex:0 0 auto;white-space:nowrap;
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:19px;letter-spacing:3.2px;text-transform:uppercase;color:var(--cream);
 }
 
 /* ── FECHA ────────────────────────────────────────────── */
@@ -802,19 +934,42 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   }
   .tl-orn,.tl-pulse{animation:none!important}
   .tl-row-inner > *{transition:none!important}
+  .h-orn svg polygon,.h-orn svg path{animation:none!important}
+  .sobre-broche i,.hand-ring{animation:none!important;opacity:0!important}
+  .sobre-broche{animation:sobreFadeIn 1s ease .5s forwards!important}
+  #sobre-hand{animation:handIn .8s ease 1s forwards!important}
 }
   </style>
 </head>
 <body>
 
 <!-- LOADER (SOBRE) -->
-<div id="loader">
-  <img class="sobre-img" src="sobre.jpg" alt="Sobre de invitación Leonardo y Jovanna">
+<div id="loader" role="button" tabindex="0" aria-label="Toca para abrir la invitación">
+  <img class="sobre-img" src="sobre.jpg?v=2" alt="Sobre de invitación Leonardo y Jovanna con sello de cera L &amp; J">
+
+  <!-- BROCHE DORADO: brillo vivo sobre el sello de cera L & J -->
+  <div class="sobre-broche" aria-hidden="true"><i></i></div>
+
+  <!-- MANITA: invita a tocar (el mismo toque abre el sobre y arranca la música) -->
+  <div id="sobre-hand" aria-hidden="true">
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M26 34V13a4 4 0 0 1 8 0v17"/>
+      <path d="M34 24a3.6 3.6 0 0 1 7 0v9"/>
+      <path d="M41 27a3.6 3.6 0 0 1 7 0v10"/>
+      <path d="M48 31a3.4 3.4 0 0 1 6.5 0v11c0 8.8-6.6 15-15.5 15h-4c-4 0-6.6-1.6-9-4.6l-9.4-11.9a3.8 3.8 0 0 1 5.6-5.1L26 40"/>
+    </svg>
+    <span class="hand-ring"></span>
+    <span class="hand-ring hand-ring2"></span>
+  </div>
+
   <button class="sobre-btn" id="sobreBtn" aria-label="Abrir invitación">Toca para abrir</button>
   <video class="sobre-video" id="sobreVideo" muted playsinline preload="auto">
-    <source src="sobre-video.mp4" type="video/mp4">
+    <source src="sobre-video-v2.mp4" type="video/mp4">
   </video>
 </div>
+
+<!-- DESTELLO DE APERTURA -->
+<div id="env-flash" aria-hidden="true"></div>
 
 <!-- SCROLL PROGRESS -->
 <div id="prog"></div>
@@ -863,7 +1018,15 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   <div class="h-ov"></div>
 
   <div class="h-cnt" id="hCnt">
-
+    <div class="h-eyebrow" id="hEb">Sábado · 19 de Septiembre · 2026</div>
+    <h1 class="h-names" id="hNm">
+      Jovanna
+      <span class="h-amp">&amp;</span>
+      Leonardo
+    </h1>
+    <div class="h-badge" id="hBd">
+      <span>Acatzingo de Hidalgo · Puebla</span>
+    </div>
   </div>
 
   <div class="h-scroll" id="hScroll">
@@ -871,6 +1034,24 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
     <span>Desliza</span>
   </div>
 </section>
+
+<!-- ORNAMENTO + FECHA (remate de la portada) -->
+<div class="h-orn" id="hOrn" aria-hidden="true">
+  <svg viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 19 Q44 7 85 19 T164 19" stroke="#edbe7e" stroke-width=".85" opacity=".6"/>
+    <path d="M6 21 Q44 33 85 21 T164 21" stroke="#edbe7e" stroke-width=".5" opacity=".26"/>
+    <polygon points="85,4 88.1,13.8 98.5,13.8 90.2,19.6 93.3,29.4 85,23.6 76.7,29.4 79.8,19.6 71.5,13.8 81.9,13.8" fill="#edbe7e" opacity=".85"/>
+    <polygon points="32,10 33.2,14 37.5,14 34,16.8 35.2,20.8 32,18 28.8,20.8 30,16.8 26.5,14 30.8,14" fill="#675032" opacity=".45"/>
+    <polygon points="138,10 139.2,14 143.5,14 140,16.8 141.2,20.8 138,18 134.8,20.8 136,16.8 132.5,14 136.8,14" fill="#D4C5B2" opacity=".6"/>
+  </svg>
+</div>
+<div class="h-fecha" id="hFch">
+  <div class="h-fecha-line">
+    <div class="fl-bar"></div>
+    <div class="h-fecha-txt">19 · Septiembre · 2026</div>
+    <div class="fl-bar right"></div>
+  </div>
+</div>
 
 
 <!-- ═══════════════ 1.5. FECHA ══════════════════════════ -->
@@ -1402,50 +1583,83 @@ document.addEventListener('DOMContentLoaded', () => {
   const sobreBtn = document.getElementById('sobreBtn');
   const sobreVid = document.getElementById('sobreVideo');
   const loaderEl = document.getElementById('loader');
+  const flashEl  = document.getElementById('env-flash');
 
   function initInvitation() {
-    addSectionWaves();
-    addSectionMedals();
-    addCorners();
-    addWindOrns();
-    addAuras();
-    heroAnim();
-    initGlobalParticles();
-    scrollAnims();
+    // Cada inicializador va aislado: si uno falla, el resto de la invitación sigue viva
+    [addSectionWaves, addSectionMedals, addCorners, addWindOrns, addAuras,
+     heroAnim, initGlobalParticles, scrollAnims].forEach(fn => {
+      try { fn(); } catch (e) { console.error(e); }
+    });
     // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
     if(typeof countdown === 'function') countdown();
     const aud2 = document.getElementById('bgMusic');
-    if (aud2) { aud2.play().then(() => { document.getElementById('musicBtn')?.classList.add('on'); }).catch(()=>{}); }
+    if (aud2 && aud2.paused) { aud2.play().then(() => { document.getElementById('musicBtn')?.classList.add('on'); }).catch(()=>{}); }
   }
 
-  sobreBtn.addEventListener('click', () => {
+  /* ── DESTELLO + REVELADO ───────────────────────────── */
+  let flashed = false;
+  function triggerFlash() {
+    if (flashed) return;
+    flashed = true;
+    try { sobreVid.pause(); } catch(e){}
+    gsap.to(flashEl, {
+      opacity: 1, duration: .30, ease: 'power2.in',
+      onComplete() {
+        // La invitación se monta con la pantalla en blanco: el invitado no ve el salto
+        loaderEl.remove();
+        try { initInvitation(); ambientWind(); } catch(e) { console.error(e); }
+        gsap.to(flashEl, {
+          opacity: 0, duration: .38, ease: 'power2.out', delay: .04,
+          onComplete() { flashEl.style.display = 'none'; }
+        });
+      }
+    });
+  }
+
+  /* ── APERTURA DEL SOBRE ────────────────────────────── */
+  let opened = false;
+  function openEnvelope() {
+    if (opened) return;
+    opened = true;
+
+    // 1) La música arranca DENTRO del mismo gesto del invitado.
+    //    Los navegadores bloquean el autoplay con sonido, pero no si es
+    //    consecuencia directa de un toque: por eso al abrir ya suena.
+    startMusic();
+
+    // 2) Se apagan la manita y el brillo del broche
+    loaderEl.classList.add('is-open');
     sobreBtn.style.opacity = '0';
     sobreBtn.style.pointerEvents = 'none';
-    sobreVid.play();
+
+    // 3) Vídeo de apertura + crossfade desde la foto del sobre
     function crossfade(){
       sobreVid.style.opacity = '1';
       gsap.to('.sobre-img',{opacity:0, duration:.5, ease:'power2.out'});
     }
-    if(sobreVid.readyState >= 2){ crossfade(); }
+    const p = sobreVid.play();
+    if (p && p.catch) p.catch(() => { triggerFlash(); });
+    if (sobreVid.readyState >= 2) { crossfade(); }
     else { sobreVid.addEventListener('playing', crossfade, {once:true}); }
+
+    // 4) Red de seguridad por si el vídeo nunca reporta progreso
+    setTimeout(triggerFlash, 3600);
+  }
+
+  sobreBtn.addEventListener('click', openEnvelope);
+  loaderEl.addEventListener('click', openEnvelope);
+  loaderEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); }
   });
 
-  const VIDEO_CUT = 4.2;
-  let videoCutDone = false;
+  // El destello entra cuando faltan ~0.45 s de vídeo
   sobreVid.addEventListener('timeupdate', () => {
-    if(!videoCutDone && sobreVid.currentTime >= VIDEO_CUT){
-      videoCutDone = true;
-      sobreVid.pause();
-      gsap.to(loaderEl, {
-        opacity: 0, duration: .6, ease: 'power2.out',
-        onComplete() {
-          loaderEl.remove();
-          initInvitation();
-          ambientWind();
-        }
-      });
-    }
+    const d = sobreVid.duration;
+    if (!d || !isFinite(d)) return;
+    if (sobreVid.currentTime >= d - 0.45) triggerFlash();
   });
+  sobreVid.addEventListener('ended', triggerFlash);
 });
 
 /* ── SCROLL PROGRESS ─────────────────────────────────── */
@@ -1464,12 +1678,16 @@ function toast(msg) {
 
 /* ── HERO ANIMATIONS ─────────────────────────────────── */
 function heroAnim() {
-  gsap.set('#hMono', { opacity: 0, scale: .85 });
   gsap.set('#hScroll', { opacity: 0 });
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  gsap.set(['#hOrn','#hFch'], { opacity: 0, y: 14 });
+  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
   tl
-    .to('#hMono',  { opacity: 1, scale: 1, duration: 1.2 }, .2)
-    .to('#hScroll',{ opacity: 1, duration: .5 }, 1.4);
+    .to('#hEb', { opacity: 1, duration: 1.1 }, .25)
+    .to('#hNm', { opacity: 1, y: 0, duration: 1.6, ease: 'power3.out' }, '-=0.75')
+    .to('#hBd', { opacity: 1, y: 0, duration: 1.1 }, '-=0.95')
+    .to('#hOrn',{ opacity: 1, y: 0, duration: .9 }, '-=0.55')
+    .to('#hFch',{ opacity: 1, y: 0, duration: .9 }, '-=0.65')
+    .to('#hScroll',{ opacity: 1, duration: .5 }, '-=0.4');
   /* hero parallax removed — keep image clean */
 }
 
@@ -1787,6 +2005,15 @@ gsap.fromTo('.gifts-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger
   });
 })();
 
+/* Devuelve el hijo DIRECTO de `sec` que contiene a `el`.
+   Necesario porque en algunas secciones (#gifts) el .lbl va anidado y
+   sec.insertBefore(x, lbl) lanzaba NotFoundError, abortando initInvitation(). */
+function directChildOf(sec, el) {
+  let n = el;
+  while (n && n.parentNode && n.parentNode !== sec) n = n.parentNode;
+  return (n && n.parentNode === sec) ? n : sec.firstChild;
+}
+
 /* ── INYECTAR ONDAS A SECCIONES ──────────────────────── */
 function addSectionWaves() {
   const targets = ['calendar','itinerary','gifts','album','dresscode','family','gallery','rsvp'];
@@ -1835,7 +2062,7 @@ function addSectionMedals() {
     m.className = 'sec-medal';
     m.innerHTML = `<span>${map[id]}</span>`;
     gsap.set(m, { opacity: 0, scale: .7 });
-    sec.insertBefore(m, lbl);
+    sec.insertBefore(m, directChildOf(sec, lbl));
     ScrollTrigger.create({
       trigger: sec, start: 'top 86%', once: true,
       onEnter() { gsap.to(m, { opacity: 1, scale: 1, duration: .9, ease: 'back.out(1.6)' }); }
@@ -1872,7 +2099,7 @@ function addWindOrns() {
     orn.className = 'wind-orn';
     orn.textContent = '✦';
     gsap.set(orn, { opacity: 0 });
-    sec.insertBefore(orn, lbl);
+    sec.insertBefore(orn, directChildOf(sec, lbl));
     ScrollTrigger.create({
       trigger: sec, start: 'top 88%', once: true,
       onEnter() { gsap.to(orn, { opacity: 1, duration: 1.2, ease: 'power2.out' }); }
