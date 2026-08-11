@@ -10,10 +10,13 @@
   <meta property="og:url"         content="https://boda-leonardo-y-jovanna.vercel.app/">
   <meta property="og:title"       content="Boda Leonardo &amp; Jovanna · 19 Septiembre 2026">
   <meta property="og:description" content="Con amor y alegría, Leonardo Alcántara y Jovanna Ballinas los invitan a su boda el 19 de septiembre de 2026 en Acatzingo de Hidalgo, Puebla.">
-  <meta property="og:image"       content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
+  <meta property="og:image"       content="https://boda-leonardo-y-jovanna.vercel.app/og-image.jpg?v=2">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"    content="Sello de cera verde sage con el monograma L &amp; J sobre sobre floral en relieve">
   <meta name="twitter:card"       content="summary_large_image">
-  <meta name="twitter:image"      content="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/1ddaf217-4fe6-4f91-8391-c5f7d25dbcc3/1786125923713-5.jpg">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%23675032'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23edbe7e' stroke-width='1.6'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='27' fill='%23edbe7e'%3EL%26J%3C/text%3E%3C/svg%3E">
+  <meta name="twitter:image"      content="https://boda-leonardo-y-jovanna.vercel.app/og-image.jpg?v=2">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='31' fill='%2398bb81'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23edbe7e' stroke-width='1.6'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='27' fill='%23edbe7e'%3EL%26J%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
@@ -102,13 +105,15 @@ section{padding:64px 22px}
 }
 
 /* ── BROCHE DORADO SOBRE EL SELLO DE CERA ─────────────── */
-/* El sello (cera #675032 + broche dorado + iniciales L&J) está horneado
-   en sobre.jpg y en sobre-video-v2.mp4. Esta capa añade el brillo vivo
+/* El sello (cera verde sage + aro dorado + iniciales L&J) está horneado
+   en sobre.jpg y en sobre-video-v3.mp4. Esta capa añade el brillo vivo
    del oro. La foto usa object-fit:cover, así que el ancho renderizado es
-   max(100vw, 100vh × 0.5577) y el sello ocupa el 35.2% de ese ancho. */
+   max(100vw, 100vh × 0.5625) y el sello, medido sobre la imagen real,
+   queda centrado (50%/50%) y ocupa el 33.6% de ese ancho; la caja lleva
+   un 9% extra para que el halo respire → 36.6%. */
 .sobre-broche{
-  position:absolute;left:50%;top:49.7%;
-  width:max(38.4vw,21.42vh);height:max(38.4vw,21.42vh);
+  position:absolute;left:50%;top:50%;
+  width:max(36.6vw,20.59vh);height:max(36.6vw,20.59vh);
   transform:translate(-50%,-50%);
   border-radius:50%;overflow:hidden;
   z-index:2;pointer-events:none;
@@ -754,9 +759,37 @@ section{padding:64px 22px}
    oscuro y leía como una culebra negra sobre el papel crema). La sombra
    marrón le da cuerpo para que se vea sin oscurecerlo. */
 .it-path-fill{
-  stroke:var(--peach);stroke-width:3;
+  stroke:url(#itPathGrad);stroke-width:3;
   stroke-dasharray:1;stroke-dashoffset:1;
-  filter:drop-shadow(0 1px 1.5px rgba(103,80,50,.42));
+  filter:drop-shadow(0 1px 1.5px rgba(103,80,50,.42))
+         drop-shadow(0 0 3px rgba(237,190,126,.55));
+}
+/* ── línea viva: 4 capas (glow · halo · núcleo · perla) ──
+   Adaptación al camino en S: las capas 1-2 duplican el mismo <path>
+   y comparten strokeDasharray/offset para dibujarse a la vez. */
+.it-path-glow{
+  stroke:rgba(237,190,126,.55);stroke-width:11;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  filter:blur(9px);opacity:.5;
+}
+.it-path-mid{
+  stroke:rgba(244,232,200,.9);stroke-width:4.5;
+  stroke-dasharray:1;stroke-dashoffset:1;
+  filter:blur(3px);opacity:.75;
+}
+/* Capa 4 · perla viajera que recorre el camino con el scroll */
+.it-pearl{
+  opacity:0;
+  filter:drop-shadow(0 0 5px rgba(255,250,225,.95))
+         drop-shadow(0 0 11px rgba(237,190,126,.7))
+         drop-shadow(0 0 22px rgba(237,190,126,.35));
+  transition:opacity .3s ease;
+  will-change:transform,opacity;
+}
+@media (prefers-reduced-motion:reduce){
+  .it-pearl{display:none}
+  .it-path-glow{filter:blur(7px);opacity:.35}
+  .it-path-mid{opacity:.55}
 }
 
 .it-step{position:relative;min-height:132px;display:flex;align-items:center;}
@@ -773,6 +806,8 @@ section{padding:64px 22px}
 }
 .it-step--r .it-med{left:90%}
 .it-med svg{width:34px;height:34px;display:block}
+/* iconos dibujados a mano (PNG transparente, tinta marrón) */
+.it-med img{width:40px;height:40px;display:block;object-fit:contain}
 .it-step.is-active .it-med{
   border-color:var(--peach);
   box-shadow:0 8px 22px -8px rgba(237,190,126,.85),
@@ -815,6 +850,7 @@ section{padding:64px 22px}
   .it-step--r .it-card{margin-right:calc(10% + 42px)}
   .it-med{width:58px;height:58px}
   .it-med svg{width:30px;height:30px}
+  .it-med img{width:36px;height:36px}
   /* Hospedaje */
   .hosp-carousel{max-width:300px}
   .hosp-slide{padding:8px 22px}
@@ -1134,7 +1170,29 @@ section{padding:64px 22px}
   font-size:14px;letter-spacing:1.7px;text-transform:uppercase;
 }
 .ft-medal-mono{
-  font-family:'Great Vibes',cursive;font-size:74px;
+  /* 74px hacía que el rabo de la «J» cruzara el aro interior (rx=90 → x=190).
+     A 64px el monograma completo cabe dentro del aro con holgura. */
+  font-family:'Great Vibes',cursive;font-size:64px;
+}
+/* ── brillo vivo del medallón (mismo recurso que el broche del sobre) ── */
+.ft-medal-wrap{
+  position:relative;display:inline-block;
+  border-radius:50%;overflow:hidden;
+}
+.ft-medal-wrap i{
+  position:absolute;top:-30%;left:-60%;width:38%;height:170%;
+  background:linear-gradient(90deg,transparent,rgba(255,247,228,.5),transparent);
+  transform:rotate(18deg);mix-blend-mode:screen;pointer-events:none;
+  animation:ftGleam 6.2s ease-in-out 2s infinite;
+}
+@keyframes ftGleam{
+  0%  {left:-60%;opacity:0}
+  8%  {opacity:1}
+  40% {left:125%;opacity:0}
+  100%{left:125%;opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .ft-medal-wrap i{display:none}
 }
 .ft-medal-amp{
   font-family:'Cormorant Garamond',serif;font-style:italic;
@@ -1374,7 +1432,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- LOADER (SOBRE) -->
 <div id="loader" role="button" tabindex="0" aria-label="Toca para abrir la invitación">
-  <img class="sobre-img" src="sobre.jpg?v=2" alt="Sobre de invitación Leonardo y Jovanna con sello de cera L &amp; J">
+  <img class="sobre-img" src="sobre.jpg?v=3" alt="Sobre de invitación Leonardo y Jovanna con sello de cera L &amp; J">
 
   <!-- BROCHE DORADO: brillo vivo sobre el sello de cera L & J -->
   <div class="sobre-broche" aria-hidden="true"><i></i></div>
@@ -1393,7 +1451,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <button class="sobre-btn" id="sobreBtn" aria-label="Abrir invitación">Toca para abrir</button>
   <video class="sobre-video" id="sobreVideo" muted playsinline preload="auto">
-    <source src="sobre-video-v2.mp4" type="video/mp4">
+    <source src="sobre-video-v3.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -1703,27 +1761,38 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <svg class="it-path" id="itPath" viewBox="0 0 340 792" preserveAspectRatio="none" aria-hidden="true">
       <path class="it-path-bg" id="itPathBg" vector-effect="non-scaling-stroke"
             d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+      <defs>
+        <linearGradient id="itPathGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#edbe7e"/>
+          <stop offset="28%"  stop-color="#f7e3bd"/>
+          <stop offset="50%"  stop-color="#fffdf7"/>
+          <stop offset="72%"  stop-color="#f7e3bd"/>
+          <stop offset="100%" stop-color="#edbe7e"/>
+        </linearGradient>
+        <radialGradient id="itPearlGrad" cx="38%" cy="36%" r="70%">
+          <stop offset="0%"   stop-color="#ffffff"/>
+          <stop offset="38%"  stop-color="#fff6e2"/>
+          <stop offset="100%" stop-color="rgba(237,190,126,.12)"/>
+        </radialGradient>
+      </defs>
+      <!-- capa 1 · resplandor atmosférico -->
+      <path class="it-path-glow" id="itPathGlow" pathLength="1" vector-effect="non-scaling-stroke"
+            d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+      <!-- capa 2 · halo medio -->
+      <path class="it-path-mid" id="itPathMid" pathLength="1" vector-effect="non-scaling-stroke"
+            d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+      <!-- capa 3 · núcleo cristalino -->
       <path class="it-path-fill" id="itPathFill" pathLength="1" vector-effect="non-scaling-stroke"
             d="M34 66C34 132 306 132 306 198C306 264 34 264 34 330C34 396 306 396 306 462C306 528 34 528 34 594C34 660 306 660 306 726"/>
+      <!-- capa 4 · perla viajera -->
+      <circle class="it-pearl" id="itPearl" r="7" cx="0" cy="0" fill="url(#itPearlGrad)"/>
     </svg>
 
     <!-- 1 · CEREMONIA RELIGIOSA — iglesia -->
     <div class="it-step it-step--l">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 5.6v6.6M17.6 8h4.8"/>
-          <path d="M11.5 19.5 20 12.2l8.5 7.3"/>
-          <path d="M13 19v17h14V19"/>
-          <path d="M17 36v-7.4a3 3 0 0 1 6 0V36"/>
-          <circle cx="20" cy="23.6" r="2"/>
-          <path d="M6.5 17h6.5v19H6.5z"/>
-          <path d="M5.8 17 9.75 12.6 13.7 17"/>
-          <path d="M9.75 21.6v3.6"/>
-          <path d="M27 17h6.5v19H27z"/>
-          <path d="M26.3 17 30.25 12.6 34.2 17"/>
-          <path d="M30.25 21.6v3.6"/>
-          <path d="M3.5 36h33"/>
-        </svg>
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-iglesia.png"
+             alt="Iglesia · Ceremonia Religiosa" loading="lazy" width="256" height="256">
       </div>
       <div class="it-card">
         <span class="it-time">1:00 pm</span>
@@ -1734,15 +1803,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <!-- 2 · RECEPCIÓN — arco de bienvenida -->
     <div class="it-step it-step--r">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8.5 36V19a11.5 11.5 0 0 1 23 0v17"/>
-          <path d="M13.5 36V19.6a6.5 6.5 0 0 1 13 0V36"/>
-          <path d="M4.5 36h31"/>
-          <circle cx="20" cy="7.6" r="2"/>
-          <circle cx="12.3" cy="11.1" r="1.6"/>
-          <circle cx="27.7" cy="11.1" r="1.6"/>
-          <path d="M16.4 10.1l1.4 1.7M23.6 10.1l-1.4 1.7"/>
-        </svg>
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-arco.png"
+             alt="Arco de bienvenida · Recepción" loading="lazy" width="256" height="256">
       </div>
       <div class="it-card">
         <span class="it-time">3:30 pm</span>
@@ -1753,13 +1815,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <!-- 3 · CEREMONIA CIVIL — acta y pluma -->
     <div class="it-step it-step--l">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7.5 5h12.5L26 11v23H7.5z"/>
-          <path d="M20 5v6h6"/>
-          <path d="M11.5 17h11M11.5 21.5h11M11.5 26h6"/>
-          <path d="M35.5 16.4c-4.6 1.4-8.9 4.9-11.2 9.5l-1.7 3.4 3.5-1.6c4.7-2.2 8.3-6.3 9.4-11.3z"/>
-          <path d="M31.4 21 24.6 28.4"/>
-        </svg>
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-anillos.png"
+             alt="Anillos · Ceremonia Civil" loading="lazy" width="256" height="256">
       </div>
       <div class="it-card">
         <span class="it-time">4:00 pm</span>
@@ -1770,15 +1827,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <!-- 4 · BANQUETE — plato y cubiertos -->
     <div class="it-step it-step--r">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="20" cy="21" r="10.2"/>
-          <circle cx="20" cy="21" r="6.6" opacity=".42"/>
-          <path d="M5.4 5v7.2M9 5v7.2M12.6 5v7.2"/>
-          <path d="M5.4 12.2c0 2.4 1.5 3.7 3.6 4V36"/>
-          <path d="M12.6 12.2c0 2.4-1.5 3.7-3.6 4"/>
-          <path d="M31 5c2.6 3.6 2.6 9.4 0 13"/>
-          <path d="M31 5v31"/>
-        </svg>
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-banquete.png"
+             alt="Plato y cubiertos · Banquete" loading="lazy" width="256" height="256">
       </div>
       <div class="it-card">
         <span class="it-time">4:30 pm</span>
@@ -1789,7 +1839,9 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <!-- 5 · BRINDIS — copas chocando -->
     <div class="it-step it-step--l">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-brindis.png"
+             alt="Copas · Brindis" loading="lazy" width="256" height="256">
+        <svg style="display:none" viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
           <g transform="rotate(14 12 30)">
             <path d="M8 10.5H16L13.4 22.5H10.6Z"/>
             <path d="M12 22.5V30"/>
@@ -1813,24 +1865,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <!-- 6 · BAILE — pareja bailando -->
     <div class="it-step it-step--r">
       <div class="it-med" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" stroke="var(--peach-accent)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4.6 6.4v5.4"/>
-          <path d="M4.6 6.4c1.7.3 2.7 1.2 2.9 2.5"/>
-          <circle cx="3.2" cy="11.9" r="1.4"/>
-          <circle cx="11.5" cy="7.2" r="2.9"/>
-          <path d="M11.5 10.1 12.6 19"/>
-          <path d="M12.6 19 8.6 27.5l-1.2 7"/>
-          <path d="M12.6 19l3.8 7.5 1.2 7"/>
-          <path d="M11.9 12.9 19.6 11.2"/>
-          <path d="M11.9 12.9 7.4 17.4"/>
-          <circle cx="20.4" cy="11" r="1"/>
-          <circle cx="28.2" cy="6.2" r="2.7"/>
-          <path d="M28.2 8.9 27.6 14.6"/>
-          <path d="M27.9 11.8 21.2 11.1"/>
-          <path d="M27.9 11.8 33.4 9.4"/>
-          <path d="M24.2 14.6h7.1"/>
-          <path d="M24.2 14.6C22.9 21 21.4 27.4 19.6 33.4c5.5 1.4 11.1 1.4 16.6 0-1.9-6-3.6-12.4-4.9-18.8"/>
-        </svg>
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/iconos/boda-leonardo-y-jovanna/it-baile.png" alt="" loading="lazy">
       </div>
       <div class="it-card">
         <span class="it-time">6:00 pm</span>
@@ -2138,7 +2173,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
   <!-- Medallón de cierre. Antes era logo-pareja.png, un PNG heredado de la
        plantilla base que decía «Sandra & Faustino · 01 Agosto 2026». Ahora es
        SVG con los nombres y la fecha reales. -->
-  <div class="ft-logo" style="display:flex;justify-content:center;padding:32px 0 0;">
+  <div class="ft-logo" style="display:flex;justify-content:center;padding:32px 0 30px;">
+   <span class="ft-medal-wrap">
     <svg class="ft-medal" viewBox="0 0 200 232" role="img" aria-label="Leonardo y Jovanna · 19 de Septiembre de 2026">
       <defs>
         <linearGradient id="ftGold" x1="0" y1="0" x2="0.7" y2="1">
@@ -2173,6 +2209,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
       <text class="ft-medal-mono" x="100" y="140" text-anchor="middle" fill="url(#ftGold)">L<tspan class="ft-medal-amp" dx="-4" dy="-8">&amp;</tspan><tspan dx="-4" dy="8">J</tspan></text>
       <path d="M64 158 Q100 170 136 158" stroke="url(#ftGold)" stroke-width=".9" fill="none" opacity=".6"/>
     </svg>
+    <i aria-hidden="true"></i>
+   </span>
   </div>
 
   <div class="ft-body">
