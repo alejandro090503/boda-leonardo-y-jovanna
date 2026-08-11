@@ -624,58 +624,35 @@ section{padding:64px 22px}
   font-size:17px;line-height:1.6;text-align:center;
   color:rgba(26,26,26,.74);margin:0 auto 30px;max-width:330px;
 }
-.hosp-card{
-  background:#FFFDF8;
-  border:1px solid rgba(237,190,126,.34);
-  border-radius:18px;overflow:hidden;
-  box-shadow:0 2px 4px rgba(103,80,50,.05),
-             0 18px 40px -24px rgba(103,80,50,.6);
-  margin-bottom:26px;
-}
-.hosp-card:last-of-type{margin-bottom:0}
-.hosp-photo{position:relative;line-height:0;background:rgba(237,190,126,.08);}
-.hosp-photo img{
-  width:100%;height:190px;object-fit:cover;object-position:center 46%;
-  display:block;filter:saturate(.84) contrast(.97) brightness(1.02);
-  transition:transform 1.2s var(--smooth);
-}
-.hosp-card:hover .hosp-photo img{transform:scale(1.05)}
-.hosp-photo::after{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,
-    rgba(44,26,16,.16) 0%,
-    rgba(44,26,16,.02) 40%,
-    rgba(255,253,248,.55) 88%,
-    #FFFDF8 100%);
-}
-.hosp-num{
-  position:absolute;z-index:2;left:14px;top:14px;
-  padding:6px 14px;border-radius:20px;
-  background:rgba(44,26,16,.58);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
-  border:1px solid rgba(237,190,126,.5);
-  font-family:'Lato',sans-serif;font-size:11px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:#FBF4E6;
-  line-height:1.4;
-}
-.hosp-body{padding:20px 20px 26px;text-align:center;}
-.hosp-name{
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:24px;color:var(--cream);line-height:1.25;margin-bottom:8px;
-}
-.hosp-addr{
-  font-family:'Cormorant Garamond',serif;font-weight:500;
-  font-size:17px;color:rgba(26,26,26,.82);line-height:1.6;margin-bottom:6px;
-}
-/* el teléfono es un enlace tel:, necesita 44px de área táctil */
-.hosp-tel{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  min-height:44px;padding:8px 14px;
-  font-family:'Cormorant Garamond',serif;font-weight:600;
-  font-size:18px;color:var(--peach-accent);text-decoration:none;
-  letter-spacing:.5px;margin-bottom:12px;
-}
-.hosp-tel svg{width:15px;height:15px;flex-shrink:0}
+/* ── HOSPEDAJE · CARRUSEL (formato boda-roxana, paleta dorada) ── */
+.hosp-carousel{position:relative;max-width:380px;margin:30px auto 0}
+.hosp-viewport{overflow:hidden}
+.hosp-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.hosp-slide{flex:0 0 100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px 16px}
+.hosp-photo{width:200px;height:200px;border-radius:50%;overflow:hidden;
+  border:3px solid rgba(237,190,126,.55);
+  box-shadow:0 12px 34px rgba(103,80,50,.22);margin-bottom:22px;background:rgba(237,190,126,.08)}
+.hosp-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(.98) brightness(1.03)}
+.hosp-arrow{position:absolute;top:108px;transform:translateY(-50%);width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.82);
+  border:1px solid rgba(237,190,126,.55);border-radius:50%;cursor:pointer;color:var(--peach-accent);
+  z-index:2;padding:0;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.hosp-arrow svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2}
+.hosp-arrow.prev{left:-2px}
+.hosp-arrow.next{right:-2px}
+.hosp-dots{display:flex;justify-content:center;gap:9px;margin-top:22px}
+.hosp-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(103,80,50,.26);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.hosp-dots button.active{background:var(--peach);transform:scale(1.35)}
+.hosp-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;line-height:1.25;color:var(--cream);margin-bottom:6px}
+.hosp-city{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:var(--peach-accent);margin-bottom:8px}
+.hosp-addr{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:17px;line-height:1.6;color:rgba(26,26,26,.82);margin-bottom:16px}
+.hosp-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn-hosp{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;
+  border:1.5px solid var(--peach);border-radius:50px;color:var(--peach-accent);
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:16px;letter-spacing:.5px;
+  text-decoration:none;background:transparent;transition:background .25s,color .25s}
+.btn-hosp:hover{background:var(--peach);color:#3F3120}
+.btn-hosp svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .hosp-note{
   font-family:'Cormorant Garamond',serif;font-style:italic;
   font-size:16px;line-height:1.65;text-align:center;
@@ -775,6 +752,12 @@ section{padding:64px 22px}
   .it-step--r .it-card{margin-right:calc(10% + 42px)}
   .it-med{width:58px;height:58px}
   .it-med svg{width:30px;height:30px}
+  /* Hospedaje */
+  .hosp-carousel{max-width:300px}
+  .hosp-slide{padding:8px 22px}
+  .hosp-photo{width:170px;height:170px}
+  .hosp-arrow{top:93px}
+  .btn-hosp{padding:10px 16px;font-size:15px}
 }
 .it-note{
   text-align:center;margin-top:34px;
@@ -1566,39 +1549,57 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
   <div class="gline"></div>
   <p class="hosp-sub">Si vienes de fuera, estas dos opciones están en el centro de Acatzingo, muy cerca de la iglesia y del salón.</p>
 
-  <div class="hosp-card">
-    <div class="hosp-photo">
-      <span class="hosp-num">Opción 1</span>
-      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-real-del-centro.jpg"
-           alt="Hotel Real del Centro, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 3%">
-    </div>
-    <div class="hosp-body">
-      <p class="hosp-name">Hotel Real del Centro</p>
-      <p class="hosp-addr">Av. Morelos 130, Centro<br>75150 Acatzingo de Hidalgo, Pue.</p>
-      <a class="hosp-tel" href="tel:+522494240658">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        249 424 0658
-      </a>
-      <a href="https://maps.google.com/?cid=15769766930255412675"
-         target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
-    </div>
-  </div>
+  <div class="hosp-carousel">
+    <button class="hosp-arrow prev" aria-label="Hotel anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="hosp-arrow next" aria-label="Hotel siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <div class="hosp-viewport">
+      <div class="hosp-track" id="hospTrack">
 
-  <div class="hosp-card">
-    <div class="hosp-photo">
-      <span class="hosp-num">Opción 2</span>
-      <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-hotel-espana.jpg"
-           alt="Hotel España, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 14%">
+        <div class="hosp-slide">
+          <div class="hosp-photo">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-real-del-centro.jpg"
+                 alt="Hotel Real del Centro, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 34%">
+          </div>
+          <div class="hosp-name">Hotel Real del Centro</div>
+          <div class="hosp-city">Acatzingo de Hidalgo, Puebla</div>
+          <p class="hosp-addr">Av. Morelos 130, Centro<br>Tel. 249 424 0658</p>
+          <div class="hosp-btns">
+            <a class="btn-hosp" href="tel:+522494240658">
+              <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+              Llamar
+            </a>
+            <a class="btn-hosp" href="https://maps.google.com/?cid=15769766930255412675" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+
+        <div class="hosp-slide">
+          <div class="hosp-photo">
+            <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/venues/boda-leonardo-y-jovanna/hospedaje-hotel-espana.jpg"
+                 alt="Hotel España, Acatzingo de Hidalgo" loading="lazy" style="object-position:center 30%">
+          </div>
+          <div class="hosp-name">Hotel España</div>
+          <div class="hosp-city">Acatzingo de Hidalgo, Puebla</div>
+          <p class="hosp-addr">C. 5 Norte 12, San Antonio<br>Tel. 249 424 0993</p>
+          <div class="hosp-btns">
+            <a class="btn-hosp" href="tel:+522494240993">
+              <svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+              Llamar
+            </a>
+            <a class="btn-hosp" href="https://maps.google.com/?cid=12311063231792498206" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Cómo llegar
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="hosp-body">
-      <p class="hosp-name">Hotel España</p>
-      <p class="hosp-addr">C. 5 Norte 12, San Antonio<br>75150 Acatzingo de Hidalgo, Pue.</p>
-      <a class="hosp-tel" href="tel:+522494240993">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        249 424 0993
-      </a>
-      <a href="https://maps.google.com/?cid=12311063231792498206"
-         target="_blank" rel="noopener" class="loc-btn">Ver Ubicación</a>
+    <div class="hosp-dots" id="hospDots">
+      <button class="active" aria-label="Hotel 1"></button>
+      <button aria-label="Hotel 2"></button>
     </div>
   </div>
 
@@ -2222,7 +2223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cada inicializador va aislado: si uno falla, el resto de la invitación sigue viva
     [addSectionWaves, addSectionMedals, addCorners, addWindOrns, addAuras,
      heroAnim, initGlobalParticles, initReveals, spawnPetals,
-     setupPetalsVisibility, initIcsButton, scrollAnims].forEach(fn => {
+     setupPetalsVisibility, initIcsButton, initHospCarousel, scrollAnims].forEach(fn => {
       try { fn(); } catch (e) { console.error(e); }
     });
     // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
@@ -2326,6 +2327,34 @@ function heroAnim() {
 }
 
 /* ── PARTÍCULAS GLOBALES (bokeh flotante) ─────────────── */
+/* ── CARRUSEL SWIPE (hospedaje) ─────────────────────── */
+function initSwipeCarousel(trackId, dotsId, arrowSel){
+  var track=document.getElementById(trackId);
+  if(!track)return;
+  var slides=track.children.length;
+  var dots=Array.prototype.slice.call(document.querySelectorAll('#'+dotsId+' button'));
+  var idx=0;
+  function go(i){
+    idx=(i+slides)%slides;
+    track.style.transform='translateX('+(-idx*100)+'%)';
+    dots.forEach(function(d,k){d.classList.toggle('active',k===idx);});
+  }
+  var prev=document.querySelector(arrowSel+'.prev');
+  var next=document.querySelector(arrowSel+'.next');
+  if(prev)prev.addEventListener('click',function(){go(idx-1);});
+  if(next)next.addEventListener('click',function(){go(idx+1);});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+  var sx=0,sy=0;
+  track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    var dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+  },{passive:true});
+  go(0);
+}
+function initHospCarousel(){ initSwipeCarousel('hospTrack','hospDots','.hosp-arrow'); }
+
 function initGlobalParticles() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const cvs = document.createElement('canvas');
@@ -2587,7 +2616,7 @@ function scrollAnims() {
 
   ScrollTrigger.create({
     trigger: '#hospedaje', start: 'top 80%', once: true,
-    onEnter() { gsap.from('.hosp-card', { opacity: 0, y: 30, duration: .7, stagger: .16, ease }); }
+    onEnter() { gsap.from('#hospedaje .hosp-carousel', { opacity: 0, y: 30, duration: .7, ease }); }
   });
 
   ScrollTrigger.create({
