@@ -816,7 +816,10 @@ section{padding:64px 22px}
 
 .it-card{
   position:relative;z-index:2;
-  flex:1 1 auto;min-width:0;
+  /* Antes era flex:1 1 auto → todas medían 257px fijos y quedaban entre un
+     33% y un 61% vacías («Brindis» ocupaba 67px de 257). Ahora la caja se
+     ajusta al texto y sólo se frena al llegar al máximo disponible. */
+  flex:0 1 auto;min-width:0;width:fit-content;max-width:100%;
   margin-left:calc(10% + 48px);
   padding:15px 17px;border-radius:14px;
   background:rgba(255,253,248,.94);
@@ -826,7 +829,9 @@ section{padding:64px 22px}
   transition:border-color .5s ease,box-shadow .5s ease,background .5s ease;
 }
 .it-step--r .it-card{
-  margin-left:0;margin-right:calc(10% + 48px);
+  /* margin-left:auto (antes 0) para que, al medir sólo lo que ocupa el texto,
+     la caja siga pegada a su medallón de la derecha y no se caiga al borde. */
+  margin-left:auto;margin-right:calc(10% + 48px);
   text-align:right;
 }
 .it-step.is-active .it-card{
@@ -878,13 +883,26 @@ section{padding:64px 22px}
   flex:1;display:flex;flex-direction:column;align-items:center;
   padding:6px 8px 0;
 }
+/* Card crema detrás del dibujo: los de fabiola-y-fernando son ilustraciones
+   oscuras y sobre el café del fondo se perdían. */
+.dc-fig-card{
+  background:linear-gradient(160deg,#FEFBF5 0%,#f6f0e2 55%,#f0e6d2 100%);
+  border:1px solid rgba(237,190,126,.55);
+  border-radius:14px;
+  padding:14px 10px 8px;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.75),
+             inset 0 1px 0 rgba(255,255,255,.7);
+  display:flex;align-items:flex-end;justify-content:center;
+  width:100%;
+}
 /* las siluetas son PNG negros con recortes transparentes (camisa, moño,
    cinturón). El filtro las pasa a marfil para que lean sobre el fondo café. */
 .dc-outfit img{
   height:186px;width:auto;object-fit:contain;
-  filter:brightness(0) invert(1) sepia(.24) saturate(1.4)
-         drop-shadow(0 8px 20px rgba(237,190,126,.28));
-  opacity:.95;
+  /* Sin el filtro a marfil que llevaban las siluetas anteriores: estos
+     dibujos van a color sobre la card crema. */
+  filter:drop-shadow(0 10px 16px rgba(103,80,50,.28));
+  opacity:1;
 }
 .dc-divider{
   width:1px;flex-shrink:0;margin:16px 4px 26px;
@@ -924,9 +942,11 @@ section{padding:64px 22px}
   border-top:1px solid rgba(237,190,126,.22);
   padding-top:28px;
 }
-.dc-avoid-row{display:flex;align-items:center;justify-content:center;gap:16px;}
-.dc-avoid-row + .dc-avoid-row{margin-top:24px;}
-.dc-sw-group{display:flex;gap:10px;flex-shrink:0;}
+/* Texto arriba y bolitas debajo, todo centrado (antes iban lado a lado,
+   con las bolitas a la izquierda y el texto alineado a la izquierda). */
+.dc-avoid-row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;text-align:center;}
+.dc-avoid-row + .dc-avoid-row{margin-top:28px;}
+.dc-sw-group{display:flex;gap:10px;flex-shrink:0;justify-content:center;}
 .dc-sw{
   position:relative;display:block;
   width:44px;height:44px;border-radius:50%;
@@ -941,7 +961,8 @@ section{padding:64px 22px}
   box-shadow:0 0 0 1px rgba(44,26,16,.45);
 }
 .dc-avoid-txt{
-  flex:1;text-align:left;
+  order:-1;                    /* el texto va ENCIMA de las bolitas */
+  text-align:center;max-width:300px;
   font-family:'Cormorant Garamond',serif;
   font-size:16px;line-height:1.5;color:rgba(255,255,255,.9);
 }
@@ -1031,6 +1052,35 @@ section{padding:64px 22px}
 .fam-nms{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--cream);line-height:1.5;font-weight:500;margin:0;display:flex;flex-direction:column;align-items:center;}
 .fam-sep{display:block;font-family:'Great Vibes',cursive;font-size:26px;color:var(--peach);line-height:1;margin:6px 0;}
 .sdiv{height:36px}
+
+/* ── PADRINOS · uno a la vez con fade ──────────────────
+   Los tres padrinazgos se apilan en la MISMA celda de grid: así el
+   contenedor toma sola la altura del más alto y no hace falta medir
+   nada por JS. La sección deja de ocupar 3 bloques seguidos. */
+.pad-rot{display:grid;max-width:360px;margin:0 auto;}
+.pad-slide{
+  grid-area:1/1;
+  opacity:0;visibility:hidden;
+  transform:translateY(8px);
+  transition:opacity .65s ease,transform .65s ease,visibility 0s linear .65s;
+}
+.pad-slide.is-on{
+  opacity:1;visibility:visible;transform:none;
+  transition:opacity .65s ease,transform .65s ease,visibility 0s;
+}
+.pad-dots{display:flex;justify-content:center;gap:9px;margin-top:18px}
+.pad-dots button{
+  width:9px;height:9px;padding:0;border-radius:50%;cursor:pointer;
+  border:1px solid rgba(237,190,126,.75);background:transparent;
+  transition:background .3s ease,transform .3s ease;
+}
+.pad-dots button[aria-selected="true"]{background:var(--peach-accent);transform:scale(1.32)}
+@media (prefers-reduced-motion:reduce){
+  /* sin rotación: se muestran los tres, uno debajo del otro */
+  .pad-rot{display:block}
+  .pad-slide{opacity:1;visibility:visible;transform:none;margin-bottom:28px}
+  .pad-dots{display:none}
+}
 
 /* ── GALLERY — RUEDA 3D ───────────────────────────────── */
 #gallery{background:#FEFBF5;padding:72px 0 70px;position:relative;overflow:hidden;}
@@ -1913,7 +1963,9 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="dc-outfits">
     <div class="dc-outfit">
-      <img src="caballero.png" alt="Silueta de caballero con traje" loading="lazy">
+      <span class="dc-fig-card">
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dresscode/boda-leonardo-y-jovanna/caballero.png" alt="Ilustración de caballero con traje" loading="lazy">
+      </span>
       <span class="dc-fig-name">Caballero</span>
       <span class="dc-fig-hint">Traje o saco<br>Semi-formal</span>
     </div>
@@ -1921,7 +1973,9 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     <span class="dc-divider" aria-hidden="true"></span>
 
     <div class="dc-outfit">
-      <img src="dama.png" alt="Silueta de dama con vestido" loading="lazy">
+      <span class="dc-fig-card">
+        <img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/dresscode/boda-leonardo-y-jovanna/dama.png" alt="Ilustración de dama con vestido" loading="lazy">
+      </span>
       <span class="dc-fig-name">Dama</span>
       <span class="dc-fig-hint">Vestido largo o midi<br>Semi-formal</span>
     </div>
@@ -1993,35 +2047,45 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="sdiv"></div>
 
-  <p class="fam-ttl">Padrinos de Velación</p>
-  <div class="fam-card">
-    <p class="fam-nms">
-      <span>Rubén Salazar De La Luz</span>
-      <span class="fam-sep">&amp;</span>
-      <span>Concepción Salazar Victoria</span>
-    </p>
+  <div class="pad-rot" id="padRot" aria-live="polite">
+    <div class="pad-slide is-on">
+      <p class="fam-ttl">Padrinos de Velación</p>
+      <div class="fam-card">
+        <p class="fam-nms">
+          <span>Rubén Salazar De La Luz</span>
+          <span class="fam-sep">&amp;</span>
+          <span>Concepción Salazar Victoria</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="pad-slide">
+      <p class="fam-ttl">Padrinos de Civil</p>
+      <div class="fam-card">
+        <p class="fam-nms">
+          <span>Liborio Martínez Martínez</span>
+          <span class="fam-sep">&amp;</span>
+          <span>Leticia Martínez Martínez</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="pad-slide">
+      <p class="fam-ttl">Padrinos de Lazo, Arras y Anillo</p>
+      <div class="fam-card">
+        <p class="fam-nms">
+          <span>David Jiménez González</span>
+          <span class="fam-sep">&amp;</span>
+          <span>Dolores Álvarez Salazar</span>
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="sdiv"></div>
-
-  <p class="fam-ttl">Padrinos de Civil</p>
-  <div class="fam-card">
-    <p class="fam-nms">
-      <span>Liborio Martínez Martínez</span>
-      <span class="fam-sep">&amp;</span>
-      <span>Leticia Martínez Martínez</span>
-    </p>
-  </div>
-
-  <div class="sdiv"></div>
-
-  <p class="fam-ttl">Padrinos de Lazo, Arras y Anillo</p>
-  <div class="fam-card">
-    <p class="fam-nms">
-      <span>David Jiménez González</span>
-      <span class="fam-sep">&amp;</span>
-      <span>Dolores Álvarez Salazar</span>
-    </p>
+  <div class="pad-dots" id="padDots" role="tablist" aria-label="Padrinos">
+    <button type="button" role="tab" aria-selected="true"  aria-label="Padrinos de Velación"></button>
+    <button type="button" role="tab" aria-selected="false" aria-label="Padrinos de Civil"></button>
+    <button type="button" role="tab" aria-selected="false" aria-label="Padrinos de Lazo, Arras y Anillo"></button>
   </div>
 </section>
 
@@ -2206,7 +2270,16 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
       <circle cx="15.5" cy="118" r="2.4" fill="url(#ftGold)"/>
       <circle cx="184.5" cy="118" r="2.4" fill="url(#ftGold)"/>
 
-      <text class="ft-medal-mono" x="100" y="140" text-anchor="middle" fill="url(#ftGold)">L<tspan class="ft-medal-amp" dx="-4" dy="-8">&amp;</tspan><tspan dx="-4" dy="8">J</tspan></text>
+      <!-- Monograma con cada glifo colocado por separado en vez de encadenado
+           con dx. Great Vibes tiene la tinta descentrada: medida a 64px y con
+           el glifo centrado en x=100, la L pinta de -24 a +37.1 respecto de su
+           origen y la J de -35.3 a +52.1 (el rabo). Encadenados con dx el «&»
+           caía en 91.8 y el conjunto en 110, 10 unidades a la derecha del
+           centro del aro. Con estas posiciones el «&» queda en 97 y la mancha
+           completa centrada en 103.5, dentro del aro (10→190) por ambos lados. -->
+      <text class="ft-medal-mono" x="53.5" y="140" text-anchor="middle" fill="url(#ftGold)">L</text>
+      <text class="ft-medal-amp"  x="97"   y="131" text-anchor="middle" fill="url(#ftGold)">&amp;</text>
+      <text class="ft-medal-mono" x="125.5" y="140" text-anchor="middle" fill="url(#ftGold)">J</text>
       <path d="M64 158 Q100 170 136 158" stroke="url(#ftGold)" stroke-width=".9" fill="none" opacity=".6"/>
     </svg>
     <i aria-hidden="true"></i>
@@ -2321,13 +2394,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cada inicializador va aislado: si uno falla, el resto de la invitación sigue viva
     [addSectionWaves, addSectionMedals, addCorners, addWindOrns, addAuras,
      heroAnim, initGlobalParticles, initReveals, spawnPetals,
-     setupPetalsVisibility, initIcsButton, initHospCarousel, scrollAnims].forEach(fn => {
+     setupPetalsVisibility, initIcsButton, initHospCarousel, initPadrinos,
+     scrollAnims].forEach(fn => {
       try { fn(); } catch (e) { console.error(e); }
     });
     // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
     if(typeof countdown === 'function') countdown();
     const aud2 = document.getElementById('bgMusic');
     if (aud2 && aud2.paused) { aud2.play().catch(()=>{}); }
+  }
+
+  /* ── PADRINOS · rotación con fade ───────────────────── */
+  function initPadrinos(){
+    const rot = document.getElementById('padRot');
+    if (!rot) return;
+    const slides = [...rot.querySelectorAll('.pad-slide')];
+    const dots   = [...document.querySelectorAll('#padDots button')];
+    if (slides.length < 2) return;
+    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+
+    let i = 0, timer = null;
+    const LAPSO = 4600;
+
+    function mostrar(n){
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('is-on', k === i));
+      dots.forEach((d, k) => d.setAttribute('aria-selected', k === i ? 'true' : 'false'));
+    }
+    function arrancar(){ parar(); timer = setInterval(() => mostrar(i + 1), LAPSO); }
+    function parar(){ if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach((d, k) => d.addEventListener('click', () => { mostrar(k); arrancar(); }));
+
+    // Sólo rota mientras la sección está a la vista: si el invitado no la ve,
+    // no tiene sentido gastar ciclos ni que se le pase un padrinazgo.
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => e.isIntersecting ? arrancar() : parar());
+    }, { threshold: .25 });
+    io.observe(rot);
+
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? parar() : arrancar();
+    });
   }
 
   /* ── DESTELLO + REVELADO ───────────────────────────── */
