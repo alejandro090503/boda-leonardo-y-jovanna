@@ -189,23 +189,86 @@ section{padding:64px 22px}
   transition:width .08s linear;pointer-events:none;
 }
 
-/* ── MUSIC BTN ────────────────────────────────────────── */
+/* ── MUSIC BTN · DISCO DE VINIL ───────────────────────── */
 .music-btn{
   position:fixed;bottom:24px;right:20px;z-index:900;
-  width:54px;height:54px;border-radius:50%;
-  background:transparent;border:none;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;padding:0;
-  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
-  filter:drop-shadow(0 4px 14px rgba(0,0,0,.45));
+  width:72px;height:72px;border-radius:50%;padding:0;
+  border:none;cursor:pointer;background:transparent;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s;
+  box-shadow:0 4px 18px rgba(0,0,0,.45),0 0 0 1px rgba(237,190,126,.22);
 }
-.music-btn:active{transform:scale(.92)}
-.music-btn .vinyl{
-  width:54px;height:54px;border-radius:50%;
-  transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+.music-btn:hover{transform:scale(1.08)}
+.music-btn:active{transform:scale(.94)}
+.vinyl-spin{width:100%;height:100%;border-radius:50%;position:relative}
+.music-btn.is-playing .vinyl-spin{animation:vinylSpin 1.8s linear infinite}
+@keyframes vinylSpin{to{transform:rotate(360deg)}}
+.vinyl-disc{
+  width:100%;height:100%;border-radius:50%;overflow:hidden;position:relative;
+  background:
+    radial-gradient(circle,#1a0f08 4%,transparent 4.5%),
+    radial-gradient(circle,#f4e8c8 0%,#edbe7e 17%,#8a6a3c 19%,transparent 19.5%),
+    repeating-radial-gradient(circle,
+      transparent 20%,rgba(255,255,255,.055) 20.8%,transparent 21.5%,
+      transparent 24%,rgba(255,255,255,.04) 24.8%,transparent 25.5%,
+      transparent 28%,rgba(255,255,255,.055) 28.8%,transparent 29.5%,
+      transparent 32%,rgba(255,255,255,.04) 32.8%,transparent 33.5%,
+      transparent 36%,rgba(255,255,255,.055) 36.8%,transparent 37.5%,
+      transparent 40%,rgba(255,255,255,.04) 40.8%,transparent 41.5%,
+      transparent 44%,rgba(255,255,255,.055) 44.8%,transparent 45.5%,
+      transparent 48%,rgba(255,255,255,.04) 48.8%,transparent 49.5%,
+      transparent 52%,rgba(255,255,255,.055) 52.8%,transparent 53.5%,
+      transparent 56%,rgba(255,255,255,.04) 56.8%,transparent 57.5%,
+      transparent 60%,rgba(255,255,255,.055) 60.8%,transparent 61.5%,
+      transparent 64%,rgba(255,255,255,.04) 64.8%,transparent 65.5%,
+      transparent 68%,rgba(255,255,255,.055) 68.8%,transparent 69.5%,
+      transparent 72%,rgba(255,255,255,.04) 72.8%,transparent 73.5%,
+      transparent 76%,rgba(255,255,255,.055) 76.8%,transparent 77.5%,
+      transparent 80%,rgba(255,255,255,.04) 80.8%,transparent 81.5%,
+      transparent 84%,rgba(255,255,255,.055) 84.8%,transparent 85.5%,
+      transparent 88%,rgba(255,255,255,.04) 88.8%,transparent 89.5%,
+      transparent 92%,rgba(255,255,255,.055) 92.8%,transparent 93.5%,
+      transparent 96%,rgba(255,255,255,.04) 96.8%,transparent 97.5%
+    ),
+    radial-gradient(circle,#2c1a10 0%,#3a2617 60%,#2c1a10 100%);
+  box-shadow:inset 0 0 8px rgba(0,0,0,.45);
 }
-.music-btn.on .vinyl{animation:vinylSpin 2.4s linear infinite}
-@keyframes vinylSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.vinyl-sheen{
+  position:absolute;inset:0;border-radius:50%;
+  background:linear-gradient(135deg,transparent 30%,rgba(255,255,255,.09) 42%,rgba(255,255,255,.15) 48%,rgba(255,255,255,.09) 54%,transparent 66%);
+  pointer-events:none;
+}
+.vinyl-label-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Great Vibes',cursive;font-size:13px;color:#2c1a10;
+  text-align:center;line-height:1.1;
+  pointer-events:none;width:30px;
+}
+.vinyl-label-text small{
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:5px;
+  letter-spacing:.16em;display:block;margin-top:1px;color:#4a3117;
+}
+.vinyl-hole{
+  position:absolute;top:50%;left:50%;width:6px;height:6px;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:#1a0f08;
+  box-shadow:0 0 0 1.5px rgba(237,190,126,.55);
+}
+.vinyl-icons{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:16px;height:16px;pointer-events:none;z-index:2;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));
+}
+.vinyl-icons svg{width:100%;height:100%;display:block}
+.vinyl-icon-pause{display:none}
+.music-btn.is-playing .vinyl-icon-play{display:none}
+.music-btn.is-playing .vinyl-icon-pause{display:block}
+.music-btn::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:1px solid #edbe7e;opacity:.35;pointer-events:none;
+  animation:vinylPulse 3s ease-in-out infinite;
+}
+.music-btn.is-playing::after{animation-duration:1.6s}
+@keyframes vinylPulse{0%,100%{transform:scale(1);opacity:.35}50%{transform:scale(1.12);opacity:.06}}
 
 /* ── TOAST ────────────────────────────────────────────── */
 #toast{
@@ -1289,6 +1352,9 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 /* ── REDUCED MOTION ───────────────────────────────────── */
 @media(prefers-reduced-motion:reduce){
   .lbl,.ft-nms,.wind-orn,.h-frame,.gline::after,
+  .music-btn::after,.vinyl-spin,.music-btn.is-playing .vinyl-spin{
+    animation:none!important;
+  }
   .loc-block,.cd-box,.fam-card,.pal-sw,.music-btn{
     animation:none!important;transition:none!important;
   }
@@ -1352,24 +1418,18 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 </audio>
 
 <!-- MUSIC BTN -->
-<button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Música">
-  <svg class="vinyl" id="musicIcon" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="27" cy="27" r="27" fill="#111"/>
-    <circle cx="27" cy="27" r="24.5" stroke="#2a2a2a" stroke-width=".7"/>
-    <circle cx="27" cy="27" r="22.5" stroke="#1e1e1e" stroke-width=".6"/>
-    <circle cx="27" cy="27" r="20.5" stroke="#2a2a2a" stroke-width=".6"/>
-    <circle cx="27" cy="27" r="18.5" stroke="#1e1e1e" stroke-width=".6"/>
-    <circle cx="27" cy="27" r="16.5" stroke="#2a2a2a" stroke-width=".5"/>
-    <circle cx="27" cy="27" r="14.5" stroke="#1e1e1e" stroke-width=".5"/>
-    <circle cx="27" cy="27" r="12.5" stroke="#252525" stroke-width=".5"/>
-    <circle cx="27" cy="27" r="10" fill="#675032"/>
-    <circle cx="27" cy="27" r="9.2" fill="none" stroke="rgba(255,255,255,.12)" stroke-width=".5"/>
-    <text x="27" y="24.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">JOVANNA</text>
-    <text x="27" y="28" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="2.4" fill="rgba(255,255,255,.5)" letter-spacing=".5">&amp;</text>
-    <text x="27" y="31.5" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="3.2" font-weight="600" fill="rgba(255,255,255,.8)" letter-spacing=".8">LEONARDO</text>
-    <circle cx="27" cy="27" r="1.8" fill="#111"/>
-    <ellipse cx="19" cy="14" rx="6" ry="3" fill="rgba(255,255,255,.04)" transform="rotate(-30 19 14)"/>
-  </svg>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Reproducir o pausar la música" aria-pressed="false">
+  <span class="vinyl-spin">
+    <span class="vinyl-disc">
+      <span class="vinyl-sheen"></span>
+    </span>
+    <span class="vinyl-label-text">L &amp; J<small>MÚSICA</small></span>
+    <span class="vinyl-hole"></span>
+  </span>
+  <span class="vinyl-icons">
+    <svg class="vinyl-icon-play" viewBox="0 0 24 24" fill="#2c1a10" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    <svg class="vinyl-icon-pause" viewBox="0 0 24 24" fill="#2c1a10" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </span>
 </button>
 
 <!-- TOAST -->
@@ -2229,7 +2289,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // countdown ya corre globalmente; sólo refrescamos por si los ids no existían antes
     if(typeof countdown === 'function') countdown();
     const aud2 = document.getElementById('bgMusic');
-    if (aud2 && aud2.paused) { aud2.play().then(() => { document.getElementById('musicBtn')?.classList.add('on'); }).catch(()=>{}); }
+    if (aud2 && aud2.paused) { aud2.play().catch(()=>{}); }
   }
 
   /* ── DESTELLO + REVELADO ───────────────────────────── */
@@ -2740,15 +2800,26 @@ const aud = document.getElementById('bgMusic');
 const mBtn = document.getElementById('musicBtn');
 let playing = false;
 
+function syncMusicBtn() {
+  playing = !aud.paused;
+  mBtn.classList.toggle('is-playing', playing);
+  mBtn.classList.toggle('on', playing);
+  mBtn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+}
+aud.addEventListener('play', syncMusicBtn);
+aud.addEventListener('playing', syncMusicBtn);
+aud.addEventListener('pause', syncMusicBtn);
+aud.addEventListener('ended', syncMusicBtn);
+
 function startMusic() {
-  if (playing) return;
-  aud.play().then(() => { playing = true; mBtn.classList.add('on'); }).catch(() => {});
+  if (!aud.paused) return;
+  aud.play().then(syncMusicBtn).catch(() => {});
 }
 function toggleMusic() {
-  if (playing) { aud.pause(); mBtn.classList.remove('on'); playing = false; }
+  if (!aud.paused) { aud.pause(); syncMusicBtn(); }
   else startMusic();
 }
-aud.play().then(() => { playing = true; mBtn.classList.add('on'); }).catch(() => {
+aud.play().then(syncMusicBtn).catch(() => {
   const onFirstInteraction = () => startMusic();
   document.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
   document.addEventListener('click', onFirstInteraction, { once: true });
