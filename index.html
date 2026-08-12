@@ -106,7 +106,7 @@ section{padding:64px 22px}
 
 /* ── BROCHE DORADO SOBRE EL SELLO DE CERA ─────────────── */
 /* El sello (cera verde sage + aro dorado + iniciales L&J) está horneado
-   en sobre.jpg y en sobre-video-v3.mp4. Esta capa añade el brillo vivo
+   en sobre.jpg y en sobre-video-v4.mp4. Esta capa añade el brillo vivo
    del oro. La foto usa object-fit:cover, así que el ancho renderizado es
    max(100vw, 100vh × 0.5625) y el sello, medido sobre la imagen real,
    queda centrado (50%/50%) y ocupa el 33.6% de ese ancho; la caja lleva
@@ -367,6 +367,10 @@ section{padding:64px 22px}
   font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
   font-size:26px;letter-spacing:6px;color:var(--peach);
   display:block;margin:2px 0 0;
+  /* El letter-spacing añade 6px DESPUÉS del glifo, así que al centrar la caja
+     el «&» quedaba 3px a la izquierda. Este padding izquierdo iguala ese hueco
+     y lo deja ópticamente centrado bajo los nombres. */
+  padding-left:6px;
   text-shadow:0 2px 18px rgba(30,18,8,.6);
 }
 .h-badge{
@@ -1409,6 +1413,11 @@ section.has-sec-waves{padding-top:84px;padding-bottom:86px}
   font-family:'Great Vibes',cursive;
   font-size:32px;line-height:1.2;color:var(--peach-accent);
 }
+/* Los novios pidieron el «&» más separado de los nombres en la firma. */
+.bv-sign i{
+  font-style:normal;
+  padding:0 .30em;
+}
 
 /* ── PÉTALOS DESCENDENTES ─────────────────────────────── */
 #falling-petals{
@@ -1501,7 +1510,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <button class="sobre-btn" id="sobreBtn" aria-label="Abrir invitación">Toca para abrir</button>
   <video class="sobre-video" id="sobreVideo" muted playsinline preload="auto">
-    <source src="sobre-video-v3.mp4" type="video/mp4">
+    <source src="sobre-video-v4.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -1521,7 +1530,10 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
   <img id="lightbox-img" src="" alt="">
 </div>
 
-<audio id="bgMusic" loop preload="none">
+<!-- Sin loop: ahora son dos canciones encadenadas por JS (ver TRACKS).
+     Al terminar la segunda vuelve a la primera. preload="none" para no
+     descargar nada hasta que el invitado abra el sobre. -->
+<audio id="bgMusic" preload="none">
   <source src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-leonardo-y-jovanna/cancion.mp3" type="audio/mpeg">
 </audio>
 
@@ -1588,20 +1600,6 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 </div>
 
 
-<!-- ═══════════════ 1.5. FECHA ══════════════════════════ -->
-<section id="fecha">
-  <img class="fch-bg" src="fondo-nosotros.jpg" alt="" loading="eager">
-  <div class="fch-content">
-    <p class="fch-intro fu">Nosotros...</p>
-    <p class="fch-n1 fu">Jovanna</p>
-    <p class="fch-full fu">Araceli Ballinas Villafán</p>
-    <p class="fch-amp fu">y</p>
-    <p class="fch-n1 fu">Leonardo</p>
-    <p class="fch-full fu">Alcántara Martínez</p>
-    <p class="fch-date fu">19.09.26</p>
-  </div>
-</section>
-
 <!-- ═══════════════ 1.6. CITA BÍBLICA ═══════════════════ -->
 <section id="cita">
   <div class="cita-orn fu" aria-hidden="true">✦</div>
@@ -1616,6 +1614,57 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     guíe nuestros pasos y nos acompañe en cada capítulo de este nuevo camino.
   </p>
 </section>
+
+<!-- ═══════════════ 1.5. FECHA ══════════════════════════ -->
+<section id="fecha">
+  <img class="fch-bg" src="fondo-nosotros.jpg" alt="" loading="eager">
+  <div class="fch-content">
+    <p class="fch-intro fu">Nosotros...</p>
+    <p class="fch-n1 fu">Jovanna</p>
+    <p class="fch-full fu">Araceli Ballinas Villafán</p>
+    <p class="fch-amp fu">y</p>
+    <p class="fch-n1 fu">Leonardo</p>
+    <p class="fch-full fu">Alcántara Martínez</p>
+    <p class="fch-date fu">19.09.26</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 9.5. CUENTA REGRESIVA ═══════════ -->
+<section id="countdown">
+  <div class="cd-content">
+    <span class="cd-eyebrow fu">Cuenta regresiva</span>
+    <h2 class="cd-h2 fu">Nuestro <em>gran</em> día</h2>
+    <p class="cd-sub fu">hasta el gran momento</p>
+
+    <div class="cd-grid" role="timer" aria-label="Cuenta regresiva para la boda">
+      <div class="cd-box">
+        <span class="cd-num" id="cd-d">--</span>
+        <span class="cd-lbl">Días</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-h">--</span>
+        <span class="cd-lbl">Horas</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-m">--</span>
+        <span class="cd-lbl">Min</span>
+      </div>
+      <div class="cd-box">
+        <span class="cd-num" id="cd-s">--</span>
+        <span class="cd-lbl">Seg</span>
+      </div>
+    </div>
+
+    <span class="cd-falta fu">para decirnos «sí, acepto»</span>
+  </div>
+</section>
+
+<!-- FOTO BAND 1 -->
+<div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
+  <img src="banda1.jpg?v=2" alt="Leonardo y Jovanna caminando de la mano" loading="lazy" style="object-position:center 42%">
+  <div class="foto-band-overlay"></div>
+  <div class="foto-band-caption">Juntos por siempre</div>
+</div>
 
 <!-- ═══════════════ 1.7. MENSAJE DE BIENVENIDA ══════════ -->
 <section id="bienvenida">
@@ -1636,17 +1685,9 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
       Con mucho amor y alegría, queremos invitarte a ser parte de nuestra celebración, a ser testigo
       de este “sí” que nace del amor y de esta promesa que queremos llevar con nosotros toda la vida.
     </p>
-    <span class="bv-sign fu">Leonardo &amp; Jovanna</span>
+    <span class="bv-sign fu">Leonardo<i>&amp;</i>Jovanna</span>
   </div>
 </section>
-
-
-<!-- FOTO BAND 1 -->
-<div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda1.jpg?v=2" alt="Leonardo y Jovanna caminando de la mano" loading="lazy" style="object-position:center 42%">
-  <div class="foto-band-overlay"></div>
-  <div class="foto-band-caption">Juntos por siempre</div>
-</div>
 
 <!-- ═══════════════ 3. UBICACIONES ═══════════════════ -->
 <section id="location">
@@ -1715,7 +1756,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
   <span class="lbl">Para quedarse</span>
   <h2 class="ttl">Hospedaje Sugerido</h2>
   <div class="gline"></div>
-  <p class="hosp-sub">Si vienes de fuera, estas dos opciones están en el centro de Acatzingo, muy cerca de la iglesia y del salón.</p>
+  <p class="hosp-sub">Si vienes de fuera, estas dos opciones están en el centro de Acatzingo, a unos pasos de la iglesia. El salón queda un poco más retirado, así que considera tu traslado.</p>
 
   <div class="hosp-carousel">
     <button class="hosp-arrow prev" aria-label="Hotel anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -2013,7 +2054,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- FOTO BAND 2 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda2.jpg?v=2" alt="Leonardo y Jovanna en la escalinata" loading="lazy" style="object-position:center 46%">
+  <img src="banda3.jpg?v=2" alt="Leonardo y Jovanna junto al lago" loading="lazy" style="object-position:center 44%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Nuestro amor</div>
 </div>
@@ -2063,7 +2104,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
       <p class="fam-ttl">Padrinos de Civil</p>
       <div class="fam-card">
         <p class="fam-nms">
-          <span>Liborio Martínez Martínez</span>
+          <span>Liborio Martínez Herrera</span>
           <span class="fam-sep">&amp;</span>
           <span>Leticia Martínez Martínez</span>
         </p>
@@ -2074,7 +2115,7 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
       <p class="fam-ttl">Padrinos de Lazo, Arras y Anillo</p>
       <div class="fam-card">
         <p class="fam-nms">
-          <span>David Jiménez González</span>
+          <span>David González Pérez</span>
           <span class="fam-sep">&amp;</span>
           <span>Dolores Álvarez Salazar</span>
         </p>
@@ -2160,40 +2201,12 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
 <!-- FOTO BAND 3 -->
 <div class="foto-band" style="--fb-from:#FEFBF5;--fb-to:#FEFBF5">
-  <img src="banda3.jpg?v=2" alt="Leonardo y Jovanna junto al lago" loading="lazy" style="object-position:center 42%">
+  <img src="banda2.jpg?v=2" alt="Leonardo y Jovanna en la escalinata" loading="lazy" style="object-position:center 56%">
   <div class="foto-band-overlay"></div>
   <div class="foto-band-caption">Por siempre nosotros</div>
 </div>
 
-<!-- ═══════════════ 9.5. CUENTA REGRESIVA ═══════════ -->
-<section id="countdown">
-  <div class="cd-content">
-    <span class="cd-eyebrow fu">Cuenta regresiva</span>
-    <h2 class="cd-h2 fu">Nuestro <em>gran</em> día</h2>
-    <p class="cd-sub fu">hasta el gran momento</p>
 
-    <div class="cd-grid" role="timer" aria-label="Cuenta regresiva para la boda">
-      <div class="cd-box">
-        <span class="cd-num" id="cd-d">--</span>
-        <span class="cd-lbl">Días</span>
-      </div>
-      <div class="cd-box">
-        <span class="cd-num" id="cd-h">--</span>
-        <span class="cd-lbl">Horas</span>
-      </div>
-      <div class="cd-box">
-        <span class="cd-num" id="cd-m">--</span>
-        <span class="cd-lbl">Min</span>
-      </div>
-      <div class="cd-box">
-        <span class="cd-num" id="cd-s">--</span>
-        <span class="cd-lbl">Seg</span>
-      </div>
-    </div>
-
-    <span class="cd-falta fu">para decirnos «sí, acepto»</span>
-  </div>
-</section>
 
 <!-- ═══════════════ 10. RSVP ════════════════════════ -->
 <section id="rsvp">
@@ -2247,6 +2260,15 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
           <stop offset="70%"  stop-color="#d9a95f"/>
           <stop offset="100%" stop-color="#f2dda6"/>
         </linearGradient>
+        <!-- Oro más claro sólo para el monograma: los novios avisaron que la
+             L & J no se apreciaba. El tono base #d9a95f sobre la tinta oscura
+             daba poco contraste. -->
+        <linearGradient id="ftGoldMono" x1="0" y1="0" x2="0.7" y2="1">
+          <stop offset="0%"   stop-color="#fff8e6"/>
+          <stop offset="36%"  stop-color="#f7dcae"/>
+          <stop offset="68%"  stop-color="#eec98a"/>
+          <stop offset="100%" stop-color="#fdf1cf"/>
+        </linearGradient>
         <radialGradient id="ftInk" cx="42%" cy="34%" r="78%">
           <stop offset="0%"   stop-color="#3d2b1e"/>
           <stop offset="62%"  stop-color="#2c1a10"/>
@@ -2277,9 +2299,16 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
            caía en 91.8 y el conjunto en 110, 10 unidades a la derecha del
            centro del aro. Con estas posiciones el «&» queda en 97 y la mancha
            completa centrada en 103.5, dentro del aro (10→190) por ambos lados. -->
-      <text class="ft-medal-mono" x="53.5" y="140" text-anchor="middle" fill="url(#ftGold)">L</text>
-      <text class="ft-medal-amp"  x="97"   y="131" text-anchor="middle" fill="url(#ftGold)">&amp;</text>
-      <text class="ft-medal-mono" x="125.5" y="140" text-anchor="middle" fill="url(#ftGold)">J</text>
+      <!-- Escalado un 13% alrededor de (100,140) para que la L & J se lea:
+           así crece sin perder el centrado calculado arriba. Además va en el
+           oro claro (#ftGoldMono) y con un trazo del mismo color que engorda
+           los finos de Great Vibes, que era lo que se perdía sobre la tinta. -->
+      <g transform="translate(100,140) scale(1.13) translate(-100,-140)"
+         stroke="url(#ftGoldMono)" stroke-width="1.05" stroke-linejoin="round" paint-order="stroke fill">
+        <text class="ft-medal-mono" x="53.5"  y="140" text-anchor="middle" fill="url(#ftGoldMono)">L</text>
+        <text class="ft-medal-amp"  x="97"    y="131" text-anchor="middle" fill="url(#ftGoldMono)">&amp;</text>
+        <text class="ft-medal-mono" x="125.5" y="140" text-anchor="middle" fill="url(#ftGoldMono)">J</text>
+      </g>
       <path d="M64 158 Q100 170 136 158" stroke="url(#ftGold)" stroke-width=".9" fill="none" opacity=".6"/>
     </svg>
     <i aria-hidden="true"></i>
@@ -2444,14 +2473,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (flashed) return;
     flashed = true;
     try { sobreVid.pause(); } catch(e){}
+    // Destello más pausado: los novios lo querían al terminar de abrirse el
+    // sobre y con más presencia (antes .30 s de entrada y .38 s de salida).
     gsap.to(flashEl, {
-      opacity: 1, duration: .30, ease: 'power2.in',
+      opacity: 1, duration: .46, ease: 'power2.in',
       onComplete() {
         // La invitación se monta con la pantalla en blanco: el invitado no ve el salto
         loaderEl.remove();
         try { initInvitation(); ambientWind(); } catch(e) { console.error(e); }
         gsap.to(flashEl, {
-          opacity: 0, duration: .38, ease: 'power2.out', delay: .04,
+          opacity: 0, duration: .70, ease: 'power2.out', delay: .16,
           onComplete() { flashEl.style.display = 'none'; }
         });
       }
@@ -2484,8 +2515,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sobreVid.readyState >= 2) { crossfade(); }
     else { sobreVid.addEventListener('playing', crossfade, {once:true}); }
 
-    // 4) Red de seguridad por si el vídeo nunca reporta progreso
-    setTimeout(triggerFlash, 3600);
+    // 4) Red de seguridad por si el vídeo nunca reporta progreso.
+    //    Debe ser mayor que la duración del vídeo (4.0 s) o cortaría la apertura.
+    setTimeout(triggerFlash, 5400);
   }
 
   sobreBtn.addEventListener('click', openEnvelope);
@@ -2494,11 +2526,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openEnvelope(); }
   });
 
-  // El destello entra cuando faltan ~0.45 s de vídeo
+  // El destello entra AL TERMINAR de abrirse el sobre, no antes: los novios
+  // pidieron ver la apertura completa. Se deja un margen mínimo por si el
+  // evento 'ended' no llega en algún navegador.
   sobreVid.addEventListener('timeupdate', () => {
     const d = sobreVid.duration;
     if (!d || !isFinite(d)) return;
-    if (sobreVid.currentTime >= d - 0.45) triggerFlash();
+    if (sobreVid.currentTime >= d - 0.06) triggerFlash();
   });
   sobreVid.addEventListener('ended', triggerFlash);
 });
@@ -2945,6 +2979,19 @@ setInterval(countdown, 1000);
 const aud = document.getElementById('bgMusic');
 const mBtn = document.getElementById('musicBtn');
 let playing = false;
+
+/* Lista de reproducción: al acabar la primera entra la segunda y, al
+   acabar ésta, vuelve a empezar. Por eso el <audio> ya no lleva loop. */
+const TRACKS = [
+  'https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-leonardo-y-jovanna/cancion.mp3',
+  'https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/audio/boda-leonardo-y-jovanna/cancion2.mp3'
+];
+let pista = 0;
+aud.addEventListener('ended', () => {
+  pista = (pista + 1) % TRACKS.length;
+  aud.src = TRACKS[pista];
+  aud.play().then(syncMusicBtn).catch(() => {});
+});
 
 function syncMusicBtn() {
   playing = !aud.paused;
