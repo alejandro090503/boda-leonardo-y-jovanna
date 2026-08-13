@@ -1098,7 +1098,9 @@ section{padding:64px 22px}
 .wheel-scene{
   position:relative;
   width:100%;
-  height:430px;
+  /* 430px venían de las tarjetas de 265 de alto; las cuadradas de 210 rinden
+     ~305px al frente, así que 380 evita el hueco muerto. */
+  height:380px;
   margin:24px auto 0;
   perspective:1600px;
   transform-style:preserve-3d;
@@ -1113,9 +1115,13 @@ section{padding:64px 22px}
 .wheel-ring.dragging{cursor:grabbing}
 .wheel-card{
   position:absolute;
-  width:190px;height:265px;
+  /* Cuadradas, no 3:4. De las 13 fotos de la sesión 9 son horizontales: en
+     vertical había que tirar el 52% del ancho y por eso los novios salían
+     descuadrados. En cuadrado se pierde el 33% y entran completos —el caso
+     límite era el balancín, con la pareja ocupando el 60% del ancho. */
+  width:210px;height:210px;
   left:50%;top:50%;
-  margin-left:-95px;margin-top:-132px;
+  margin-left:-105px;margin-top:-105px;
   border-radius:16px;
   overflow:hidden;
   border:1.5px solid rgba(237,190,126,.45);
@@ -1979,19 +1985,19 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="wheel-scene" id="wheel-scene">
     <div class="wheel-ring" id="wheel-ring">
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g01.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g09.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g05.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g12.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g03.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g11.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g06.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g08.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g02.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g13.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g07.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g10.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g04.jpg?v=2" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g01.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g09.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g05.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g12.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g03.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g11.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g06.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g08.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g02.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g13.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g07.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g10.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g04.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
     </div>
   </div>
   <span class="gal-hint fu">Arrastra para girar<br>Toca una foto para ampliar</span>
@@ -3346,9 +3352,9 @@ function ambientWind() {
   if (!ring || cards.length === 0) return;
 
   var n       = cards.length;
-  /* radio calculado: media tarjeta (95px) + holgura, repartido en n posiciones.
-     Con 6 fotos daba 320; con 12 hace falta ~420 para que no se encimen.   */
-  var radius  = Math.max(320, Math.round(113 / Math.tan(Math.PI / n)));
+  /* radio calculado: media tarjeta (105px ahora que son cuadradas) + holgura,
+     repartido en n posiciones. Con 13 fotos da ~500.                        */
+  var radius  = Math.max(320, Math.round(123 / Math.tan(Math.PI / n)));
   var rot     = 0;
   var vel     = 0;
   var isDrag  = false;
