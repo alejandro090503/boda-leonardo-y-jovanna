@@ -979,6 +979,27 @@ section{padding:64px 22px}
 /* ── ALBUM QR ─────────────────────────────────────────── */
 #album{background:var(--ink)}
 .alb-sub{text-align:center;font-size:16px;color:var(--cream);opacity:.7;line-height:1.9;margin:14px 0 28px;font-weight:500;}
+.alb-qr-wrap{text-align:center;margin-bottom:26px}
+.alb-qr-frame{
+  display:inline-block;padding:16px;background:#FFFDF8;
+  border-radius:14px;
+  border:1px solid rgba(237,190,126,.55);
+  box-shadow:0 10px 30px -14px rgba(103,80,50,.55),
+             inset 0 1px 0 rgba(255,255,255,.8);
+  transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .4s;
+}
+.alb-qr-frame:hover{transform:translateY(-3px);box-shadow:0 16px 38px -14px rgba(103,80,50,.6)}
+.alb-qr{width:100%;max-width:210px;height:auto;aspect-ratio:1;display:block;border-radius:4px}
+.alb-scan{
+  margin-top:15px;font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--peach-accent);
+}
+.alb-btn{max-width:310px;margin:0 auto;display:flex}
+.alb-hint{
+  text-align:center;font-size:15px;font-weight:500;line-height:1.7;
+  color:#5a4326;margin-top:22px;
+}
 
 /* ── FOTO BAND ───────────────────────────────────────── */
 .foto-band{
@@ -2001,6 +2022,34 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
     </div>
   </div>
   <span class="gal-hint fu">Arrastra para girar<br>Toca una foto para ampliar</span>
+</section>
+
+
+<!-- ═══════════════ 6.5 ÁLBUM COMPARTIDO ══════════════ -->
+<section id="album">
+  <span class="lbl">Captura cada momento</span>
+  <h2 class="ttl">Álbum Compartido</h2>
+  <div class="gline"></div>
+  <p class="alb-sub fu">Escánealo y sube las fotos que tomes<br>durante la boda. Queremos verla con sus ojos.</p>
+
+  <div class="alb-qr-wrap fu">
+    <div class="alb-qr-frame">
+      <!-- PROVISIONAL: el QR y el botón apuntan a la propia invitación.
+           Cuando exista el álbum (Google Fotos, scanned.page, etc.) hay que
+           cambiar el href de abajo Y regenerar qr-album.png con esa URL:
+           el QR es una imagen, no lee el href. -->
+      <img src="qr-album.png?v=1" alt="Código QR del álbum compartido de Leonardo y Jovanna"
+           class="alb-qr" loading="lazy" width="760" height="760">
+    </div>
+    <p class="alb-scan">Escanea con la cámara</p>
+  </div>
+
+  <a href="https://boda-leonardo-y-jovanna.vercel.app/" target="_blank" rel="noopener" class="btn alb-btn fu">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    Abrir álbum
+  </a>
+
+  <p class="alb-hint fu">Tus fotos se compartirán con los demás invitados.<br>Podrás ver el álbum completo después de la boda.</p>
 </section>
 
 
