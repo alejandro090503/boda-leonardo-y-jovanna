@@ -1985,8 +1985,8 @@ html.js-fu .fu.is-in{opacity:1;transform:none;will-change:auto}
 
   <div class="wheel-scene" id="wheel-scene">
     <div class="wheel-ring" id="wheel-ring">
-      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g01.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
       <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g09.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
+      <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g01.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
       <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g05.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
       <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g12.jpg?v=3" alt="Leonardo y Jovanna" loading="lazy"></div>
       <div class="wheel-card"><img src="https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/galeria/boda-leonardo-y-jovanna/g03.jpg?v=4" alt="Leonardo y Jovanna" loading="lazy"></div>
@@ -3081,7 +3081,7 @@ gsap.fromTo('.gifts-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger
       const inp = document.createElement('input');
       inp.type = 'text';
       inp.className = 'rsvp-input';
-      inp.placeholder = n === 1 ? 'Tu nombre completo' : 'Invitado ' + (i+1);
+      inp.placeholder = 'Nombre completo del invitado ' + (i+1);
       inp.autocomplete = 'off';
       inp.maxLength = 60;
       inp.value = savedNames[i] || '';
